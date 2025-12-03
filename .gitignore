@@ -1,3 +1,4 @@
 /wandb
 /.venv/
 /.idea/
+/checkpoints/
