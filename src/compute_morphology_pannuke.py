@@ -77,8 +77,43 @@ def compute_pannuke_morphology(
                 )
 
     df = pd.DataFrame(rows)
+
+    # Nettoyage des NaN éventuels sur circularity
+    df["circularity"] = df["circularity"].fillna(0.0)
+
+    # -----------------------------
+    # Ajout de la colonne morph_class
+    # -----------------------------
+    area_q99 = df["area"].quantile(0.99)
+
+    def assign_morph(row):
+        circ = row["circularity"]
+        ecc = row["eccentricity"]
+        sol = row["solidity"]
+        area = row["area"]
+
+        # 1) Rondes : convexes, peu allongées
+        if (circ > 0.80) and (ecc < 0.65) and (sol > 0.90):
+            return "round"
+
+        # 2) Allongées : bien elliptiques, assez pleines
+        if (ecc > 0.80) and (sol > 0.85):
+            return "elongated"
+
+        # 3) Irrégulières : bords bizarres, pas très convexes,
+        #    ou très grosses (souvent artefacts / structures complexes)
+        if (circ < 0.55) or (sol < 0.80) or (area > area_q99):
+            return "irregular"
+
+        # 4) Sinon : morphologie "intermédiaire"
+        return "other"
+
+    df["morph_class"] = df.apply(assign_morph, axis=1)
+
+    # Sauvegarde
     df.to_csv(out_csv, index=False)
-    print(f"Morphology features saved to {out_csv} ({len(df)} cellules)")
+    print(f"Morphology features + classes saved to {out_csv} ({len(df)} cellules)")
+    print(df["morph_class"].value_counts())
 
 
 if __name__ == "__main__":
@@ -87,7 +122,7 @@ if __name__ == "__main__":
     )
     prepared_root = base_dir / "data" / "prepared" / "pannuke"
 
-    out_csv = prepared_root / "pannuke_morphology_features.csv"
+    out_csv = prepared_root / "pannuke_morphology_with_classes.csv"
 
     print(f"Prepared root : {prepared_root}")
     print(f"Out CSV       : {out_csv}")
