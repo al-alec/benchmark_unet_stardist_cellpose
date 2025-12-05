@@ -6,7 +6,8 @@ from torch.utils.data import DataLoader
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-
+import albumentations as A
+# from albumentations.pytorch import ToTensorV2
 import wandb
 
 from src.pannuke_dataset import PannukePreparedDataset
@@ -55,6 +56,36 @@ def simple_transform(img, mask):
     """
     mask_bin = (mask > 0).float().unsqueeze(0)
     return img, mask_bin
+
+
+# train_aug = A.Compose(
+#     [
+#         A.HorizontalFlip(p=0.5),
+#         A.VerticalFlip(p=0.5),
+#         A.RandomRotate90(p=0.5),
+#         A.ShiftScaleRotate(
+#             shift_limit=0.05,
+#             scale_limit=0.1,
+#             rotate_limit=15,
+#             border_mode=0,
+#             p=0.5,
+#         ),
+#         A.GaussianBlur(blur_limit=3, p=0.2),
+#         A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
+#         A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=15, val_shift_limit=15, p=0.3),
+#     ]
+# )
+
+# def train_transform(img_t, mask_t):
+#     # img_t: (3,H,W), mask_t: (H,W) ou (1,H,W)
+#     img = img_t.permute(1, 2, 0).numpy()  # HWC
+#     mask = mask_t.numpy()
+#     aug = train_aug(image=img, mask=mask)
+#     img_aug = aug["image"]
+#     mask_aug = aug["mask"]
+#     img_aug = torch.from_numpy(img_aug).permute(2, 0, 1).float()
+#     mask_aug = torch.from_numpy(mask_aug).long()
+#     return img_aug, mask_aug
 
 
 class PannukeDataModule(pl.LightningDataModule):
