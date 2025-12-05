@@ -2,6 +2,8 @@ from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader
+import cv2
+
 
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
@@ -14,6 +16,7 @@ from src.pannuke_dataset import PannukePreparedDataset
 from unet import UNet
 from src.losses import bce_dice_loss
 
+torch.set_float32_matmul_precision('high')
 
 BASE_DIR = Path(
     "../"
@@ -58,41 +61,66 @@ def simple_transform(img, mask):
     return img, mask_bin
 
 
-# train_aug = A.Compose(
-#     [
-#         A.HorizontalFlip(p=0.5),
-#         A.VerticalFlip(p=0.5),
-#         A.RandomRotate90(p=0.5),
-#         A.ShiftScaleRotate(
-#             shift_limit=0.05,
-#             scale_limit=0.1,
-#             rotate_limit=15,
-#             border_mode=0,
-#             p=0.5,
-#         ),
-#         A.GaussianBlur(blur_limit=3, p=0.2),
-#         A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
-#         A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=15, val_shift_limit=15, p=0.3),
-#     ]
-# )
+train_aug = A.Compose(
+    [
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+        A.Affine(
+            scale=(0.9, 1.1),
+            translate_percent=(-0.05, 0.05),
+            rotate=(-15, 15),
+            # shear laissé par défaut (0,0)
+            interpolation=cv2.INTER_LINEAR,
+            mask_interpolation=cv2.INTER_NEAREST,
+            border_mode=cv2.BORDER_CONSTANT,
+            fill=0,
+            fill_mask=0,
+            p=0.5,
+        ),
+        A.GaussianBlur(blur_limit=3, p=0.2),
+        A.RandomBrightnessContrast(
+            brightness_limit=0.2,
+            contrast_limit=0.2,
+            p=0.5,
+        ),
+        A.HueSaturationValue(
+            hue_shift_limit=5,
+            sat_shift_limit=15,
+            val_shift_limit=15,
+            p=0.3,
+        ),
+    ]
+)
 
-# def train_transform(img_t, mask_t):
-#     # img_t: (3,H,W), mask_t: (H,W) ou (1,H,W)
-#     img = img_t.permute(1, 2, 0).numpy()  # HWC
-#     mask = mask_t.numpy()
-#     aug = train_aug(image=img, mask=mask)
-#     img_aug = aug["image"]
-#     mask_aug = aug["mask"]
-#     img_aug = torch.from_numpy(img_aug).permute(2, 0, 1).float()
-#     mask_aug = torch.from_numpy(mask_aug).long()
-#     return img_aug, mask_aug
+
+
+def train_transform(img_t, mask_t):
+    # img_t: (3,H,W), mask_t: (H,W) ou (1,H,W)
+    img = img_t.permute(1, 2, 0).cpu().numpy()   # (H,W,3)
+    mask = mask_t.squeeze().cpu().numpy()        # (H,W) avec ids
+
+    aug = train_aug(image=img, mask=mask)
+    img_aug = aug["image"]
+    mask_aug = aug["mask"]
+
+    # Retour vers torch
+    img_aug_t = torch.from_numpy(img_aug).permute(2, 0, 1).float()   # (3,H,W)
+    mask_aug_t = torch.from_numpy(mask_aug)                           # (H,W)
+
+    # On applique la même logique que simple_transform
+    _, mask_bin = simple_transform(img_aug_t, mask_aug_t)
+
+    return img_aug_t, mask_bin
+
+
 
 
 class PannukeDataModule(pl.LightningDataModule):
     def __init__(
         self,
         root: str | Path,
-        batch_size: int = 8,
+        batch_size: int = 4,
         num_workers: int = 4,
     ):
         super().__init__()
@@ -110,7 +138,7 @@ class PannukeDataModule(pl.LightningDataModule):
             self.train_ds = PannukePreparedDataset(
                 root=self.root,
                 split="train",
-                transform=simple_transform,
+                transform=train_transform,
             )
             self.val_ds = PannukePreparedDataset(
                 root=self.root,
@@ -225,7 +253,7 @@ def main():
     early_stop = EarlyStopping(
         monitor="val_loss",
         mode="min",
-        patience=5,  # tu peux ajuster
+        patience=5,
         min_delta=1e-4,
     )
 
