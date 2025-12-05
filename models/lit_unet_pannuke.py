@@ -10,17 +10,39 @@ from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 import wandb
 
 from src.pannuke_dataset import PannukePreparedDataset
-from .unet import UNet
+from unet import UNet
 from src.losses import bce_dice_loss
 
 
 BASE_DIR = Path(
-    "/run/user/1000/gvfs/smb-share:server=zeus.pasteur.fr,share=bia/ayehadji/projet0"
+    "../"
 )
 DATA_ROOT = BASE_DIR / "data" / "prepared" / "pannuke"
 # CKPT_DIR = BASE_DIR / "checkpoints"
 # CKPT_DIR.mkdir(parents=True, exist_ok=True)
 
+
+# def prob_to_instances(prob, thr=0.5, min_size=10):
+#     # prob: (H,W) en [0,1]
+#     bin_mask = prob > thr
+#
+#     #  nettoyage de bruit
+#     bin_mask = remove_small_objects(bin_mask, min_size=min_size)
+#
+#     # distance transform (plus grand au centre des blobs)
+#     dist = ndi.distance_transform_edt(bin_mask)
+#
+#     # seeds: pics locaux dans le dist
+#     local_max = (dist == ndi.maximum_filter(dist, size=5))
+#     markers, _ = ndi.label(local_max)
+#
+#     # watershed
+#     labels_ws = watershed(-dist, markers, mask=bin_mask)
+#
+#     return labels_ws.astype(np.int32)
+
+# def bin_to_instances(pred_prob: np.ndarray, thr=0.5):
+#     return prob_to_instances(pred_prob, thr=thr, min_size=10)
 
 def simple_transform(img, mask):
     """
@@ -39,7 +61,7 @@ class PannukeDataModule(pl.LightningDataModule):
     def __init__(
         self,
         root: str | Path,
-        batch_size: int = 4,
+        batch_size: int = 8,
         num_workers: int = 4,
     ):
         super().__init__()
@@ -149,7 +171,7 @@ def main():
     )
 
     # Modèle Lightning
-    model = UNetLightning(lr=1e-4, weight_decay=1e-4, base_ch=64)
+    model = UNetLightning(lr=1e-3, weight_decay=1e-4, base_ch=64)
 
     # Logger W&B
     wandb_logger = WandbLogger(
@@ -187,7 +209,7 @@ def main():
 
     trainer.fit(model, datamodule=dm)
 
-    # Optionnel : test sur le split "test"
+    # test sur le split "test"
     if dm.test_dataloader() is not None:
         trainer.test(model, datamodule=dm)
 

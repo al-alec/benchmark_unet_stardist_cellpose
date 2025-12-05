@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
-base_dir = Path("/run/user/1000/gvfs/smb-share:server=zeus.pasteur.fr,share=bia/ayehadji/projet0")
+base_dir = Path("/")
 csv_path = base_dir / "data" / "prepared" / "pannuke" / "pannuke_morphology_features.csv"
 
 df = pd.read_csv(csv_path)

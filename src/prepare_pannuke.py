@@ -87,7 +87,7 @@ def prepare_pannuke_instances(
 
 if __name__ == "__main__":
     base_dir = Path(
-        "/run/user/1000/gvfs/smb-share:server=zeus.pasteur.fr,share=bia/ayehadji/projet0"
+        "../"
     )
     pannuke_root = base_dir / "data" / "pannuke"
 
