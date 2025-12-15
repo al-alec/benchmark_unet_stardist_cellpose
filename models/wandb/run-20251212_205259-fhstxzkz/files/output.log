@@ -1,0 +1,18 @@
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\callbacks\model_checkpoint.py:881: Checkpoint directory C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┌───┬───────┬──────────┬────────┬───────┬───────┐
+│   │ Name  │ Type     │ Params │ Mode  │ FLOPs │
+├───┼───────┼──────────┼────────┼───────┼───────┤
+│ 0 │ model │ StarDist │  7.7 M │ train │     0 │
+└───┴───────┴──────────┴────────┴───────┴───────┘
+Trainable params: 7.7 M
+Non-trainable params: 0
+Total params: 7.7 M
+Total estimated model params size (MB): 30
+Modules in train mode: 57
+Modules in eval mode: 0
+Total FLOPs: 0
+Epoch 0: 100%|██████████| 655/655 [03:38<00:00,  3.00it/s, v_num=xzkz]     
+Validation DataLoader 0:  25%|██▌       | 157/617 [00:56<02:44,  2.79it/s]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...

@@ -1,0 +1,35 @@
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\callbacks\model_checkpoint.py:881: Checkpoint directory C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┌───┬───────┬──────────┬────────┬───────┬───────┐
+│   │ Name  │ Type     │ Params │ Mode  │ FLOPs │
+├───┼───────┼──────────┼────────┼───────┼───────┤
+│ 0 │ model │ StarDist │  7.7 M │ train │     0 │
+└───┴───────┴──────────┴────────┴───────┴───────┘
+Trainable params: 7.7 M
+Non-trainable params: 0
+Total params: 7.7 M
+Total estimated model params size (MB): 30
+Modules in train mode: 57
+Modules in eval mode: 0
+Total FLOPs: 0
+Epoch 0: 100%|██████████| 328/328 [03:06<00:00,  1.76it/s, v_num=2s3j, val_loss=6.740, train_loss=7.180][SANITY EPOCH 0] image=img_002621.npy, shape IoU=(41, 8), nb matches≥0.5: 0
+Epoch 2: 100%|██████████| 328/328 [04:31<00:00,  1.21it/s, v_num=2s3j, val_loss=6.530, train_loss=6.870][SANITY EPOCH 2] image=img_002621.npy, shape IoU=(81, 8), nb matches≥0.5: 0
+Epoch 4: 100%|██████████| 328/328 [03:52<00:00,  1.41it/s, v_num=2s3j, val_loss=6.490, train_loss=6.800][SANITY EPOCH 4] image=img_002621.npy, shape IoU=(71, 8), nb matches≥0.5: 0
+Epoch 6: 100%|██████████| 328/328 [04:09<00:00,  1.31it/s, v_num=2s3j, val_loss=6.470, train_loss=6.780][SANITY EPOCH 6] image=img_002621.npy, shape IoU=(51, 8), nb matches≥0.5: 0
+Epoch 8: 100%|██████████| 328/328 [04:35<00:00,  1.19it/s, v_num=2s3j, val_loss=6.470, train_loss=6.760][SANITY EPOCH 8] image=img_002621.npy, shape IoU=(77, 8), nb matches≥0.5: 0
+Epoch 10: 100%|██████████| 328/328 [04:37<00:00,  1.18it/s, v_num=2s3j, val_loss=6.460, train_loss=6.760][SANITY EPOCH 10] image=img_002621.npy, shape IoU=(71, 8), nb matches≥0.5: 0
+Epoch 12: 100%|██████████| 328/328 [04:33<00:00,  1.20it/s, v_num=2s3j, val_loss=6.460, train_loss=6.750][SANITY EPOCH 12] image=img_002621.npy, shape IoU=(74, 8), nb matches≥0.5: 0
+Epoch 14: 100%|██████████| 328/328 [04:28<00:00,  1.22it/s, v_num=2s3j, val_loss=6.460, train_loss=6.740][SANITY EPOCH 14] image=img_002621.npy, shape IoU=(88, 8), nb matches≥0.5: 0
+Epoch 16: 100%|██████████| 328/328 [04:27<00:00,  1.22it/s, v_num=2s3j, val_loss=6.460, train_loss=6.760][SANITY EPOCH 16] image=img_002621.npy, shape IoU=(115, 8), nb matches≥0.5: 0
+Epoch 18: 100%|██████████| 328/328 [04:32<00:00,  1.20it/s, v_num=2s3j, val_loss=6.450, train_loss=6.730][SANITY EPOCH 18] image=img_002621.npy, shape IoU=(101, 8), nb matches≥0.5: 0
+Epoch 20: 100%|██████████| 328/328 [04:33<00:00,  1.20it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 20] image=img_002621.npy, shape IoU=(71, 8), nb matches≥0.5: 0
+Epoch 22: 100%|██████████| 328/328 [04:31<00:00,  1.21it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 22] image=img_002621.npy, shape IoU=(84, 8), nb matches≥0.5: 0
+Epoch 24: 100%|██████████| 328/328 [04:33<00:00,  1.20it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 24] image=img_002621.npy, shape IoU=(97, 8), nb matches≥0.5: 0
+Epoch 26: 100%|██████████| 328/328 [04:25<00:00,  1.24it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 26] image=img_002621.npy, shape IoU=(101, 8), nb matches≥0.5: 1
+Epoch 28: 100%|██████████| 328/328 [04:27<00:00,  1.23it/s, v_num=2s3j, val_loss=6.450, train_loss=6.720][SANITY EPOCH 28] image=img_002621.npy, shape IoU=(77, 8), nb matches≥0.5: 1
+Epoch 30: 100%|██████████| 328/328 [04:30<00:00,  1.21it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 30] image=img_002621.npy, shape IoU=(112, 8), nb matches≥0.5: 1
+Epoch 32: 100%|██████████| 328/328 [04:32<00:00,  1.21it/s, v_num=2s3j, val_loss=6.450, train_loss=6.760][SANITY EPOCH 32] image=img_002621.npy, shape IoU=(94, 8), nb matches≥0.5: 1
+Epoch 34: 100%|██████████| 328/328 [04:22<00:00,  1.25it/s, v_num=2s3j, val_loss=6.450, train_loss=6.730][SANITY EPOCH 34] image=img_002621.npy, shape IoU=(87, 8), nb matches≥0.5: 1
+Epoch 36: 100%|██████████| 328/328 [04:22<00:00,  1.25it/s, v_num=2s3j, val_loss=6.450, train_loss=6.740][SANITY EPOCH 36] image=img_002621.npy, shape IoU=(93, 8), nb matches≥0.5: 2
+Epoch 37: 100%|██████████| 328/328 [04:23<00:00,  1.25it/s, v_num=2s3j, val_loss=6.450, train_loss=6.750]
+                                                                          

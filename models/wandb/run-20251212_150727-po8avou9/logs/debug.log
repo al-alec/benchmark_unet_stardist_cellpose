@@ -1,0 +1,37 @@
+2025-12-12 15:07:27,061 INFO    MainThread:65988 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2025-12-12 15:07:27,062 INFO    MainThread:65988 [wandb_setup.py:_flush():80] Configure stats pid to 65988
+2025-12-12 15:07:27,062 INFO    MainThread:65988 [wandb_setup.py:_flush():80] Loading settings from C:\Users\yehadji\.config\wandb\settings
+2025-12-12 15:07:27,062 INFO    MainThread:65988 [wandb_setup.py:_flush():80] Loading settings from C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\wandb\settings
+2025-12-12 15:07:27,062 INFO    MainThread:65988 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-12-12 15:07:27,062 INFO    MainThread:65988 [wandb_init.py:setup_run_log_directory():714] Logging user logs to wandb\run-20251212_150727-po8avou9\logs\debug.log
+2025-12-12 15:07:27,071 INFO    MainThread:65988 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to wandb\run-20251212_150727-po8avou9\logs\debug-internal.log
+2025-12-12 15:07:27,071 INFO    MainThread:65988 [wandb_init.py:init():841] calling init triggers
+2025-12-12 15:07:27,071 INFO    MainThread:65988 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-12-12 15:07:27,071 INFO    MainThread:65988 [wandb_init.py:init():889] starting backend
+2025-12-12 15:07:30,053 INFO    MainThread:65988 [wandb_init.py:init():892] sending inform_init request
+2025-12-12 15:07:30,084 INFO    MainThread:65988 [wandb_init.py:init():900] backend started and connected
+2025-12-12 15:07:30,087 INFO    MainThread:65988 [wandb_init.py:init():970] updated telemetry
+2025-12-12 15:07:30,155 INFO    MainThread:65988 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2025-12-12 15:07:31,606 INFO    MainThread:65988 [wandb_init.py:init():1041] starting run threads in backend
+2025-12-12 15:07:32,019 INFO    MainThread:65988 [wandb_run.py:_console_start():2521] atexit reg
+2025-12-12 15:07:32,019 INFO    MainThread:65988 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2025-12-12 15:07:32,020 INFO    MainThread:65988 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2025-12-12 15:07:32,021 INFO    MainThread:65988 [wandb_run.py:_redirect():2461] Redirects installed.
+2025-12-12 15:07:32,028 INFO    MainThread:65988 [wandb_init.py:init():1081] run started, returning control to user process
+2025-12-12 15:07:32,229 INFO    MainThread:65988 [wandb_run.py:_config_callback():1396] config_cb None None {'lr': 0.0001, 'base_ch': 64, 'n_rays': 32, 'w_prob': 1.0, 'w_dist': 1.0}
+2025-12-12 15:08:23,208 INFO    wandb-AsyncioManager-main:65988 [service_client.py:_forward_responses():80] Reached EOF.
+2025-12-12 15:08:23,208 INFO    wandb-AsyncioManager-main:65988 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.
+2025-12-12 15:08:24,482 ERROR   wandb-AsyncioManager-main:65988 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\yehadji\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 378, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\yehadji\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 167, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost

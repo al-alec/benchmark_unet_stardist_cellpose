@@ -1,0 +1,18 @@
+{"time":"2025-12-12T14:49:56.6433843+01:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-12T14:49:58.0844219+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:50:00.4952639+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:50:04.6302908+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:50:14.0587683+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:50:32.788901+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:51:05.8398839+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:52:05.8480143+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-12-12T14:53:06.8633413+01:00","level":"INFO","msg":"stream: created new stream","id":"skvi6855"}
+{"time":"2025-12-12T14:53:06.8633413+01:00","level":"INFO","msg":"handler: started","stream_id":"skvi6855"}
+{"time":"2025-12-12T14:53:06.8645157+01:00","level":"INFO","msg":"stream: started","id":"skvi6855"}
+{"time":"2025-12-12T14:53:06.8645157+01:00","level":"INFO","msg":"writer: started","stream_id":"skvi6855"}
+{"time":"2025-12-12T14:53:06.8645157+01:00","level":"INFO","msg":"sender: started","stream_id":"skvi6855"}
+{"time":"2025-12-12T14:53:06.8661055+01:00","level":"INFO","msg":"stream: closing","id":"skvi6855"}
+{"time":"2025-12-12T14:53:09.2248864+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-12T14:53:09.2248864+01:00","level":"INFO","msg":"handler: closed","stream_id":"skvi6855"}
+{"time":"2025-12-12T14:53:09.225394+01:00","level":"INFO","msg":"sender: closed","stream_id":"skvi6855"}
+{"time":"2025-12-12T14:53:09.225394+01:00","level":"INFO","msg":"stream: closed","id":"skvi6855"}

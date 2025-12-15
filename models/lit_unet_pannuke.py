@@ -3,11 +3,11 @@ from pathlib import Path
 import torch
 from torch.utils.data import DataLoader
 import cv2
-
+import numpy as np
 
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
+from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping, TQDMProgressBar
 import albumentations as A
 # from albumentations.pytorch import ToTensorV2
 import wandb
@@ -48,7 +48,7 @@ DATA_ROOT = BASE_DIR / "data" / "prepared" / "pannuke"
 # def bin_to_instances(pred_prob: np.ndarray, thr=0.5):
 #     return prob_to_instances(pred_prob, thr=thr, min_size=10)
 
-def simple_transform(img, mask):
+def simple_transform(img, mask, types_t=None):
     """
     img : (3,H,W) float32
     mask : (H,W) int64 (ids instances)
@@ -58,7 +58,7 @@ def simple_transform(img, mask):
       - mask_bin : (1,H,W) float32, 1 = noyau, 0 = fond
     """
     mask_bin = (mask > 0).float().unsqueeze(0)
-    return img, mask_bin
+    return img, mask_bin, types_t
 
 
 train_aug = A.Compose(
@@ -95,23 +95,19 @@ train_aug = A.Compose(
 
 
 
-def train_transform(img_t, mask_t):
-    # img_t: (3,H,W), mask_t: (H,W) ou (1,H,W)
-    img = img_t.permute(1, 2, 0).cpu().numpy()   # (H,W,3)
-    mask = mask_t.squeeze().cpu().numpy()        # (H,W) avec ids
+def train_transform(img_t, mask_t, types_t=None):
+    img = img_t.permute(1, 2, 0).cpu().numpy()          # (H,W,3)
+    mask = mask_t.cpu().numpy().astype(np.int32)        # (H,W)
 
     aug = train_aug(image=img, mask=mask)
     img_aug = aug["image"]
-    mask_aug = aug["mask"]
+    mask_aug = aug["mask"].astype(np.int32)
 
-    # Retour vers torch
-    img_aug_t = torch.from_numpy(img_aug).permute(2, 0, 1).float()   # (3,H,W)
-    mask_aug_t = torch.from_numpy(mask_aug)                           # (H,W)
+    img_aug_t = torch.from_numpy(img_aug).permute(2, 0, 1).float()
+    mask_aug_t = torch.from_numpy(mask_aug).long()
 
-    # On applique la même logique que simple_transform
-    _, mask_bin = simple_transform(img_aug_t, mask_aug_t)
-
-    return img_aug_t, mask_bin
+    mask_bin = (mask_aug_t > 0).float().unsqueeze(0)
+    return img_aug_t, mask_bin, types_t
 
 
 
@@ -163,6 +159,8 @@ class PannukeDataModule(pl.LightningDataModule):
             shuffle=True,
             num_workers=self.num_workers,
             pin_memory=True,
+            persistent_workers=self.num_workers > 0,
+            prefetch_factor=2 if self.num_workers > 0 else None,
         )
 
     def val_dataloader(self):
@@ -172,6 +170,8 @@ class PannukeDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             pin_memory=True,
+            persistent_workers=self.num_workers > 0,
+            prefetch_factor=2 if self.num_workers > 0 else None,
         )
 
     def test_dataloader(self):
@@ -183,6 +183,8 @@ class PannukeDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             pin_memory=True,
+            persistent_workers=self.num_workers > 0,
+            prefetch_factor=2 if self.num_workers > 0 else None,
         )
 
 
@@ -196,14 +198,14 @@ class UNetLightning(pl.LightningModule):
         return self.model(x)
 
     def training_step(self, batch, batch_idx):
-        img, mask = batch   # img: (B,3,H,W), mask: (B,1,H,W)
+        img, mask, _ = batch   # img: (B,3,H,W), mask: (B,1,H,W)
         logits = self(img)
         loss = bce_dice_loss(logits, mask)
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         return loss
 
     def validation_step(self, batch, batch_idx):
-        img, mask = batch
+        img, mask, _ = batch
         logits = self(img)
         loss = bce_dice_loss(logits, mask)
         self.log("val_loss",  loss, prog_bar=True, on_step=False, on_epoch=True)
@@ -230,7 +232,7 @@ def main():
     )
 
     # Modèle Lightning
-    model = UNetLightning(lr=1e-3, weight_decay=1e-4, base_ch=64)
+    model = UNetLightning(lr=1e-4, weight_decay=1e-4, base_ch=64)
 
     # Logger W&B
     wandb_logger = WandbLogger(
@@ -262,15 +264,17 @@ def main():
         accelerator=device,
         devices=1,
         logger=wandb_logger,
-        callbacks=[ckpt_callback, early_stop],
+        callbacks=[ckpt_callback, early_stop, TQDMProgressBar(refresh_rate=1),],
         log_every_n_steps=10,
     )
 
-    trainer.fit(model, datamodule=dm)
+    trainer.fit(model, datamodule=dm,
+                # ckpt_path="checkpoints/last-v15.ckpt"
+                )
 
     # test sur le split "test"
     if dm.test_dataloader() is not None:
-        trainer.test(model, datamodule=dm)
+        trainer.test(model, datamodule=dm, ckpt_path="best")
 
     wandb.finish()
 

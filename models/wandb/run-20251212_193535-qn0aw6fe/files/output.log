@@ -1,0 +1,109 @@
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\callbacks\model_checkpoint.py:881: Checkpoint directory C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┌───┬───────┬──────────┬────────┬───────┬───────┐
+│   │ Name  │ Type     │ Params │ Mode  │ FLOPs │
+├───┼───────┼──────────┼────────┼───────┼───────┤
+│ 0 │ model │ StarDist │  7.7 M │ train │     0 │
+└───┴───────┴──────────┴────────┴───────┴───────┘
+Trainable params: 7.7 M
+Non-trainable params: 0
+Total params: 7.7 M
+Total estimated model params size (MB): 30
+Modules in train mode: 57
+Modules in eval mode: 0
+Total FLOPs: 0
+Epoch 11:  31%|███       | 202/655 [02:07<04:45,  1.58it/s, v_num=w6fe, val_loss=1.320, train_loss=1.330]
+                                                                          
+Traceback (most recent call last):
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\lit_stardist_pannuke.py", line 377, in <module>
+    main()
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\lit_stardist_pannuke.py", line 368, in main
+    trainer.fit(model, datamodule=dm)
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 217, in run
+    self.advance()
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\loops\fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\utilities\combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\utilities\combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\_utils.py", line 704, in reraise
+    raise RuntimeError(msg) from None
+RuntimeError: Caught MemoryError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\_utils\worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\src\pannuke_dataset.py", line 90, in __getitem__
+    img_t, mask_t, types_t = self.transform(img_t, mask_t, types_t)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\lit_stardist_pannuke.py", line 121, in stardist_train_transform
+    aug = train_aug(image=img, mask=mask)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albumentations\core\composition.py", line 610, in __call__
+    data = t(**data)
+           ^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albumentations\core\transforms_interface.py", line 273, in __call__
+    return self.apply_with_params(params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albumentations\core\transforms_interface.py", line 310, in apply_with_params
+    target_function(ensure_contiguous_output(arg), **params),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albumentations\augmentations\pixel\transforms.py", line 2436, in apply
+    return albucore.multiply_add(img, alpha, beta, inplace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albucore\utils.py", line 115, in wrapped_function
+    result = func(img, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albucore\functions.py", line 475, in multiply_add
+    return multiply_add_opencv(img, factor, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albucore\decorators.py", line 42, in wrapped_function
+    result = func(img, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\albucore\functions.py", line 443, in multiply_add_opencv
+    return result if value == 0 else cv2.add(result, np.ones_like(result) * value, dtype=cv2.CV_64F)
+                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\numpy\core\numeric.py", line 265, in ones_like
+    res = empty_like(a, dtype=dtype, order=order, subok=subok, shape=shape)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.50 MiB for an array with shape (256, 256, 3) and data type float64

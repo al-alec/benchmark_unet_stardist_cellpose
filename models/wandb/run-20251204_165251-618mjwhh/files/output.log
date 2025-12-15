@@ -1,0 +1,18 @@
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\callbacks\model_checkpoint.py:881: Checkpoint directory C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\models\checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name  | Type | Params | Mode  | FLOPs
+-----------------------------------------------
+0 | model | UNet | 31.0 M | train | 0
+-----------------------------------------------
+31.0 M    Trainable params
+0         Non-trainable params
+31.0 M    Total params
+124.151   Total estimated model params size (MB)
+82        Modules in train mode
+0         Modules in eval mode
+0         Total Flops
+Epoch 27: 100%|██████████| 655/655 [02:30<00:00,  4.35it/s, v_num=jwhh, val_loss=0.411, train_loss=0.260]
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:429: Consider setting `persistent_workers=True` in 'val_dataloader' to speed up the dataloader worker initialization.
+C:\Users\yehadji\Desktop\projects\ME\cell_segmentation\.venv\Lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:429: Consider setting `persistent_workers=True` in 'train_dataloader' to speed up the dataloader worker initialization.
+                                                                          
