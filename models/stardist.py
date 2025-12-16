@@ -411,7 +411,7 @@ def stardist_decode(
 
 
 # ============================================================
-# Optional: helper to build targets (Route B)
+#  helper to build targets
 # ============================================================
 
 def build_stardist_targets_routeB(
