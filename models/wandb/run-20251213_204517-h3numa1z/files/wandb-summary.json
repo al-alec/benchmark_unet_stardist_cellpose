@@ -1,1 +1,0 @@
-{"train_loss":0.14481839537620544,"_runtime":3192,"sanity/epoch":5,"_wandb":{"runtime":3192},"trainer/global_step":2623,"val_loss":0.13526643812656403,"_timestamp":1.765658180670362e+09,"sanity/nb_matches":0,"epoch":7,"sanity/iou_matrix_size":0,"_step":17}

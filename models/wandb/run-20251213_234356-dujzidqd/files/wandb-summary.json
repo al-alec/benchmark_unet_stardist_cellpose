@@ -1,1 +1,0 @@
-{"trainer/global_step":3607,"sanity/iou_matrix_size":0,"_wandb":{"runtime":4462},"val_loss":0.13712505996227264,"_timestamp":1.7656700730441217e+09,"sanity/epoch":10,"sanity/nb_matches":0,"epoch":10,"train_loss":0.14525283873081207,"_runtime":4462,"_step":27}

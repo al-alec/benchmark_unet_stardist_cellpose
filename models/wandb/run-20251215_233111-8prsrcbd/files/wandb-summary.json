@@ -1,1 +1,0 @@
-{"_wandb":{"runtime":5307},"sanity/iou_matrix_size":200,"epoch":24,"trainer/global_step":8199,"train_loss":0.5847486853599548,"_runtime":5307,"_timestamp":1.7658431584713078e+09,"sanity/epoch":24,"val_loss":0.6863681674003601,"sanity/nb_pred_instances":25,"_step":62,"sanity/nb_gt_instances":8,"sanity/nb_matches":0}
