@@ -86,27 +86,27 @@ RUN_NAME = "stardist_routeB_lightning"
 # Albumentations (image + instance mask)
 # --------------------------------------------------------------------
 
-train_aug = A.Compose(
-    [
-        A.HorizontalFlip(p=0.5),
-        A.VerticalFlip(p=0.5),
-        A.RandomRotate90(p=0.5),
-        A.Affine(
-            scale=(0.9, 1.1),
-            translate_percent=(-0.05, 0.05),
-            rotate=(-15, 15),
-            interpolation=cv2.INTER_LINEAR,
-            mask_interpolation=cv2.INTER_NEAREST,
-            border_mode=cv2.BORDER_CONSTANT,
-            fill=0,
-            fill_mask=0,
-            p=0.5,
-        ),
-        A.GaussianBlur(blur_limit=3, p=0.2),
-        A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
-        A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=15, val_shift_limit=15, p=0.3),
-    ]
-)
+# train_aug = A.Compose(
+#     [
+#         A.HorizontalFlip(p=0.5),
+#         A.VerticalFlip(p=0.5),
+#         A.RandomRotate90(p=0.5),
+#         A.Affine(
+#             scale=(0.9, 1.1),
+#             translate_percent=(-0.05, 0.05),
+#             rotate=(-15, 15),
+#             interpolation=cv2.INTER_LINEAR,
+#             mask_interpolation=cv2.INTER_NEAREST,
+#             border_mode=cv2.BORDER_CONSTANT,
+#             fill=0,
+#             fill_mask=0,
+#             p=0.5,
+#         ),
+#         A.GaussianBlur(blur_limit=3, p=0.2),
+#         A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
+#         A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=15, val_shift_limit=15, p=0.3),
+#     ]
+# )
 
 
 def _to_numpy_image(img_t: torch.Tensor) -> np.ndarray:
@@ -118,60 +118,44 @@ def _to_numpy_mask(mask_t: torch.Tensor) -> np.ndarray:
     """(H,W) torch -> (H,W) int32 numpy"""
     return mask_t.detach().cpu().numpy().astype(np.int32)
 
-
-def stardist_train_transform(
-    img_t: torch.Tensor,
-    mask_t: torch.Tensor,
-    types_t: torch.Tensor | None = None,
-):
-    """
-    Train transform:
-      - apply augmentations jointly on image + instance mask
-      - build Route B targets (foreground + distances per pixel)
-    """
+def stardist_train_transform(img_t, mask_t, types_t=None, dist_t=None):
+    if dist_t is None:
+        raise RuntimeError("dist_t is None. Use load_dists=True in dataset.")
     img = _to_numpy_image(img_t)
-    mask = _to_numpy_mask(mask_t)
+    aug = train_aug(image=img)
+    img_aug_t = torch.from_numpy(aug["image"]).permute(2,0,1).float()
+
+    fg_t = (mask_t > 0).float().unsqueeze(0)          # (1,H,W)
+    target = {"foreground": fg_t, "distances": dist_t.float()}  # (R,H,W)
+    return img_aug_t, target, types_t
+
+def stardist_eval_transform(img_t, mask_t, types_t=None, dist_t=None):
+    if dist_t is None:
+        raise RuntimeError("dist_t is None. Use load_dists=True in dataset.")
+    fg_t = (mask_t > 0).float().unsqueeze(0)
+    target = {"foreground": fg_t, "distances": dist_t.float()}
+    return img_t, target, types_t
+
+
+train_aug = A.Compose([
+    A.GaussianBlur(blur_limit=3, p=0.2),
+    A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
+    A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=15, val_shift_limit=15, p=0.3),
+])
+
+def train_transform(img_t, mask_t, types_t=None):
+    img = img_t.permute(1, 2, 0).cpu().numpy()          # (H,W,3)
+    mask = mask_t.cpu().numpy().astype(np.int32)        # (H,W)
 
     aug = train_aug(image=img, mask=mask)
     img_aug = aug["image"]
     mask_aug = aug["mask"].astype(np.int32)
 
     img_aug_t = torch.from_numpy(img_aug).permute(2, 0, 1).float()
+    mask_aug_t = torch.from_numpy(mask_aug).long()
 
-    fg_t, dists_t = build_stardist_targets_routeB(
-        mask_inst_np=mask_aug,
-        n_rays=N_RAYS,
-        max_dist=None,   # can set to e.g. 128 to cap compute
-    )
-
-    target = {
-        "foreground": fg_t,   # (1,H,W)
-        "distances": dists_t  # (R,H,W)
-    }
-    return img_aug_t, target, types_t
-
-
-def stardist_eval_transform(
-    img_t: torch.Tensor,
-    mask_t: torch.Tensor,
-    types_t: torch.Tensor | None = None,
-):
-    """
-    Eval transform: no aug, build Route B targets.
-    """
-    mask = _to_numpy_mask(mask_t)
-
-    fg_t, dists_t = build_stardist_targets_routeB(
-        mask_inst_np=mask,
-        n_rays=N_RAYS,
-        max_dist=None,
-    )
-
-    target = {
-        "foreground": fg_t,
-        "distances": dists_t,
-    }
-    return img_t, target, types_t
+    mask_bin = (mask_aug_t > 0).float().unsqueeze(0)
+    return img_aug_t, mask_bin, types_t
 
 
 # --------------------------------------------------------------------
@@ -195,11 +179,13 @@ class PannukeStarDistDataModule(pl.LightningDataModule):
                 root=self.root,
                 split="train",
                 transform=stardist_train_transform,
+                load_dists=True,
             )
             self.val_ds = PannukePreparedDataset(
                 root=self.root,
                 split="val",
                 transform=stardist_eval_transform,
+                load_dists=True,
             )
 
         if stage in (None, "test"):
@@ -208,6 +194,7 @@ class PannukeStarDistDataModule(pl.LightningDataModule):
                     root=self.root,
                     split="test",
                     transform=stardist_eval_transform,
+                    load_dists=True,
                 )
             except (FileNotFoundError, RuntimeError):
                 self.test_ds = None

@@ -102,6 +102,9 @@ class PannukePreparedDataset(Dataset):
         ] = None,
         return_image_name: bool = False,
         cfg: Optional[PannukeDatasetConfig] = None,
+
+        load_dists: bool = False,
+        n_rays: int = 32,
     ) -> None:
         self.root = Path(root)
         self.split = split
@@ -123,6 +126,10 @@ class PannukePreparedDataset(Dataset):
             raise RuntimeError(f"No images found in {self.img_dir}")
 
         self.has_types = self.type_dir.exists()
+
+        self.load_dists = load_dists
+        self.n_rays = n_rays
+        self.has_dists = (self.root / split / "targets_stardist").exists()
 
     def __len__(self) -> int:
         return len(self.img_files)
@@ -173,12 +180,24 @@ class PannukePreparedDataset(Dataset):
 
         # --- transform (can change mask into dict targets, etc.) ---
         if self.transform is not None:
-            img_t, mask_or_target, types_t = self.transform(img_t, mask_t, types_t)
+
+            dist_t = None
+            if self.load_dists:
+                dist_path = self.root / self.split / "targets_stardist" / name.replace("img_", "dist_")
+                if not dist_path.exists():
+                    raise FileNotFoundError(f"Missing precomputed dist file: {dist_path}")
+                dist = np.load(dist_path).astype(np.float32)  # (R,H,W)
+                dist_t = torch.from_numpy(dist)
+
+
+            img_t, mask_or_target, types_t = self.transform(img_t, mask_t, types_t, dist_t)
         else:
             mask_or_target = mask_t
 
         if self.return_image_name:
             return img_t, mask_or_target, types_t, name
+
+
 
         return img_t, mask_or_target, types_t
 

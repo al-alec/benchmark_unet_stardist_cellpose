@@ -4,3 +4,5 @@
 /checkpoints/
 /data
 /wandb/*
+/models/checkpoints
+/models/wandb

@@ -20,6 +20,68 @@ from skimage.measure import regionprops
 # Utilities
 # ============================================================
 
+def compute_star_distances(
+    mask_inst: np.ndarray,
+    n_rays: int = 32,
+) -> np.ndarray:
+    """
+    Route A: distances radiales EN PIXELS, constantes par instance.
+    Pour chaque instance, on choisit un centre (pixel le plus proche du centroid),
+    on tire n_rays rayons jusqu'à sortir de l'instance, puis on copie ce vecteur
+    à tous les pixels de l'instance.
+
+    Returns: (R,H,W) float32
+    """
+    assert mask_inst.ndim == 2
+    H, W = mask_inst.shape
+    dists = np.zeros((n_rays, H, W), dtype=np.float32)
+
+    ids = np.unique(mask_inst)
+    ids = ids[ids > 0]
+    if len(ids) == 0:
+        return dists
+
+    angles = np.linspace(0.0, 2.0 * pi, n_rays, endpoint=False).astype(np.float32)
+
+    for prop in regionprops(mask_inst):
+        inst_id = prop.label
+        inst_mask = (mask_inst == inst_id)
+
+        coords = prop.coords.astype(np.int32)  # (N,2)
+        ys = coords[:, 0].astype(np.float32)
+        xs = coords[:, 1].astype(np.float32)
+
+        cy, cx = prop.centroid
+        d2 = (ys - cy) ** 2 + (xs - cx) ** 2
+        idx_center = int(np.argmin(d2))
+        cy0 = int(ys[idx_center])
+        cx0 = int(xs[idx_center])
+
+        ray_dist = np.zeros(n_rays, dtype=np.float32)
+
+        for k, theta in enumerate(angles):
+            dy = float(math.sin(float(theta)))
+            dx = float(math.cos(float(theta)))
+
+            dist = 0.0
+            step = 0
+            while True:
+                y = int(round(cy0 + step * dy))
+                x = int(round(cx0 + step * dx))
+                if y < 0 or y >= H or x < 0 or x >= W:
+                    break
+                if mask_inst[y, x] != inst_id:
+                    break
+                dist = float(step)
+                step += 1
+
+            ray_dist[k] = dist
+
+        yy, xx = np.nonzero(inst_mask)
+        dists[:, yy, xx] = ray_dist[:, None]
+
+    return dists
+
 def _sigmoid_np(x: np.ndarray) -> np.ndarray:
     return 1.0 / (1.0 + np.exp(-x))
 

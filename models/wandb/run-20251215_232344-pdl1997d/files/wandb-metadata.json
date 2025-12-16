@@ -1,0 +1,40 @@
+{
+  "os":  "Windows-10-10.0.26200-SP0",
+  "python":  "CPython 3.11.1",
+  "startedAt":  "2025-12-15T22:23:44.049246Z",
+  "program":  "C:\\Users\\yehadji\\Desktop\\projects\\ME\\cell_segmentation\\models\\lit_stardist_pannuke.py",
+  "codePath":  "models\\lit_stardist_pannuke.py",
+  "codePathLocal":  "lit_stardist_pannuke.py",
+  "git":  {
+    "remote":  "git@github.com:al-alec/cell_segmentation.git",
+    "commit":  "4b24829851f89ef318987c279290ec62b5a6f825"
+  },
+  "email":  "yehadjialexis@gmail.com",
+  "root":  ".",
+  "host":  "DESKTOP-SAN5BCL",
+  "executable":  "C:\\Users\\yehadji\\Desktop\\projects\\ME\\cell_segmentation\\.venv\\Scripts\\python.exe",
+  "cpu_count":  12,
+  "cpu_count_logical":  24,
+  "gpu":  "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "2047393918976",
+      "used":  "516579655680"
+    }
+  },
+  "memory":  {
+    "total":  "33487876096"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "memoryTotal":  "17171480576",
+      "cudaCores":  9728,
+      "architecture":  "Ada",
+      "uuid":  "GPU-53199973-5b0d-ad4b-9339-466a00360f11"
+    }
+  ],
+  "cudaVersion":  "12.6",
+  "writerId":  "mm7nlmvydb6uv5sqvyqv39mbbxsjpj2m"
+}

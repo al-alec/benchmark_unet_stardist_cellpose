@@ -13,7 +13,7 @@ import albumentations as A
 import wandb
 
 from src.pannuke_dataset import PannukePreparedDataset
-from unet import UNet
+from models.unet import UNet
 from src.losses import bce_dice_loss
 
 torch.set_float32_matmul_precision('high')

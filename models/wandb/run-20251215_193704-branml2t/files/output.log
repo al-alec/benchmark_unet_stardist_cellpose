@@ -1,0 +1,15 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┌───┬───────┬──────┬────────┬───────┬───────┐
+│   │ Name  │ Type │ Params │ Mode  │ FLOPs │
+├───┼───────┼──────┼────────┼───────┼───────┤
+│ 0 │ model │ UNet │ 31.0 M │ train │     0 │
+└───┴───────┴──────┴────────┴───────┴───────┘
+Trainable params: 31.0 M
+Non-trainable params: 0
+Total params: 31.0 M
+Total estimated model params size (MB): 124
+Modules in train mode: 82
+Modules in eval mode: 0
+Total FLOPs: 0
+Epoch 29: 100%|██████████| 655/655 [02:25<00:00,  4.52it/s, v_num=ml2t, val_loss=0.350, train_loss=0.355]
+                                                                          
