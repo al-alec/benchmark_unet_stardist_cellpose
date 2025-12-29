@@ -105,6 +105,7 @@ class PannukePreparedDataset(Dataset):
 
         load_dists: bool = False,
         n_rays: int = 32,
+        return_dists: bool = False
     ) -> None:
         self.root = Path(root)
         self.split = split
@@ -130,6 +131,7 @@ class PannukePreparedDataset(Dataset):
         self.load_dists = load_dists
         self.n_rays = n_rays
         self.has_dists = (self.root / split / "targets_stardist").exists()
+        self.return_dists = return_dists
 
     def __len__(self) -> int:
         return len(self.img_files)
@@ -144,14 +146,13 @@ class PannukePreparedDataset(Dataset):
         if not mask_path.exists():
             raise FileNotFoundError(f"Missing mask file: {mask_path}")
 
-        img = np.load(img_path)  # expected (H,W,3)
+        img = np.load(img_path)  # (H,W,3)
         mask = np.load(mask_path)
 
         types = None
         if self.has_types and type_path.exists():
             types = np.load(type_path)
 
-        # --- optional validations ---
         if self.cfg.validate_shapes:
             if img.ndim != 3 or img.shape[2] != 3:
                 raise ValueError(f"Invalid image shape for {img_path}: {img.shape}")
@@ -166,38 +167,45 @@ class PannukePreparedDataset(Dataset):
             if img.min() < -1e-3 or img.max() > 1.0 + 1e-3:
                 raise ValueError(f"Image {img_path} seems out of [0,1] range: min={img.min()} max={img.max()}")
 
-        # --- normalize instance ids (recommended) ---
         if self.cfg.relabel_instances:
             mask = relabel_contiguous(mask)
 
-        # --- torch tensors ---
         img_t = torch.from_numpy(img.astype(np.float32)).permute(2, 0, 1)  # (3,H,W)
-        mask_t = torch.from_numpy(mask.astype(np.int64))                   # (H,W)
+        mask_t = torch.from_numpy(mask.astype(np.int64))  # (H,W)
 
         types_t: Optional[Tensor] = None
         if types is not None:
             types_t = torch.from_numpy(types.astype(np.int64))
 
-        # --- transform (can change mask into dict targets, etc.) ---
+        # ---- load dists independently of transform (important) ----
+        dist_t: Optional[Tensor] = None
+        if self.load_dists or self.return_dists:
+            dist_path = self.root / self.split / "targets_stardist" / name.replace("img_", "dist_")
+            if not dist_path.exists():
+                raise FileNotFoundError(f"Missing precomputed dist file: {dist_path}")
+            dist = np.load(dist_path).astype(np.float32)  # (R,H,W)
+
+            # optional but recommended: n_rays check
+            if dist.shape[0] != self.n_rays:
+                raise ValueError(f"n_rays mismatch: dist has {dist.shape[0]}, expected {self.n_rays} ({dist_path})")
+
+            dist_t = torch.from_numpy(dist)
+
+        # ---- transform ----
         if self.transform is not None:
-
-            dist_t = None
-            if self.load_dists:
-                dist_path = self.root / self.split / "targets_stardist" / name.replace("img_", "dist_")
-                if not dist_path.exists():
-                    raise FileNotFoundError(f"Missing precomputed dist file: {dist_path}")
-                dist = np.load(dist_path).astype(np.float32)  # (R,H,W)
-                dist_t = torch.from_numpy(dist)
-
-
             img_t, mask_or_target, types_t = self.transform(img_t, mask_t, types_t, dist_t)
         else:
             mask_or_target = mask_t
 
+        # ---- outputs (non-breaking) ----
+        if self.return_image_name and self.return_dists:
+            return img_t, mask_or_target, types_t, dist_t, name
+
         if self.return_image_name:
             return img_t, mask_or_target, types_t, name
 
-
+        if self.return_dists:
+            return img_t, mask_or_target, types_t, dist_t
 
         return img_t, mask_or_target, types_t
 

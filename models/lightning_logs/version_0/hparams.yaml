@@ -1,0 +1,13 @@
+base_ch: 32
+lr: 0.0001
+n_nucleus_classes: 5
+n_rays: 64
+normalize_dist: false
+normalize_div: 64.0
+tversky_alpha: 0.3
+tversky_beta: 0.7
+tversky_include_background: true
+w_ce: 0.5
+w_dist: 0.2
+w_prob: 1.0
+w_tversky: 0.5
