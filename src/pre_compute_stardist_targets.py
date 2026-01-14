@@ -16,7 +16,7 @@ N_WORKERS = 4
 
 # -----------------------------
 # Precompute ray offsets (integer grid walk via rounding of continuous ray)
-# This matches your "round(y0 + step*dy)" behavior, but precomputed once.
+# This matches "round(y0 + step*dy)" behavior, but precomputed once.
 # -----------------------------
 def build_ray_offsets(n_rays: int, max_dist: int) -> np.ndarray:
     angles = np.linspace(0.0, 2.0 * np.pi, n_rays, endpoint=False).astype(np.float64)

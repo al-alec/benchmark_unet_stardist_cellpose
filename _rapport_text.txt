@@ -1,0 +1,1053 @@
+=== STRUCTURE DU DOCUMENT ===
+Nombre de paragraphes: 770
+Nombre de tableaux: 4
+Nombre de sections: 5
+
+=== CONTENU COMPLET ===
+
+[0] (Normal): Dakar Institute of Technology
+
+[2] (Normal): Habilitation n°3386-21 FEV.2024
+
+[3] (Normal): Domaine : Sciences et Technologies
+
+[4] (Normal): Département :  Informatique
+
+[5] (Normal): Spécialité : Intelligence Artificielle
+
+[6] (Normal): RAPPORT DE STAGE
+
+[7] (Normal): Présenté par
+
+[8] (Normal): Yehadji Abilé Alexis-Honoré
+
+[9] (Normal): Pour l’obtention du diplôme de
+
+[10] (Normal): Master en Informatique (Option :  Intelligence Artificielle)
+
+[11] (Normal): SUJET :
+
+[12] (Normal): Evaluation et analyse des biais des approches dominantes d'apprentissage profond basées sur les CNN pour la segmentation cellulaire hétérogène
+
+[13] (Normal): Soutenu à……… le .../.../... devant le jury composé de :
+
+[15] (Normal): Année Académique : 20.. - 20..
+
+[16] (Heading 1): DÉDICACE
+
+[17] (Normal): Je dédie ce mémoire, en premier lieu, à mon père, qui n’a jamais cessé de me soutenir tout au long de mon parcours. Son appui constant a été une source de force essentielle. Même dans les moments de fatigue, de doute ou de faiblesse, j’ai toujours ressenti sa présence et son encouragement. Ce travail porte profondément la trace de ce soutien silencieux mais déterminant, sans lequel il n’aurait sans doute pas vu le jour sous cette forme.
+
+[18] (Normal): Je dédie également ce mémoire à ma sœur Reine, qui a constamment pris de mes nouvelles et m’a accompagné avec bienveillance durant cette période exigeante. Sa disponibilité et son attention m’ont aidé à rester concentré sur ce travail, en apportant un équilibre nécessaire entre rigueur académique et stabilité personnelle.
+
+[19] (Normal): Plus largement, je dédie ce travail à ma famille, qui a constitué un soutien fondamental tout au long de ce parcours. Leur présence, leur patience et leur confiance m’ont accompagné bien au-delà de ce travail académique et ont représenté un socle indispensable dans les moments les plus difficiles.
+
+[20] (Normal): Je souhaite adresser une dédicace particulière à Bénédicte, qui m’a aidé à planifier le voyage ayant permis la réalisation effective de ce stage et de ce travail de recherche.
+
+[21] (Normal): Je dédie ce travail à Monsieur Éric Djiky, mon maître de stage, pour son accompagnement attentif et ses encouragements constants tout au long de ce travail. Ses conseils, ses directives et sa disponibilité ont largement contribué à mieux structurer ce mémoire, à clarifier les objectifs et à maintenir une ligne directrice cohérente dans l’avancement du projet. Son soutien a été déterminant dans les phases clés de ce travail, tant sur le plan méthodologique qu’organisationnel.
+
+[22] (Normal): Je remercie et dédie également ce mémoire à Tristan Manneville, mon encadrant, pour la qualité de son suivi scientifique. Ses échanges, parfois courts mais toujours justes, m’ont permis de conserver un minimum de clarté dans des périodes de confusion intellectuelle. Certaines discussions ont remis en question mes certitudes, d’autres m’ont aidé à relativiser mes échecs.
+
+[24] (Normal): Je souhaite aussi dédier ce travail à Olivia, dont l’accueil et la présence ont grandement facilité mon intégration au sein de l’unité. Les échanges, parfois simples et non techniques, ont contribué à rendre cette expérience plus humaine et plus équilibrée, et ont eu un impact réel sur mon bien-être au quotidien.
+
+[25] (Normal): Je dédie également ce mémoire à Jean-Christophe Olivo-Marin, chef de l’unité d’Analyse d’Images Biologiques, pour le cadre scientifique, institutionnel et humain dans lequel ce travail a pu être mené. L’environnement offert par l’unité, ainsi que les moments de partage, y compris les instants plus informels à l’approche des fêtes de fin d’année, ont contribué à créer un contexte de travail à la fois exigeant et bienveillant.
+
+[26] (Normal): Plus largement, je dédie ce travail à l’ensemble de l’unité d’analyse biomédicale, dont l’accueil, l’ambiance de travail et les interactions quotidiennes ont rendu cette expérience enrichissante tant sur le plan scientifique qu’humain.
+
+[27] (Normal): Je dédie également ce mémoire à moi-même, en reconnaissance du chemin parcouru. Il représente une période marquée par des doutes, de la fatigue accumulée, des nuits passées à corriger des erreurs parfois invisibles, des résultats incohérents, mais aussi par une compréhension progressive, une structuration de la pensée et un gain réel en autonomie scientifique. Ce travail marque une étape importante, non seulement académique, mais profondément personnelle, dans ma manière d’aborder les problèmes, de raisonner et de faire de la recherche.
+
+[28] (Normal): Enfin, je dédie ce mémoire à toutes les personnes qui, comme moi, évoluent dans des domaines exigeants sans toujours avoir le sentiment de maîtriser pleinement ce qu’elles font, mais qui continuent malgré tout. Ce travail est le reflet d’un processus non linéaire, fait d’incertitudes, d’erreurs et de remises en question, et il témoigne du fait que c’est précisément dans cette instabilité que se construit une compréhension plus profonde et plus durable.
+
+[30] (Heading 1): REMERCIEMENTS
+
+[31] (Normal): Je tiens à exprimer mes sincères remerciements à l’ensemble des personnes et institutions qui ont contribué, directement ou indirectement, à la réalisation de ce travail de recherche.
+
+[32] (Normal): Je remercie en premier lieu l’Institut Pasteur, pour m’avoir accueilli dans un environnement scientifique d’excellence, propice à l’apprentissage, à l’expérimentation et au développement d’une démarche de recherche rigoureuse. Les ressources mises à disposition, la qualité du cadre de travail et la dynamique scientifique de l’institut ont constitué un contexte particulièrement favorable à la conduite de ce projet.
+
+[33] (Normal): Je souhaite adresser mes remerciements les plus sincères à Monsieur Éric Djiky, mon maître de stage, pour son accompagnement attentif, sa disponibilité et ses encouragements constants tout au long de ce travail. Ses conseils méthodologiques, ses orientations claires et sa capacité à structurer les différentes étapes du projet ont été déterminants pour l’avancement et la cohérence de ce mémoire. Son soutien a joué un rôle essentiel dans les phases clés de ce travail, tant sur le plan scientifique qu’organisationnel.
+
+[34] (Normal): Je remercie également Tristan Manneville, mon encadrant scientifique, pour la qualité de son suivi, la pertinence de ses remarques et la rigueur de ses échanges. Ses interventions, parfois concises mais toujours précises, ont contribué à clarifier de nombreux points scientifiques, à remettre en question certaines hypothèses et à maintenir un niveau d’exigence indispensable à un travail de recherche sérieux.
+
+[35] (Normal): Je tiens à remercier Jean-Christophe Olivo-Marin, chef de l’unité d’Analyse d’Images Biologiques et directeur de l’Institut Carnot Pasteur Microbes et Santé, pour l’accueil au sein de l’unité et pour le cadre scientifique structurant dans lequel ce travail a été mené.
+
+[36] (Normal): Mes remerciements s’adressent également à l’ensemble des membres de l’unité d’analyse biomédicale, pour leur accueil, leur disponibilité et les échanges, formels comme informels, qui ont contribué à rendre cette expérience enrichissante tant sur le plan scientifique qu’humain. L’ambiance de travail et la qualité des interactions quotidiennes ont fortement participé à la bonne intégration et au déroulement de ce stage.
+
+[38] (Heading 1): GLOSSAIRE
+
+[39] (Normal): AJI (Aggregated Jaccard Index)
+
+[40] (Normal): Métrique d’évaluation orientée instance qui mesure le recouvrement global entre les instances prédites et la vérité terrain. Elle pénalise explicitement les erreurs de fusion et de fragmentation, ce qui la rend plus adaptée que l’IoU global à l’évaluation de la segmentation d’instances.
+
+[42] (Normal): Alpha blending (superposition par transparence)
+
+[43] (Normal): Technique de visualisation consistant à superposer des contours ou des masques sur une image originale en contrôlant leur transparence, afin de faciliter l’interprétation qualitative des résultats de segmentation.
+
+[45] (Normal): Apprentissage supervisé
+Paradigme d’apprentissage dans lequel un modèle est entraîné à partir d’images associées à des annotations explicites (vérité terrain), utilisées pour définir une fonction de perte.
+
+[47] (Normal): Architecture encodeur-décodeur
+
+[48] (Normal): Famille d’architectures de réseaux de neurones convolutionnels dans lesquelles un encodeur extrait des représentations à différentes échelles spatiales, tandis qu’un décodeur reconstruit une prédiction à la résolution originale.
+
+[50] (Normal): Biais inductif
+
+[51] (Normal): Ensemble d’hypothèses implicites intégrées dans un modèle ou une méthode, qui orientent les solutions apprises. Par exemple, l’hypothèse de formes star-convexes dans StarDist ou la continuité locale des champs de vecteurs dans Cellpose.
+
+[53] (Normal): Carte de probabilité
+
+[54] (Normal): Sortie d’un modèle de segmentation indiquant, pour chaque pixel, la probabilité d’appartenir à une cellule ou au fond.
+
+[56] (Normal): Cellpose
+
+[57] (Normal): Méthode de segmentation d’instances basée sur l’apprentissage de champs de vecteurs directionnels guidant chaque pixel vers le centre de son instance. Elle est conçue comme une méthode généraliste, souvent utilisée sous forme de modèle pré-entraîné.
+
+[59] (Normal): Champ de vecteurs
+
+[60] (Normal): Représentation dans laquelle chaque pixel est associé à un vecteur indiquant une direction et une amplitude, utilisée notamment par Cellpose pour regrouper les pixels appartenant à une même cellule.
+
+[62] (Normal): Checkpoint
+Sauvegarde intermédiaire de l’état d’un modèle (poids, optimiseur, époque) permettant de reprendre un entraînement ou d’évaluer un modèle à un instant donné.
+
+[64] (Normal): Classification nucléaire
+Tâche consistant à attribuer à chaque noyau une classe biologique (type cellulaire), souvent intégrée comme tête supplémentaire dans un modèle de segmentation.
+
+[66] (Normal): CLAMP_DIST
+Paramètre limitant la valeur maximale des distances radiales utilisées comme cibles dans StarDist, afin de stabiliser l’apprentissage et de réduire l’influence des valeurs extrêmes.
+
+[68] (Normal): Convolution
+Opération fondamentale des réseaux convolutionnels permettant d’extraire des motifs locaux dans une image via des filtres partagés spatialement.
+
+[70] (Normal): Décodage (StarDist)
+
+[71] (Normal): Étape postérieure à la prédiction du réseau StarDist consistant à convertir les cartes de probabilité et de distances en instances finales, via sélection de candidats, suppression des doublons (NMS) et raffinement.
+
+[73] (Normal): Distance transform (transformée de distance)
+Carte indiquant, pour chaque pixel, la distance au pixel de fond le plus proche. Elle est souvent utilisée comme base pour le watershed ou pour définir des graines de segmentation.
+
+[75] (Normal): Donnée PanNuke
+
+[76] (Normal): Jeu de données public de segmentation de noyaux en histopathologie H&E, comprenant des annotations d’instances et de types cellulaires sur plusieurs tissus.
+
+[78] (Normal): Early stopping
+Stratégie d’arrêt anticipé de l’entraînement lorsque la performance sur un jeu de validation cesse de s’améliorer, afin d’éviter le surapprentissage.
+
+[80] (Normal): Erreur de fusion
+Erreur de segmentation dans laquelle plusieurs instances distinctes dans la vérité terrain sont prédites comme une seule instance.
+
+[82] (Normal): Erreur de fragmentation
+Erreur de segmentation dans laquelle une instance unique dans la vérité terrain est prédite comme plusieurs instances distinctes.
+
+[84] (Normal): Évaluation orientée instance
+Famille de métriques et de protocoles d’évaluation qui prennent en compte la correspondance explicite entre instances prédites et vérité terrain.
+
+[86] (Normal): Foreground / Background (cellule / fond)
+Distinction binaire utilisée dans la segmentation sémantique pour séparer les pixels appartenant à des cellules de ceux correspondant au fond.
+
+[88] (Normal): Ground truth (vérité terrain)
+Annotations de référence utilisées pour l’entraînement et l’évaluation des modèles, généralement produites manuellement par des experts.
+
+[90] (Normal): GPU (Graphics Processing Unit)
+Processeur spécialisé permettant l’accélération massive des calculs parallèles nécessaires à l’entraînement des réseaux de neurones profonds.
+
+[92] (Normal): Histogramme de densité cellulaire
+Représentation graphique de la distribution du nombre d’instances par image ou par région, utilisée pour caractériser la complexité des scènes.
+
+[94] (Normal): IoU (Intersection over Union)
+Métrique mesurant le recouvrement entre deux régions comme le rapport entre leur intersection et leur union.
+
+[96] (Normal): IoU matching
+Procédure d’appariement entre instances prédites et vérité terrain basée sur un seuil minimal d’IoU.
+
+[98] (Normal): Instance
+Objet individuel segmenté dans une image, distinct des autres objets et du fond.
+
+[100] (Normal): Masque binaire
+Image dans laquelle les pixels sont codés comme appartenant ou non à une classe donnée, sans distinction d’instances.
+
+[102] (Normal): Masque d’instances
+Image dans laquelle chaque instance est représentée par un identifiant unique, distinct des autres instances et du fond.
+
+[104] (Normal): Morphologie cellulaire
+Ensemble des caractéristiques géométriques décrivant la forme d’une cellule ou d’un noyau (aire, périmètre, circularité, excentricité, etc.).
+
+[106] (Normal): Non-Maximum Suppression (NMS)
+Procédure de filtrage utilisée pour supprimer des prédictions redondantes se recouvrant fortement, en conservant uniquement les plus pertinentes.
+
+[108] (Normal): Overlay
+Superposition visuelle de contours ou de masques sur une image originale pour faciliter l’analyse qualitative des résultats.
+
+[110] (Normal): Panoptic Quality (PQ)
+Métrique combinant une composante de détection (appariement des instances) et une composante de segmentation (qualité des contours).
+
+[112] (Normal): Post-traitement
+Étape appliquée après la prédiction du modèle afin d’améliorer ou de transformer la sortie brute (ex. watershed, suppression de petites régions).
+
+[114] (Normal): Rayons (StarDist)
+Distances radiales prédites dans différentes directions à partir d’un pixel central, utilisées pour reconstruire des polygones star-convexes.
+
+[116] (Normal): Segmentation cellulaire
+Processus visant à délimiter automatiquement les cellules ou noyaux présents dans une image microscopique.
+
+[118] (Normal): Segmentation sémantique
+Formulation de la segmentation visant à attribuer une classe à chaque pixel, sans distinguer explicitement les instances individuelles.
+
+[120] (Normal): Segmentation d’instances
+Formulation de la segmentation visant à identifier, séparer et individualiser chaque cellule ou noyau présent dans une image.
+
+[122] (Normal): Star-convexe
+Propriété géométrique d’une forme pour laquelle tous les points du contour sont visibles depuis un centre commun, hypothèse exploitée par StarDist.
+
+[124] (Normal): StarDist
+Méthode de segmentation d’instances basée sur la prédiction de distances radiales définissant des polygones star-convexes.
+
+[126] (Normal): Supervision géométrique
+Forme de supervision dans laquelle les cibles d’apprentissage décrivent des propriétés géométriques (distances, directions, centres) plutôt que des masques binaires.
+
+[128] (Normal): U-Net
+Architecture de réseau convolutionnel encodeur-décodeur avec connexions de saut, largement utilisée pour la segmentation biomédicale.
+
+[130] (Normal): Watershed
+Méthode de segmentation morphologique inspirée des bassins versants, utilisée pour séparer des régions connectées à partir de marqueurs.
+
+[132] (Heading 1): LISTE DES FIGURES
+
+[133] (table of figures): Figure 1: exemple illustrant la conversion d’un masque multi-canaux en carte d’instances et carte de classes	18
+
+[134] (table of figures): Figure 2: Distributions des aires par classe morphologique	20
+
+[135] (table of figures): Figure 3: Chaînes de traitement conduisant à la segmentation d’instances selon U-Net, StarDist et Cellpose	22
+
+[136] (table of figures): Figure 4: Suivi des expériences d'entraînement via Weights & Biases, montrant les configurations et temps d'exécution pour StarDist et U-Net.	27
+
+[137] (table of figures): Figure 5: Exemples représentatifs d’images PanNuke illustrant différentes densités cellulaires et morphologies (cellules isolées, amas denses, formes irrégulières).	29
+
+[138] (table of figures): Figure 6: Métriques globales de segmentation d'instances sur l'ensemble de validation PanNuke (F1 instance, Aggregated Jaccard Index, Panoptic Quality)	30
+
+[139] (table of figures): Figure 7: Recall instance moyen (IoU ≥ 0.5) par classe morphologique (n ≥ 200 instances par classe)	32
+
+[140] (table of figures): Figure 8: IoU_max moyen par classe morphologique (n ≥ 200 instances par classe)	32
+
+[141] (table of figures): Figure 9: Recall instance (IoU ≥ 0.5) et IoU moyen par type cellulaire pour U-Net, StarDist et Cellpose	33
+
+[142] (table of figures): Figure 10: Différences de recall instance (Δ recall, IoU ≥ 0.5) par classe morphologique.	34
+
+[143] (table of figures): Figure 11: Différences d’IoU_max moyen par classe morphologique	34
+
+[144] (table of figures): Figure 12: Recall instance moyen par classe de taille (quantiles)	35
+
+[145] (table of figures): Figure 13: IoU_max moyen en fonction de l’aire médiane des bins.	35
+
+[146] (table of figures): Figure 17: Comparaison des biais de recall par classe morphologique	36
+
+[147] (table of figures): Figure 18: Comparaison des biais d’IoU par classe morphologique	37
+
+[148] (table of figures): Figure 19: Comparaison des biais de recall par classe de taille	37
+
+[149] (table of figures): Figure 20: Comparaison des biais d’IoU par classe de taille	38
+
+[150] (table of figures): Figure 14: Évolution du recall, de la précision, du F1 instance et de la Panoptic Quality en fonction de la densité cellulaire. Les barres d'erreur représentent l'écart-type	39
+
+[151] (table of figures): Figure 15: (Gauche) Recall pour les cellules isolées versus en contact. (Droite) Évolution du recall en fonction du nombre de voisins.	40
+
+[152] (table of figures): Figure 16: Recall instance par image en fonction du ratio de contact (proxy de chevauchement). Chaque point représente une image.	40
+
+[153] (table of figures): Figure 21: Complémentarité PyTorch et Lightning	49
+
+[154] (table of figures): Figure 22: Architecture et service du déploiement	52
+
+[157] (Heading 1): LISTE DES TABLEAUX
+
+[158] (table of figures): Tableau 1: statistiques du dataset par split, incluant le nombre d’images conservées après filtrage, le nombre total d’instances et la distribution des classes.	16
+
+[159] (table of figures): Tableau 2: Correspondance entre les identifiants de classes et les types cellulaires dans le jeu de données PanNuke	17
+
+[160] (table of figures): Tableau 3: Tableau comparatif des hypothèses inductives des trois modèles	24
+
+[162] (Heading 1): RÉSUMÉ
+
+[163] (Normal): La segmentation des cellules à partir d’images microscopiques constitue une étape centrale dans de nombreuses applications biomédicales, notamment en analyse histopathologique, en recherche sur le cancer et dans le suivi de traitements thérapeutiques. Au cours des dernières années, plusieurs architectures de deep learning dédiées à cette tâche ont émergé, parmi lesquelles U-Net, StarDist et Cellpose. Ces approches reposent sur des formulations différentes du problème de segmentation, qu’il s’agisse d’une prédiction sémantique pixel-par-pixel suivie d’un post-traitement, d’une modélisation géométrique explicite des instances via des distances radiales, ou encore d’une reconstruction des objets à partir de champs de vecteurs. Chacune de ces formulations induit des hypothèses spécifiques concernant la forme des cellules, leur séparabilité et leur organisation spatiale. Pourtant, les comparaisons existantes se limitent souvent à des scores globaux, sans analyse fine de l’impact de la variabilité morphologique et contextuelle des structures cellulaires.
+
+[164] (Normal): Ce rapport de stage s’inscrit dans une démarche comparative approfondie, à la fois quantitative et analytique, visant à étudier les biais induits par ces différentes approches de segmentation. Les modèles U-Net et StarDist sont entraînés et évalués dans un cadre expérimental contrôlé sur un jeu de données public annoté, représentatif d’une grande diversité de tissus et de morphologies cellulaires. Cellpose, largement utilisé en pratique clinique et biologique, est quant à lui étudié comme une référence méthodologique, afin d’analyser les biais associés à son mode de fonctionnement et à ses hypothèses implicites. L’évaluation repose sur des métriques standards de segmentation d’instances (Intersection-over-Union, F1-score, métriques agrégées), complétées par une analyse ciblée de la robustesse des modèles face à des facteurs critiques tels que la densité cellulaire, le bruit, les formes irrégulières ou les situations de contact et de chevauchement entre cellules.
+
+[165] (Normal): Les résultats mettent en évidence que les performances des modèles ne sont pas uniformes selon les contextes morphologiques et tissulaires. Certaines architectures se montrent plus adaptées à des environnements très denses ou à des noyaux de forme régulière, tandis que d’autres présentent des limites marquées face à des structures atypiques ou complexes. En mettant en lumière ces différences, ce travail vise à fournir aux praticiens des éléments d’aide au choix algorithmique en fonction de leurs données et de leurs objectifs, tout en ouvrant des perspectives pour le développement de futures méthodes de segmentation cellulaire plus robustes et mieux adaptées à la diversité du vivant.
+
+[167] (Heading 1): ABSTRACT
+
+[168] (Normal): Cell segmentation from microscopic images is a fundamental step in many biomedical applications, including histopathological analysis, cancer research, and therapeutic response monitoring. In recent years, several deep learning architectures specifically designed for this task have emerged, notably U-Net, StarDist, and Cellpose. These approaches rely on different formulations of the segmentation problem, ranging from pixel-wise semantic prediction followed by post-processing, to explicit geometric modeling of instances using radial distances, or reconstruction based on vector flow fields. Each formulation introduces specific assumptions regarding cell shape, separability, and spatial organization. However, existing comparisons between these models are often limited to global performance scores, without a detailed analysis of the impact of morphological and contextual variability of cellular structures.
+
+[169] (Normal): This internship report adopts an in-depth comparative approach, combining quantitative evaluation with analytical interpretation, to investigate the biases induced by these different segmentation strategies. U-Net and StarDist models are trained and evaluated within a controlled experimental framework on a publicly available annotated dataset, representative of a wide diversity of tissues and cellular morphologies. Cellpose, widely used in biological and clinical practice, is considered as a methodological reference, enabling an analysis of the biases associated with its underlying assumptions and operating principles. Model evaluation relies on standard instance segmentation metrics (Intersection-over-Union, F1-score, aggregated metrics), complemented by a targeted analysis of robustness with respect to critical factors such as cell density, noise, irregular shapes, and cell adhesion or overlap scenarios.
+
+[170] (Normal): The results highlight that model performance is not uniform across morphological and tissue contexts. Certain architectures are better suited to highly dense environments or regular nuclear shapes, while others exhibit pronounced limitations when faced with atypical or complex structures. By elucidating these differences, this study aims to provide practical guidance for algorithm selection according to data characteristics and application goals, while also opening perspectives for the development of future cell segmentation methods that are more robust and better adapted to biological diversity.
+
+[173] (Heading 1): SOMMAIRE
+
+[175] (toc 1): DÉDICACE	1
+
+[176] (toc 1): REMERCIEMENTS	2
+
+[177] (toc 1): GLOSSAIRE	3
+
+[178] (toc 1): LISTE DES FIGURES	7
+
+[179] (toc 1): LISTE DES TABLEAUX	8
+
+[180] (toc 1): RÉSUMÉ	9
+
+[181] (toc 1): ABSTRACT	10
+
+[182] (toc 1): SOMMAIRE	11
+
+[183] (toc 1): INTRODUCTION	1
+
+[184] (toc 1): CHAPITRE I: Etat de l’art	4
+
+[185] (toc 1): CHAPITRE II: Analyse de besoins et Méthodologie	14
+
+[186] (toc 2): I.	Spécification des besoins et des données	15
+
+[187] (toc 2): II.	Méthodologie	20
+
+[188] (toc 1): Chapitre III: Implémentation	28
+
+[189] (toc 2): I. Résultats	29
+
+[190] (toc 2): II.	Outils de développement et déploiement	47
+
+[191] (toc 1): CONCLUSION GENERALE	53
+
+[192] (toc 1): BIBLIOGRAPHIE	56
+
+[193] (toc 1): WEBOGRAPHIE	57
+
+[194] (toc 1): Annexes	58
+
+[195] (toc 1): TABLE DES MATIÈRES	64
+
+[207] (Heading 1): INTRODUCTION
+
+[209] (Normal): L’analyse automatique d’images biomédicales occupe aujourd’hui une place centrale dans de nombreux domaines de la biologie et de la médecine, en particulier avec l’essor de la pathologie numérique, de l’imagerie à haut débit et des approches quantitatives en biologie des systèmes. Parmi les tâches fondamentales de ce champ, la segmentation cellulaire, et plus spécifiquement la segmentation des noyaux cellulaires, constitue une étape clé permettant de transformer des images complexes et riches en information visuelle en représentations structurées exploitables pour l’analyse scientifique et clinique. Elle sert de point d’entrée à une grande variété de traitements en aval, allant du simple comptage cellulaire à l’extraction de caractéristiques morphologiques fines, jusqu’à la modélisation de micro-environnements tissulaires et à la prédiction de phénotypes ou d’issues cliniques.
+
+[210] (Normal): Dans des contextes tels que l’histopathologie, la segmentation des noyaux est intimement liée à des enjeux médicaux majeurs. La densité cellulaire, la taille et la forme des noyaux, leur organisation spatiale ou encore leur hétérogénéité sont autant d’indicateurs corrélés à des processus biologiques complexes, notamment la prolifération tumorale, l’invasion, la réponse immunitaire ou l’agressivité d’un cancer. La segmentation cellulaire n’est donc pas une tâche purement technique, mais un maillon critique de chaînes décisionnelles plus larges, susceptibles d’influencer l’interprétation biologique et, à terme, des décisions cliniques. Dans ce cadre, une segmentation imprécise ou biaisée peut conduire à des conclusions erronées, même si les étapes ultérieures du pipeline sont méthodologiquement solides.
+
+[211] (Normal): Historiquement, la segmentation cellulaire reposait sur des méthodes de traitement d’images classiques, combinant filtrage, seuillage, opérations morphologiques et algorithmes de séparation d’objets. Si ces approches ont permis des avancées importantes, elles se sont révélées limitées face à la variabilité des données biologiques réelles, en particulier dans des scénarios caractérisés par une forte hétérogénéité morphologique, des densités cellulaires élevées, des chevauchements d’instances et des variations importantes de contraste et de coloration. L’émergence de l’apprentissage profond, et en particulier des réseaux de neurones convolutifs, a profondément transformé ce domaine en offrant des modèles capables d’apprendre directement des représentations complexes à partir de données annotées.
+
+[212] (Normal): Cependant, malgré des performances impressionnantes rapportées sur de nombreux benchmarks, la segmentation cellulaire par deep learning reste confrontée à des difficultés fondamentales. Les modèles actuels diffèrent non seulement par leurs architectures, mais aussi par la manière dont ils formulent le problème de segmentation lui-même. Certaines approches adoptent une formulation sémantique, visant à distinguer les pixels appartenant aux cellules de ceux du fond, tandis que d’autres cherchent explicitement à individualiser chaque cellule sous forme d’instance distincte, via des représentations géométriques ou des champs de vecteurs. Ces choix méthodologiques induisent des biais inductifs forts, qui conditionnent les types d’erreurs commises par les modèles et leur comportement selon les contextes morphologiques et spatiaux.
+
+[213] (Normal): Dans la pratique, la majorité des travaux se concentrent sur l’amélioration de métriques globales agrégées, telles que le Dice ou l’IoU, et sur des comparaisons de performances moyennes entre méthodes. Or, ces indicateurs ne rendent pas toujours compte des régimes d’échec spécifiques, par exemple la fusion systématique d’instances dans des zones denses, la fragmentation d’objets irréguliers ou l’oubli de cellules rares. De plus, des modèles affichant des scores similaires peuvent présenter des comportements qualitativement très différents, ce qui complique leur sélection et leur utilisation raisonnée dans des contextes de recherche ou cliniques exigeants.
+
+[214] (Normal): C’est dans ce contexte que s’inscrit le présent mémoire, réalisé dans le cadre d’un stage de recherche à l’Institut Pasteur. Ce travail se situe à l’interface entre l’apprentissage automatique et l’imagerie biomédicale, avec un ancrage fort dans des problématiques concrètes de segmentation cellulaire en histopathologie. Plutôt que de proposer une nouvelle architecture ou d’optimiser marginalement des performances globales, l’objectif est d’analyser de manière approfondie les comportements et les biais de modèles de segmentation cellulaire largement utilisés, en tenant compte de la diversité morphologique et contextuelle des données.
+
+[215] (Normal): Le problème central abordé dans ce mémoire peut ainsi être formulé de la manière suivante : comment différentes formulations du problème de segmentation cellulaire influencent-elles les performances et les modes d’échec des modèles, en particulier selon la taille, la forme, la densité et l’organisation spatiale des cellules ? Cette question recouvre plusieurs enjeux spécifiques. D’un point de vue méthodologique, il s’agit de comprendre dans quelles conditions une approche sémantique de type U-Net est suffisante ou insuffisante, et comment des méthodes orientées instance, telles que StarDist ou Cellpose, se comportent face à des configurations morphologiques complexes. D’un point de vue pratique, il s’agit de fournir des éléments d’aide à la décision pour le choix et l’utilisation de ces méthodes dans des pipelines d’analyse réels, en identifiant leurs forces, leurs limites et leurs régimes de validité.
+
+[216] (Normal): Les enjeux associés à cette problématique sont multiples. Sur le plan scientifique, une meilleure compréhension des biais et des comportements conditionnels des modèles de segmentation contribue à une utilisation plus rigoureuse et plus interprétable du deep learning en imagerie biomédicale. Sur le plan applicatif, elle permet de réduire le risque d’erreurs systématiques dans des analyses quantitatives sensibles. Enfin, sur le plan méthodologique, elle ouvre la voie à des stratégies d’amélioration ciblées, qu’il s’agisse d’ajuster les fonctions de perte, les représentations intermédiaires ou les paramètres d’inférence en fonction des régimes identifiés.
+
+[217] (Normal): Les objectifs de ce mémoire s’articulent autour de plusieurs axes complémentaires. Le premier objectif est de mettre en place un cadre expérimental cohérent permettant de comparer différentes formulations de la segmentation cellulaire sur un jeu de données riche et diversifié, en l’occurrence PanNuke, largement utilisé dans la littérature. Le second objectif est d’analyser les performances des modèles non seulement à l’aide de métriques globales, mais aussi à travers une lecture fine des erreurs, en lien avec des caractéristiques morphologiques mesurables des instances cellulaires. Le troisième objectif est d’interpréter ces résultats à la lumière des hypothèses inductives propres à chaque méthode, afin de relier les comportements observés aux choix de modélisation sous-jacents.
+
+[218] (Normal): Afin de répondre à ces objectifs, le mémoire est structuré de manière progressive. Après cette introduction, un premier chapitre est consacré à l’état de l’art sur la segmentation cellulaire en imagerie microscopique, en mettant l’accent sur les approches sémantiques, les méthodes de segmentation d’instances et les modèles généralistes, ainsi que sur les enjeux liés aux biais, aux métriques et à la généralisation. Le chapitre suivant présente les données utilisées, les choix méthodologiques et les implémentations réalisées, en détaillant les pipelines mis en place pour chaque modèle étudié. Le troisième chapitre est dédié aux résultats expérimentaux, à leur analyse et à leur interprétation, avec une attention particulière portée aux régimes d’échec et aux biais morphologiques. Enfin, le mémoire se conclut par une synthèse des principaux enseignements, une discussion des limites du travail et des perspectives ouvertes pour des recherches futures.
+
+[219] (Normal): En conclusion, ce travail s’inscrit dans une démarche visant à dépasser une approche purement compétitive de la segmentation cellulaire, centrée sur les scores moyens, pour proposer une lecture plus analytique et plus critique des méthodes existantes. En mettant en relation les choix de formulation, les propriétés morphologiques des données et les comportements observés des modèles, il cherche à contribuer à une utilisation plus raisonnée, plus robuste et plus interprétable des techniques de segmentation cellulaire en imagerie biomédicale.
+
+[240] (Title): CHAPITRE I: Etat de l’art
+
+[242] (Normal): La segmentation cellulaire en imagerie microscopique désigne l’ensemble des méthodes visant à identifier et délimiter automatiquement ou semi-automatiquement des cellules ou leurs noyaux à partir d’images issues de différentes modalités d’acquisition, telles que la microscopie en fluorescence, le champ clair ou l’histopathologie en coloration H&E . Selon le contexte expérimental et l’objectif biologique poursuivi, la segmentation peut porter sur des noyaux, sur des cellules entières, ou encore sur des compartiments subcellulaires spécifiques révélés par des marqueurs moléculaires. Cette tâche constitue une étape fondatrice de l’analyse d’images biomédicales, car elle opère la transition entre l’image brute et une représentation structurée sous forme d’objets biologiques individualisés, susceptibles d’être quantifiés, comparés et intégrés dans des analyses statistiques ou computationnelles plus complexes.
+
+[243] (Normal): Les masques de segmentation obtenus servent ainsi de support à un large éventail d’analyses quantitatives, parmi lesquelles le comptage cellulaire, l’extraction de descripteurs morphométriques tels que l’aire, le périmètre, la circularité, l’excentricité ou l’orientation, l’analyse de la texture et de l’intensité de marqueurs, la caractérisation de phénotypes cellulaires, l’étude de l’organisation spatiale des cellules et de leurs interactions, ou encore la description de micro-environnements tissulaires dans des contextes physiologiques et pathologiques. En pathologie numérique, la segmentation des noyaux est fréquemment un prérequis indispensable aux tâches dites de plus haut niveau, comme la classification de régions tumorales, la prédiction de sous-types histologiques, la stratification pronostique ou l’identification de signatures morphologiques associées à des altérations moléculaires ou génomiques. De nombreuses études ont montré que des caractéristiques nucléaires telles que la taille, la densité locale, l’irrégularité du contour ou l’organisation spatiale sont corrélées à des états physiopathologiques et à des degrés d’agressivité tumorale.
+
+[244] (Normal): Une segmentation incorrecte peut donc induire des erreurs systématiques aux conséquences importantes. La fusion d’instances dans des zones de forte densité cellulaire conduit à une sous-estimation du nombre de cellules et à une distorsion des distributions morphologiques, tandis que la fragmentation excessive d’instances peut produire l’effet inverse, en gonflant artificiellement le comptage et en biaisant les mesures de taille ou de forme. Ces erreurs se propagent ensuite aux analyses en aval et peuvent altérer les conclusions biologiques ou cliniques. La segmentation ne constitue ainsi pas une simple étape préliminaire technique, mais un élément méthodologique central conditionnant la validité des résultats. Cette dépendance forte explique pourquoi la segmentation cellulaire doit être considérée à la fois comme un problème d’ingénierie, lié à la conception de méthodes robustes et efficaces, et comme un problème scientifique, lié à la compréhension des régimes de réussite et d’échec des modèles.
+
+[245] (Normal): La difficulté intrinsèque de la segmentation cellulaire provient d’une combinaison de facteurs liés aux images biologiques elles-mêmes. Une première source de complexité est la variabilité inter-échantillon et inter-centre. En histopathologie H&E, les variations de coloration sont influencées par les protocoles de préparation, les colorants utilisés, la durée de fixation et les scanners, ce qui entraîne des différences notables de contraste et de teinte entre images. Les tissus observés présentent par ailleurs une hétérogénéité structurelle importante : variations de densité cellulaire, organisation stromale complexe, zones nécrotiques, présence d’infiltrats immunitaires, artefacts de coupe ou de fixation. À ces facteurs s’ajoute une variabilité inter-patient et intra-lame, qui modifie localement la visibilité des noyaux et rend difficile l’application de règles universelles de segmentation.
+
+[246] (Normal): Une deuxième source de difficulté réside dans la nature même des objets à segmenter. Les noyaux cellulaires ne sont pas des formes standardisées : leur taille, leur circularité, leur texture interne et leurs contours varient selon le type cellulaire, l’état physiologique ou pathologique et le contexte tissulaire. Dans certaines régions, des noyaux ronds et compacts coexistent avec des noyaux allongés ou irréguliers, parfois au sein d’une même image. Les noyaux peuvent être partiellement visibles ou coupés par le plan de coupe histologique, ce qui complique leur délimitation. De plus, les cellules peuvent se chevaucher, se coller ou former des amas denses, rendant la frontière entre instances ambiguë, y compris pour des annotateurs experts.
+
+[247] (Normal): Une troisième difficulté majeure est liée au bruit et aux artefacts présents dans les images. Les images microscopiques peuvent contenir des zones floues, des variations d’illumination, des déformations, des plis, des bulles, des dépôts de coloration ou des particules parasites. Ces artefacts peuvent produire des motifs ressemblant à des noyaux ou, au contraire, masquer des structures réelles. Les méthodes de segmentation doivent donc trouver un compromis délicat entre sensibilité, afin de détecter des objets peu contrastés ou de petite taille, et spécificité, afin d’éviter les faux positifs.
+
+[248] (Normal): Enfin, la segmentation cellulaire n’est pas une tâche purement géométrique ou algorithmique, car elle dépend également des conventions d’annotation. Les styles d’annotation varient selon les experts : inclusion ou non des pixels de bord, traitement des noyaux partiellement visibles, décisions de séparation ou de fusion en cas de frontières ambiguës. La vérité terrain utilisée pour l’apprentissage supervisé et l’évaluation est donc souvent le reflet d’une convention experte plutôt qu’une vérité objective, introduisant un bruit structurel qui influence directement les modèles appris et complique l’interprétation des performances.
+
+[249] (Normal): Avant l’essor du deep learning, la segmentation cellulaire reposait principalement sur des approches de traitement d’images et de vision dites classiques. Ces méthodes combinaient des étapes de pré-traitement (filtrage, correction d’illumination, normalisation de contraste), des stratégies de seuillage global ou adaptatif, puis des algorithmes de séparation d’objets, le plus souvent basés sur le watershed. De nombreux pipelines utilisaient des transformées de distance et des marqueurs extraits par détection de maxima locaux pour initier la séparation des instances. L’avantage principal de ces approches résidait dans leur interprétabilité : les paramètres étaient explicites, les opérations compréhensibles, et les chaînes de traitement pouvaient être ajustées finement à un microscope ou à un type d’image donné.
+
+[250] (Normal): Toutefois, ces méthodes présentaient une fragilité importante face au changement de domaine. Un pipeline réglé pour une coloration ou un tissu particulier pouvait s’effondrer sur un autre contexte. Les méthodes de seuillage étaient sensibles aux variations d’illumination et de contraste, et le watershed était notoirement instable en présence de bruit, conduisant fréquemment à des sur-segmentations massives. En pratique, l’obtention de performances satisfaisantes nécessitait souvent un réglage fin spécifique à chaque cas d’usage, limitant la généralisabilité et l’applicabilité à grande échelle. Malgré ces limites, ces approches ont profondément influencé les méthodes modernes, dont beaucoup reprennent des concepts similaires, mais déplacent l’apprentissage des représentations intermédiaires vers des modèles appris plutôt que conçus manuellement.
+
+[251] (Normal): L’avènement de l’apprentissage profond a marqué un tournant majeur dans la segmentation cellulaire. Les réseaux de neurones convolutifs ont permis d’apprendre directement des représentations adaptées aux données, capables de capturer des motifs visuels complexes et de combiner information locale et contexte global. L’émergence des architectures entièrement convolutionnelles, couplée à la disponibilité de GPU et à la mise à disposition de jeux de données annotés, a accéléré l’adoption de ces méthodes. Néanmoins, le deep learning n’a pas éliminé les difficultés fondamentales de la segmentation cellulaire, mais les a en partie déplacées. La dépendance aux données annotées est devenue centrale, et la qualité, la cohérence et les biais de la vérité terrain influencent fortement la performance et la généralisation des modèles. Les pipelines modernes incluent souvent plusieurs composantes – prédiction de cartes de probabilité, apprentissage de représentations auxiliaires, post-traitement algorithmique – rendant l’analyse des erreurs plus complexe et soulignant la nécessité d’une évaluation méthodologiquement rigoureuse.
+
+[252] (Normal): La distinction entre segmentation sémantique et segmentation d’instances structure aujourd’hui l’état de l’art. La segmentation sémantique vise à attribuer une classe à chaque pixel, par exemple “noyau” versus “fond”, tandis que la segmentation d’instances cherche à individualiser explicitement chaque cellule en lui assignant un identifiant unique. Cette différence conceptuelle a des implications profondes sur la nature des erreurs et sur les métriques d’évaluation. Une segmentation sémantique peut obtenir un recouvrement global satisfaisant tout en fusionnant plusieurs cellules adjacentes, ce qui est inacceptable pour de nombreuses analyses biologiques. La segmentation d’instances est donc plus exigeante, en particulier dans des scènes denses, et nécessite des formulations et des métriques spécifiques.
+
+[253] (Normal): Dans ce contexte, les architectures de type encodeur-décodeur, et en particulier U-Net , se sont imposées comme une référence en imagerie biomédicale. Leur capacité à combiner information multi-échelle et détails fins les rend particulièrement adaptées à la segmentation de structures petites et nombreuses comme les noyaux cellulaires. De nombreuses variantes ont été proposées, intégrant des blocs résiduels, des mécanismes d’attention ou des stratégies multi-échelles, afin d’améliorer la séparation des objets adjacents et la robustesse aux variations de coloration. Toutefois, U-Net reste fondamentalement un segmentateur sémantique, et son utilisation pour la segmentation d’instances repose généralement sur des stratégies complémentaires de post-traitement.
+
+[254] (Normal): Des approches orientées forme, telles que StarDist  ont introduit une représentation géométrique explicite des instances sous forme de polygones étoilés définis par des distances radiales. Cette formulation facilite la séparation d’instances dans des scènes denses, mais introduit un biais inductif fort en faveur de formes star-convexes, ce qui peut limiter la performance sur des morphologies très irrégulières ou fortement concaves. D’autres approches, comme Cellpose , adoptent une philosophie différente en apprenant des champs de vecteurs guidant les pixels vers le centre de leur instance, avec l’objectif de fournir une méthode plus généraliste et facilement applicable à une grande variété de données.
+
+[255] (Normal): Au-delà des architectures, les stratégies d’apprentissage, les fonctions de perte et les métriques d’évaluation jouent un rôle déterminant dans la robustesse et l’interprétabilité des modèles. Les métriques globales telles que Dice ou IoU restent largement utilisées, mais sont insuffisantes pour caractériser les erreurs de fusion et de fragmentation. Des métriques orientées instance, comme l’AJI ou la Panoptic Quality, ont été introduites pour mieux refléter la qualité de l’individualisation des cellules (Kumar et al., 2017 ; Kirillov et al., 2019). Néanmoins, ces métriques restent des agrégations qui peuvent masquer des biais structurels importants.
+
+[256] (Normal): L’état de l’art met ainsi en évidence un domaine où les performances moyennes ont considérablement progressé, mais où la compréhension fine des comportements des modèles reste limitée. La plupart des travaux se concentrent sur l’amélioration de scores agrégés, au détriment d’analyses conditionnelles selon la morphologie, la densité ou le contexte tissulaire. Dans ce cadre, l’objectif du présent travail est de dépasser la simple comparaison de performances globales pour analyser de manière approfondie les biais structurels et les régimes d’échec de modèles largement utilisés. En comparant une approche sémantique de type U-Net, une approche géométrique paramétrée comme StarDist et une méthode généraliste à champ de vecteurs comme Cellpose, il devient possible de relier les choix de formulation aux comportements observés selon les configurations morphologiques et spatiales. Cette analyse vise à produire une compréhension plus opérationnelle des forces et des limites de chaque méthode, en vue d’un usage raisonné et fiable de la segmentation cellulaire en imagerie biomédicale.
+
+[257] (Normal): À cette analyse architecturale s’ajoute une réflexion de plus en plus présente dans la littérature récente concernant la notion de biais inductif et son rôle dans la segmentation cellulaire. Un biais inductif peut être défini comme l’ensemble des hypothèses implicites qu’un modèle impose sur la structure des données afin de rendre l’apprentissage possible. Dans le cas des réseaux convolutionnels classiques, ce biais est lié à l’hypothèse de localité et d’invariance par translation, qui est globalement adaptée aux images naturelles et biomédicales. Toutefois, chaque formulation du problème de segmentation introduit des hypothèses supplémentaires. Une segmentation sémantique binaire suppose implicitement que l’information pertinente est contenue dans la distinction objet/fond, sans se préoccuper explicitement de l’identité individuelle des objets. À l’inverse, les méthodes d’instance segmentation introduisent des hypothèses supplémentaires sur la séparabilité des objets et sur la manière dont cette séparabilité peut être représentée dans l’espace des prédictions.
+
+[258] (Normal): Dans le cas de méthodes comme StarDist, le biais inductif est fortement géométrique. En représentant chaque instance par un ensemble de distances radiales définissant un polygone étoilé, le modèle encode l’hypothèse que les objets d’intérêt sont globalement star-convexes et que leurs contours peuvent être raisonnablement approchés par une telle représentation. Cette hypothèse est souvent vérifiée pour des noyaux cellulaires relativement compacts et bien isolés, ce qui explique les performances élevées observées dans de nombreux contextes. Cependant, ce même biais devient une limitation lorsque les noyaux présentent des contours très irréguliers, des formes lobées ou fortement concaves, ou lorsqu’ils sont partiellement visibles. Dans ces situations, la représentation star-convexe peut conduire à des reconstructions imprécises, à des fusions d’instances ou à des approximations excessives des contours, même lorsque la carte de probabilité de foreground est de bonne qualité.
+
+[259] (Normal): Les approches basées sur des champs de vecteurs, comme Cellpose, introduisent un biais inductif différent. Plutôt que de contraindre explicitement la forme finale des instances, elles apprennent une dynamique de regroupement des pixels vers des centres d’objets, en s’appuyant sur l’idée que les pixels appartenant à une même cellule doivent converger vers un point central commun. Cette formulation est conceptuellement élégante, car elle permet de gérer des formes variées sans imposer explicitement une géométrie particulière. En pratique, toutefois, cette approche repose sur la capacité du modèle à estimer correctement des champs de vecteurs cohérents dans des régions denses et ambiguës. Lorsque plusieurs cellules sont fortement imbriquées ou lorsque les gradients d’intensité sont faibles, les champs de vecteurs peuvent devenir instables, conduisant à des erreurs de regroupement. De plus, la notion de centre n’est pas toujours bien définie pour des objets très allongés ou irréguliers, ce qui peut introduire des comportements inattendus.
+
+[260] (Normal): Ces considérations soulignent que la performance d’un modèle de segmentation cellulaire ne peut être comprise indépendamment de ses hypothèses inductives. Deux modèles peuvent obtenir des scores moyens similaires tout en échouant dans des régimes morphologiques très différents. C’est pourquoi une analyse fine des performances conditionnelles, en fonction de la taille des cellules, de leur circularité, de leur densité locale ou de leur type, est indispensable pour interpréter correctement les résultats. Cette perspective est encore insuffisamment développée dans la littérature, où les comparaisons se limitent souvent à des moyennes globales sur des ensembles de test hétérogènes.
+
+[261] (Normal): Un autre axe important de l’état de l’art concerne la question de la généralisation et de l’adaptation de domaine. Les modèles de segmentation cellulaire sont généralement entraînés sur des jeux de données annotés provenant de contextes spécifiques, avec des distributions de couleurs, de textures et de morphologies particulières. Lorsqu’ils sont appliqués à des données provenant d’un autre centre, d’un autre protocole de coloration ou d’un autre type de tissu, leurs performances peuvent chuter de manière significative. Ce phénomène de décalage de distribution est bien documenté en vision par ordinateur et se manifeste de manière aiguë en histopathologie. Des travaux ont exploré des stratégies de normalisation de coloration, d’augmentation de données agressive, ou d’adaptation de domaine explicite afin d’atténuer ces effets, mais aucune solution universelle n’a émergé.
+
+[262] (Normal): Dans ce contexte, les méthodes dites généralistes, entraînées sur des ensembles de données variés et conçues pour être appliquées sans réglage fin, occupent une place particulière. Leur promesse est de réduire la barrière d’entrée pour les utilisateurs non experts en apprentissage automatique et de fournir des résultats raisonnablement bons dans une large gamme de situations. Cependant, cette généralité apparente doit être interprétée avec prudence. Une méthode peut afficher une performance moyenne satisfaisante sur un ensemble hétérogène tout en échouant systématiquement sur certaines configurations spécifiques, par exemple des régions de très forte densité ou des morphologies atypiques. La compréhension de ces régimes d’échec est essentielle pour un usage fiable en pratique, en particulier dans des contextes cliniques où les erreurs peuvent avoir des conséquences importantes.
+
+[263] (Normal): La question de l’évaluation est intimement liée à celle des biais et de la généralisation. Les métriques globales, bien qu’utiles pour comparer rapidement des méthodes, ne fournissent qu’une vision partielle de la performance. Des métriques orientées instance comme l’AJI ou la Panoptic Quality ont permis de mieux pénaliser les fusions et les fragmentations, mais elles restent des agrégats qui peuvent masquer des comportements locaux. De plus, ces métriques dépendent elles-mêmes de conventions de correspondance entre prédictions et vérité terrain, qui peuvent influencer l’interprétation des résultats. Certains travaux récents plaident pour des analyses plus qualitatives et pour des décompositions explicites des erreurs en catégories telles que faux négatifs, faux positifs, fusions et fragmentations, afin de relier les erreurs observées aux choix de modélisation.
+
+[264] (Normal): Enfin, un aspect encore relativement peu exploré dans la littérature est l’analyse instance-par-instance des performances en fonction de propriétés morphologiques mesurables. En associant à chaque instance de la vérité terrain des descripteurs tels que l’aire, la circularité, l’excentricité, la densité locale ou le type cellulaire, il devient possible d’étudier systématiquement les régimes dans lesquels un modèle réussit ou échoue. Une telle analyse permet de dépasser le cadre des métriques globales et d’identifier des biais structurels liés à la taille des objets, à leur forme ou à leur environnement. Elle ouvre également la voie à des stratégies d’amélioration ciblées, par exemple en ajustant les fonctions de perte, les stratégies d’augmentation ou les paramètres d’inférence en fonction des régimes morphologiques identifiés.
+
+[265] (Normal): Dans cette perspective, l’état de l’art suggère que la segmentation cellulaire est un domaine arrivé à une certaine maturité en termes de performances moyennes, mais encore immature en termes de compréhension fine des comportements des modèles. Les architectures encodeur-décodeur, les méthodes orientées forme et les approches à champs de vecteurs offrent chacune des avantages et des limites, étroitement liés à leurs hypothèses inductives. Les benchmarks et les jeux de données publics ont permis des comparaisons standardisées, mais ont également favorisé une focalisation sur des scores agrégés au détriment d’analyses plus approfondies. Le besoin d’études centrées sur les biais, les régimes d’échec et les comportements conditionnels apparaît ainsi comme une lacune majeure de la littérature actuelle.
+
+[266] (Normal): C’est précisément dans ce cadre que s’inscrit le présent travail. Plutôt que de proposer une nouvelle architecture ou d’optimiser marginalement des performances globales, il s’agit d’examiner de manière systématique les comportements de modèles de segmentation cellulaire largement utilisés, en les confrontant à une diversité de configurations morphologiques et spatiales. En articulant des mesures quantitatives instance-par-instance à une analyse qualitative des erreurs, ce travail vise à produire une compréhension plus nuancée et plus opérationnelle des forces et des limites de chaque approche. Une telle compréhension est indispensable pour un usage raisonné de ces méthodes en recherche et en pratique clinique, et constitue une étape nécessaire vers le développement de modèles réellement robustes et interprétables en imagerie biomédicale.
+
+[267] (Normal): Un prolongement naturel de cette réflexion concerne la place de la segmentation cellulaire dans des pipelines intégrés d’analyse biomédicale et les conséquences des biais de segmentation sur les étapes aval. Dans de nombreux travaux récents, la segmentation n’est plus une fin en soi mais une étape intermédiaire précédant des tâches de classification, de prédiction ou de modélisation statistique plus complexes. Par exemple, dans les approches de pathologie computationnelle visant à prédire le pronostic ou la réponse au traitement à partir d’images histologiques, les caractéristiques extraites des noyaux segmentés servent souvent de variables d’entrée pour des modèles de machine learning ou de deep learning de plus haut niveau. Dans ce contexte, une segmentation imparfaite ne se traduit pas seulement par une baisse marginale de performance, mais peut induire des corrélations artificielles ou masquer des signaux biologiques faibles mais pertinents. Ainsi, une sous-segmentation systématique dans des zones tumorales denses peut conduire à une sous-estimation de la densité cellulaire, laquelle est pourtant un marqueur pronostique important dans plusieurs cancers. Inversement, une sur-segmentation dans des régions stromales peu contrastées peut générer un bruit important dans les distributions de caractéristiques, diluant l’information discriminante.
+
+[268] (Normal): Cette propagation des erreurs souligne l’importance d’une analyse critique des hypothèses sous-jacentes aux méthodes de segmentation lorsqu’elles sont intégrées dans des pipelines décisionnels. Une segmentation sémantique binaire, bien qu’insuffisante pour certaines analyses morphologiques fines, peut parfois être suffisante lorsque l’objectif principal est d’estimer des proportions globales ou des surfaces relatives. À l’inverse, une segmentation d’instances de haute précision est indispensable lorsque l’analyse repose sur des statistiques par cellule ou sur des graphes d’interaction spatiale. L’état de l’art montre cependant que ces exigences sont rarement explicitées de manière formelle dans les travaux appliqués, où la segmentation est souvent traitée comme un composant interchangeable plutôt que comme une hypothèse méthodologique forte.
+
+[269] (Normal): Un autre aspect central concerne la question de l’échelle, tant spatiale que conceptuelle. En histopathologie, les images peuvent couvrir des régions extrêmement vastes, allant de la cellule individuelle à la lame entière. Les modèles de segmentation sont souvent entraînés et évalués sur des patches de taille relativement réduite, ce qui pose la question de leur comportement lorsqu’ils sont déployés à grande échelle. Des artefacts liés aux bordures de patchs, à la perte de contexte global ou à la variabilité intra-lame peuvent apparaître. Certains travaux ont proposé des stratégies multi-échelles ou hiérarchiques pour atténuer ces effets, mais la plupart des benchmarks restent centrés sur des images de taille modérée. Cette limitation méthodologique est particulièrement pertinente pour des contextes cliniques réels, où les décisions sont prises à l’échelle de la lame entière et où les erreurs locales peuvent se cumuler.
+
+[270] (Normal): La question de l’interprétabilité des modèles de segmentation cellulaire mérite également une attention particulière. Si les architectures de deep learning offrent des performances élevées, elles sont souvent perçues comme des boîtes noires, ce qui peut freiner leur adoption dans des contextes cliniques sensibles. Plusieurs travaux récents ont exploré des techniques d’interprétation, telles que les cartes de saillance, l’analyse de l’importance des caractéristiques ou la visualisation des activations intermédiaires, afin de mieux comprendre les décisions des modèles. Toutefois, dans le cas de la segmentation, l’interprétation est rendue plus complexe par la nature dense des prédictions et par l’interaction entre le modèle et les étapes de post-traitement. Une erreur de segmentation peut provenir du réseau lui-même, mais aussi d’un choix de seuil, d’un paramètre de NMS ou d’une heuristique de séparation d’instances. Cette superposition de sources d’erreur complique l’attribution causale et renforce l’intérêt d’analyses structurées et systématiques.
+
+[271] (Normal): La littérature récente met également en évidence un intérêt croissant pour des approches hybrides combinant apprentissage profond et contraintes explicites. Plutôt que de déléguer entièrement la tâche de segmentation à un réseau neuronal, certains travaux intègrent des connaissances a priori sur la forme, la topologie ou la biologie des objets segmentés. Ces contraintes peuvent être intégrées sous forme de pertes additionnelles, de régularisations ou de modules explicites dans l’architecture. L’objectif est de guider l’apprentissage vers des solutions biologiquement plausibles et de réduire les comportements aberrants. Néanmoins, l’introduction de telles contraintes soulève de nouvelles questions : quelles connaissances intégrer, comment les formaliser de manière robuste, et comment éviter d’introduire des biais excessifs qui réduiraient la capacité du modèle à généraliser à des cas atypiques.
+
+[272] (Normal): Dans le même esprit, la question de la robustesse aux annotations imparfaites a fait l’objet de nombreux travaux. Des stratégies d’apprentissage robuste, telles que l’utilisation de pertes tolérantes au bruit, de modèles probabilistes de la vérité terrain ou de consensus entre annotateurs, ont été proposées pour atténuer l’impact des incohérences d’annotation. Cependant, ces approches restent peu standardisées et rarement intégrées dans des pipelines de segmentation cellulaire utilisés en pratique. Dans de nombreux benchmarks, la vérité terrain est traitée comme une référence absolue, alors même qu’elle peut contenir des ambiguïtés ou des erreurs systématiques. Cette situation renforce l’intérêt d’analyses qualitatives et de validations croisées avec des experts du domaine.
+
+[273] (Normal): Un point particulièrement pertinent pour les applications en pathologie est la question de la rareté et de la diversité des types cellulaires. Dans des tissus complexes, certaines populations cellulaires peuvent être peu représentées, mais biologiquement cruciales, par exemple des cellules immunitaires infiltrantes ou des cellules tumorales rares mais agressives. Les modèles de segmentation entraînés sur des distributions déséquilibrées peuvent avoir tendance à privilégier les classes majoritaires et à négliger ces populations rares. La segmentation multi-classes ajoute alors une couche de complexité supplémentaire, car elle nécessite non seulement de segmenter correctement les instances, mais aussi de leur attribuer une classe correcte. Les erreurs de classification peuvent interagir avec les erreurs de segmentation, rendant l’analyse encore plus délicate.
+
+[274] (Normal): La disponibilité croissante de jeux de données publics a joué un rôle clé dans le développement du domaine, mais elle a également contribué à une certaine standardisation des problèmes étudiés. Des datasets comme PanNuke, MoNuSeg, CoNSeP ou Kumar fournissent des annotations riches et diversifiées, mais ils ne couvrent pas l’ensemble des situations rencontrées en pratique. Les modèles entraînés et évalués sur ces datasets peuvent présenter des performances élevées tout en restant fragiles face à des données provenant de contextes non représentés. Cette limitation souligne l’importance de considérer les benchmarks comme des outils d’évaluation relative plutôt que comme des garanties de performance absolue.
+
+[275] (Normal): Dans ce paysage, l’analyse des biais et des comportements conditionnels apparaît comme une contribution essentielle pour dépasser l’état de l’art actuel. En identifiant systématiquement les régimes morphologiques et contextuels associés aux succès et aux échecs des modèles, il devient possible de formuler des recommandations plus nuancées pour leur utilisation. Plutôt que de rechercher une méthode universellement optimale, l’objectif devient de comprendre quel modèle est le plus adapté à quel contexte, et dans quelles conditions une vérification humaine ou un ajustement méthodologique est nécessaire.
+
+[276] (Normal): En synthèse, l’état de l’art sur la segmentation cellulaire en imagerie microscopique révèle un champ riche et dynamique, marqué par des progrès rapides en termes de performances globales, mais aussi par des défis persistants liés à la robustesse, à la généralisation et à l’interprétabilité. Les approches sémantiques, géométriques et basées sur des champs de vecteurs incarnent des philosophies différentes, chacune avec ses avantages et ses limites. Les métriques et les benchmarks ont structuré la comparaison des méthodes, mais ils ne suffisent pas à capturer la complexité des erreurs observées en pratique. Une compréhension approfondie des biais inductifs, des régimes d’échec et des interactions entre segmentation et analyses aval apparaît comme une étape nécessaire pour un usage fiable et raisonné de ces méthodes en biologie et en médecine. C’est dans cette perspective que s’inscrit l’analyse proposée dans ce travail, en cherchant à articuler les choix de modélisation, les propriétés morphologiques des données et les comportements observés des modèles, afin de contribuer à une vision plus fine et plus opérationnelle de la segmentation cellulaire moderne.
+
+[277] (Normal): L’extension suivante vise à approfondir encore l’analyse en maintenant une continuité stricte avec les développements précédents, sans rupture thématique ni redondance artificielle, afin d’inscrire l’état de l’art dans une logique cumulative et cohérente. Elle s’attache en particulier à explorer plus finement les dimensions statistiques, méthodologiques et épistémologiques de la segmentation cellulaire, ainsi que leurs implications concrètes pour la recherche biomédicale.
+
+[278] (Normal): Un premier point rarement développé de manière explicite dans la littérature concerne la relation entre segmentation cellulaire et inférence statistique. Dans de nombreux travaux, les objets segmentés sont ensuite utilisés comme unités statistiques indépendantes, par exemple pour comparer des distributions de tailles nucléaires entre groupes de patients ou pour alimenter des modèles prédictifs. Cette pratique repose implicitement sur l’hypothèse que les erreurs de segmentation sont aléatoires et non corrélées aux variables d’intérêt. Or, cette hypothèse est rarement vérifiée. Au contraire, de nombreuses erreurs de segmentation sont systématiques et dépendent fortement de facteurs morphologiques ou contextuels, tels que la densité cellulaire, le contraste local ou la proximité de structures complexes. Ces biais peuvent induire des distorsions statistiques subtiles mais importantes, par exemple en sous-estimant la variabilité réelle d’une population cellulaire ou en amplifiant artificiellement certaines différences entre groupes. Cette dimension statistique de la segmentation est encore peu discutée dans les études comparatives, qui se concentrent majoritairement sur des métriques de recouvrement ou de détection, sans analyser l’impact des erreurs sur les analyses en aval.
+
+[279] (Normal): Un second axe de réflexion concerne la notion de robustesse opérationnelle. Dans un cadre expérimental contrôlé, il est possible d’optimiser finement un modèle de segmentation pour un jeu de données donné, en ajustant les paramètres d’entraînement, les augmentations de données et les seuils d’inférence. En pratique, cependant, les modèles sont souvent utilisés dans des conditions moins idéales, sur des données partiellement différentes de celles vues à l’entraînement, avec des contraintes de temps, de calcul ou d’expertise humaine. La robustesse opérationnelle d’un modèle désigne alors sa capacité à maintenir un comportement raisonnablement stable face à ces variations. Cette notion dépasse la simple performance moyenne et inclut des aspects tels que la sensibilité aux hyper-paramètres, la stabilité des prédictions face à de légères perturbations de l’entrée, ou encore la prévisibilité des modes d’échec. Un modèle dont les erreurs sont rares mais catastrophiques peut être moins utile en pratique qu’un modèle légèrement moins performant en moyenne mais dont les échecs sont plus graduels et plus faciles à détecter.
+
+[280] (Normal): Dans ce contexte, la segmentation cellulaire peut être envisagée comme un problème de compromis entre expressivité et contrôle. Les architectures profondes très expressives peuvent capturer des motifs complexes et produire des segmentations fines, mais elles peuvent aussi exhiber des comportements inattendus dans des situations peu représentées dans les données d’entraînement. À l’inverse, des modèles plus contraints, par exemple via des biais géométriques explicites, peuvent offrir une meilleure prévisibilité au prix d’une expressivité réduite. Cette tension est particulièrement visible lorsqu’on compare des approches comme U-Net, StarDist et Cellpose, qui incarnent des choix différents sur cet axe. La littérature tend toutefois à privilégier l’amélioration des performances maximales plutôt que l’analyse de ces compromis, laissant aux utilisateurs la charge d’évaluer empiriquement la fiabilité des modèles dans leurs contextes spécifiques.
+
+[281] (Normal): Un autre aspect important concerne la temporalité de l’analyse. Dans certaines applications, notamment en imagerie de cellules vivantes, la segmentation est effectuée sur des séquences temporelles, et la cohérence temporelle des instances devient un enjeu central. Même si le présent travail se concentre sur des images statiques, les principes mis en évidence restent pertinents. Un modèle qui segmente correctement des cellules isolées image par image peut produire des trajectoires incohérentes dans le temps si les erreurs de segmentation varient d’une image à l’autre. La littérature sur le suivi cellulaire a montré que des erreurs de segmentation initiales peuvent compromettre l’ensemble du suivi, illustrant encore une fois la nature critique de cette étape. Cette perspective temporelle renforce l’idée que la segmentation doit être évaluée non seulement en termes de qualité instantanée, mais aussi en termes de stabilité et de cohérence globale.
+
+[282] (Normal): La question de la reproductibilité occupe également une place croissante dans les discussions récentes. Les performances rapportées dans la littérature dépendent fortement des choix d’implémentation, des pré-traitements, des stratégies d’augmentation et des paramètres d’inférence. Deux implémentations nominalement identiques d’une même méthode peuvent produire des résultats sensiblement différents si ces détails ne sont pas strictement contrôlés. Cette variabilité complique la comparaison entre études et souligne l’importance de décrire précisément les pipelines expérimentaux. Dans le domaine de la segmentation cellulaire, où les résultats sont sensibles à des paramètres apparemment mineurs, cette exigence de transparence est particulièrement cruciale. Elle justifie également des approches d’évaluation systématiques, dans lesquelles les mêmes données et les mêmes métriques sont utilisées pour comparer des méthodes dans des conditions strictement équivalentes.
+
+[283] (Normal): Un prolongement naturel de ces considérations est la question de l’automatisation des pipelines de segmentation. Dans des contextes à haut débit, il est irréaliste de prévoir une intervention humaine systématique pour ajuster les paramètres ou corriger les erreurs. Les méthodes de segmentation doivent donc être conçues pour fonctionner de manière fiable sans supervision constante. Cette exigence favorise les approches capables d’auto-régulation, par exemple via des mécanismes adaptatifs de seuiling ou des estimations internes de la qualité des prédictions. Cependant, ces mécanismes introduisent à leur tour de nouvelles sources de complexité et de potentiels biais, qui doivent être analysés avec soin.
+
+[284] (Normal): La montée en puissance des approches fondées sur l’apprentissage auto-supervisé et le pré-entraînement sur de grands corpus d’images ouvre également de nouvelles perspectives pour la segmentation cellulaire. En apprenant des représentations génériques à partir de données non annotées, ces méthodes promettent de réduire la dépendance aux annotations coûteuses et de mieux capturer la variabilité naturelle des images biomédicales. Plusieurs travaux récents ont montré que des modèles pré-entraînés peuvent être adaptés efficacement à des tâches de segmentation avec un nombre réduit d’annotations. Toutefois, l’impact de ces stratégies sur les biais morphologiques et les régimes d’échec reste encore peu étudié. Il est possible que des représentations apprises de manière auto-supervisée favorisent certaines structures visuelles au détriment d’autres, introduisant des biais différents de ceux observés dans l’apprentissage supervisé classique.
+
+[285] (Normal): Dans une perspective plus large, la segmentation cellulaire peut être envisagée comme un cas particulier d’un problème plus général de perception artificielle en biologie, où l’objectif n’est pas seulement de reproduire une annotation humaine, mais de produire une représentation utile pour l’analyse scientifique. Cette distinction est subtile mais importante. Une segmentation parfaitement conforme à une convention d’annotation donnée n’est pas nécessairement la plus informative pour une analyse biologique donnée. Inversement, une segmentation qui s’écarte légèrement de la vérité terrain peut néanmoins préserver les structures pertinentes pour certaines analyses. Cette observation invite à repenser les critères d’évaluation en fonction des objectifs finaux plutôt que de considérer la segmentation comme une fin en soi.
+
+[286] (Normal): Enfin, l’état de l’art met en évidence un besoin croissant de travaux interdisciplinaires associant experts en apprentissage automatique, biologistes et cliniciens. La segmentation cellulaire se situe à l’interface entre des considérations algorithmiques et des contraintes biologiques et cliniques. Une compréhension fine des erreurs de segmentation nécessite souvent une expertise du domaine biologique pour interpréter correctement les structures observées et les ambiguïtés d’annotation. À l’inverse, une collaboration étroite avec des spécialistes de l’apprentissage automatique est indispensable pour concevoir des modèles capables de gérer la complexité des données tout en restant interprétables et robustes. Cette dimension collaborative est encore peu visible dans la littérature méthodologique, mais elle constitue probablement un levier essentiel pour les avancées futures.
+
+[287] (Normal): Dans cette optique, l’analyse approfondie des biais et des comportements conditionnels des modèles de segmentation cellulaire ne doit pas être perçue comme une simple étape exploratoire, mais comme une contribution méthodologique à part entière. En mettant en lumière les régimes dans lesquels les modèles échouent, elle permet non seulement d’améliorer les méthodes existantes, mais aussi de guider leur utilisation en pratique, en identifiant les situations où une validation humaine est nécessaire ou où des stratégies alternatives doivent être envisagées. Une telle approche contribue à une vision plus mature et plus responsable de l’utilisation du deep learning en imagerie biomédicale.
+
+[288] (Normal): Ainsi, l’ensemble des travaux existants converge vers un constat partagé : la segmentation cellulaire est un problème fondamental, complexe et multidimensionnel, pour lequel les progrès technologiques doivent s’accompagner d’une analyse critique des hypothèses, des biais et des conséquences pratiques. Les méthodes modernes offrent des performances impressionnantes sur des benchmarks standardisés, mais leur déploiement fiable et interprétable dans des contextes réels exige une compréhension approfondie de leurs comportements. C’est cette compréhension, articulée autour d’une analyse fine des erreurs et de leurs déterminants morphologiques et contextuels, que cherche à renforcer le présent travail, en s’inscrivant dans une continuité logique avec l’état de l’art tout en en dépassant les limites actuelles.
+
+[309] (Title): CHAPITRE II: Analyse de besoins et Méthodologie
+
+[311] (Title): Ce chapitre présente l’analyse des besoins et la méthodologie adoptée pour mener une étude approfondie des comportements et biais des modèles de segmentation cellulaire basés sur l’apprentissage profond. Contrairement à une approche visant à proposer une nouvelle architecture ou à établir un classement exhaustif des méthodes existantes, l’objectif principal de ce travail est de concevoir un cadre expérimental rigoureux permettant d’analyser finement les conditions dans lesquelles des modèles largement utilisés réussissent ou échouent. Une attention particulière est portée à l’impact de l’hétérogénéité morphologique et spatiale des cellules sur les performances locales des modèles, au-delà des métriques globales habituellement rapportées dans la littérature.
+
+[313] (Title): Dans cette optique, ce chapitre formalise d’abord les besoins scientifiques et techniques de l’étude, puis décrit les données utilisées, leur préparation et leur organisation. Il détaille ensuite la méthodologie retenue, incluant le choix des modèles, les paramètres d’inférence et de post-traitement, ainsi que le protocole d’évaluation mis en place pour permettre une analyse instance-par-instance des erreurs de segmentation.
+
+[315] (Title): Spécification des besoins et des données
+
+[316] (Title): Analyse et spécification des besoins
+
+[317] (Title): La segmentation cellulaire en imagerie histopathologique est une tâche centrale pour de nombreuses applications biologiques et médicales, allant de la quantification morphologique à l’analyse de la composition cellulaire des tissus. Si les approches récentes basées sur l’apprentissage profond atteignent aujourd’hui des performances élevées sur des benchmarks de référence, ces performances sont le plus souvent résumées par des métriques globales agrégées, telles que le Dice coefficient ou l’Intersection over Union (IoU). Or, ces indicateurs globaux masquent fréquemment des comportements locaux très différents selon les configurations cellulaires rencontrées.
+
+[318] (Title): Le besoin fondamental de ce travail est donc de dépasser une évaluation purement globale pour analyser, de manière fine et interprétable, les biais structurels des modèles de segmentation cellulaire. Cela implique de comprendre dans quelles situations morphologiques ou spatiales un modèle tend à manquer des cellules, à en fusionner plusieurs, à fragmenter une instance unique, ou à produire des contours imprécis. Une telle analyse est essentielle pour une utilisation raisonnée de ces méthodes en pratique biologique, où les erreurs ne sont pas équivalentes selon le contexte.
+
+[319] (Title): Pour répondre à cet objectif, plusieurs exigences méthodologiques ont été identifiées. Tout d’abord, l’étude doit reposer sur des modèles représentatifs de paradigmes distincts de segmentation cellulaire, afin de comparer des hypothèses inductives différentes. Ensuite, elle doit s’appuyer sur un jeu de données suffisamment riche et hétérogène pour exposer les modèles à une large variété de morphologies cellulaires, de densités et de contextes tissulaires. Enfin, elle doit mettre en place un protocole d’évaluation capable d’établir explicitement des correspondances entre les instances prédites et les instances de la vérité terrain, condition indispensable pour analyser les erreurs de manière détaillée.
+
+[321] (Title): Un besoin transversal est la reproductibilité de l’étude. L’ensemble du pipeline, depuis la préparation des données jusqu’à l’évaluation finale, doit être clairement défini, paramétré et documenté, afin que les résultats puissent être reproduits et interprétés de manière fiable.
+
+[323] (Title): Sources de données
+
+[324] (Normal): Le jeu de données principal utilisé dans ce travail est PanNuke, un ensemble d’images histopathologiques annotées en instances de noyaux cellulaires, couvrant différents types de tissus et incluant plusieurs catégories cellulaires. PanNuke constitue un choix pertinent pour l’analyse des biais des modèles de segmentation, car il présente une forte variabilité des configurations morphologiques et spatiales. Les images incluent des noyaux de tailles variées, des densités cellulaires hétérogènes, des chevauchements fréquents et des frontières parfois ambiguës, caractéristiques des données rencontrées en pratique réelle.
+
+[325] (Normal): Les annotations fournies par PanNuke sont initialement organisées sous forme de masques multi-canaux, chaque canal correspondant à un type cellulaire donné, avec un canal dédié au fond. Cette représentation, bien qu’expressive, n’est pas directement exploitable pour une analyse instance-par-instance. Une étape de préparation des données est donc nécessaire afin de convertir ces annotations en cartes d’instances explicites, où chaque cellule est associée à un identifiant unique, ainsi qu’à une classe cellulaire.
+
+[326] (Normal): Le jeu de données est structuré en trois sous-ensembles distincts, correspondant aux folds fournis par PanNuke. Ces folds sont respectivement associés aux ensembles d’entraînement, de validation et de test, afin de garantir une séparation stricte des données et d’éviter toute fuite d’information entre les phases expérimentales.
+
+[327] (Caption): Tableau : statistiques du dataset par split, incluant le nombre d’images conservées après filtrage, le nombre total d’instances et la distribution des classes.
+
+[328] (Caption): Tableau : Correspondance entre les identifiants de classes et les types cellulaires dans le jeu de données PanNuke
+
+[329] (Title): Processus de collecte
+
+[330] (Title): Les données ont été obtenues à partir des fichiers officiels du dataset PanNuke. Le processus de préparation consiste à transformer les images et annotations brutes en un format standardisé, cohérent et directement exploitable par les modèles et les outils d’évaluation.
+
+[331] (Title): Les images sont d’abord normalisées en valeurs flottantes dans l’intervalle [0,1], en conservant les trois canaux RGB. Les annotations multi-canaux sont ensuite traitées afin de reconstruire une segmentation d’instances. Pour chaque image, le canal correspondant au fond est identifié, puis les autres canaux sont considérés comme représentant des classes de noyaux cellulaires. Pour chaque canal de classe, les composantes connexes sont extraites à l’aide d’un algorithme de labellisation en connectivité 8, produisant ainsi des instances candidates.
+
+[332] (Title): Afin de garantir une carte d’instances non ambiguë, une politique explicite de gestion des recouvrements est adoptée. Lorsque des pixels appartiennent à plusieurs canaux de classe, ils sont attribués à la première instance rencontrée, sans écrasement des pixels déjà assignés. Un diagnostic du taux de recouvrement est néanmoins effectué afin de détecter d’éventuelles incohérences dans les annotations. Cette stratégie permet de produire une segmentation d’instances exploitable, tout en conservant une traçabilité des cas problématiques.
+
+[333] (Title): Les identifiants d’instances sont ensuite relabellisés de manière contiguë, de 1 à K pour chaque image, avec 0 réservé au fond. Parallèlement, une carte de classes par pixel est générée, ainsi qu’une table de correspondance associant à chaque instance une classe cellulaire, déterminée par vote majoritaire sur les pixels de l’instance. Les images ne contenant aucune cellule annotée sont exclues du jeu de données afin d’éviter d’introduire des cas dégénérés dans l’analyse.
+
+[334] (Title): L’ensemble des données préparées est organisé selon une structure de répertoires claire, séparant les images, les masques d’instances, les cartes de classes et les tables de correspondance par instance. Cette organisation facilite à la fois l’entraînement, l’inférence et l’évaluation détaillée.
+
+[336] (Caption): Figure : exemple illustrant la conversion d’un masque multi-canaux en carte d’instances et carte de classes
+
+[338] (List Paragraph): Pré-processing des données
+
+[339] (Normal (Web)): La phase de pré-processing mise en œuvre dans ce travail ne vise pas à transformer ou altérer les données issues de la préparation initiale, mais à enrichir la vérité terrain par des informations analytiques permettant une évaluation conditionnelle et interprétable des performances des modèles de segmentation. Cette étape constitue un lien essentiel entre les annotations brutes et l’analyse expérimentale, en introduisant une description morphologique explicite des noyaux cellulaires.
+
+[340] (Normal (Web)): Contrairement aux approches classiques qui évaluent les modèles uniquement à l’aide de métriques globales agrégées sur l’ensemble des pixels ou des instances, le pré-processing adopté ici repose sur l’hypothèse que les performances de segmentation dépendent fortement des propriétés géométriques des objets segmentés. Taille, forme, convexité ou régularité des contours influencent directement la capacité des modèles à détecter, séparer et reconstruire correctement les noyaux, en particulier dans des contextes biologiques hétérogènes tels que ceux couverts par le jeu de données PanNuke.
+
+[341] (Normal (Web)): À partir des cartes d’instances reconstruites lors de la phase de préparation, chaque noyau cellulaire annoté est considéré comme une région connexe indépendante. Pour chacune de ces régions, un ensemble de descripteurs morphologiques est calculé à l’aide des propriétés régionales standard issues de l’analyse morphologique d’images.
+
+[342] (Normal (Web)): Les descripteurs retenus couvrent plusieurs dimensions complémentaires de la géométrie des noyaux. L’aire constitue une mesure fondamentale de la taille des cellules et permet de distinguer les petits noyaux, souvent plus difficiles à détecter, des structures de plus grande taille. Le périmètre complète cette information en fournissant un indicateur de la complexité des contours, sensible aux irrégularités locales et aux formes fragmentées.
+
+[343] (Normal (Web)): L’excentricité est utilisée pour quantifier le degré d’allongement des noyaux. Elle permet d’identifier des formes fortement anisotropes, qui peuvent poser des difficultés spécifiques aux modèles reposant implicitement sur des hypothèses de symétrie ou de compacité. La solidité, définie comme le rapport entre l’aire de l’instance et celle de son enveloppe convexe, est introduite afin de mesurer le degré de convexité des noyaux et de détecter des structures concaves, irrégulières ou partiellement fragmentées.
+
+[344] (Normal (Web)): La circularité est calculée à partir de l’aire et du périmètre afin de fournir une mesure synthétique de la régularité globale de la forme. Toutefois, cette métrique étant particulièrement instable pour les objets de très petite taille, un seuil minimal d’aire est imposé avant son calcul. Ce choix méthodologique permet de limiter l’influence du bruit de discrétisation et d’éviter des valeurs aberrantes pour des instances peu informatives sur le plan morphologique.
+
+[345] (Normal (Web)): Enfin, le rapport d’aspect de la boîte englobante est utilisé comme descripteur simple et robuste de l’anisotropie globale des noyaux. Il complète l’excentricité en apportant une information géométrique directement liée à l’étendue spatiale de l’instance dans les directions horizontale et verticale.
+
+[346] (Normal (Web)): L’ensemble de ces descripteurs est calculé pour chaque instance de la vérité terrain, indépendamment du modèle de segmentation, et constitue une base quantitative stable pour l’analyse ultérieure.
+
+[347] (Normal (Web)): Les descripteurs morphologiques extraits sont ensuite associés aux classes cellulaires fournies par les annotations du jeu de données. Cette association est réalisée préférentiellement au niveau de l’instance, à l’aide d’une table de correspondance construite lors de la préparation des données, qui relie chaque identifiant d’instance à une classe cellulaire déterminée par vote majoritaire sur les pixels correspondants.
+
+[348] (Normal (Web)): Lorsque cette correspondance n’est pas disponible, une stratégie de repli basée sur un vote majoritaire direct à partir de la carte de classes par pixel est appliquée. Cette approche garantit une cohérence entre la segmentation d’instances et l’information sémantique, tout en limitant l’impact de pixels isolés ou de zones ambiguës.
+
+[349] (Normal (Web)): L’intégration conjointe des informations morphologiques et des classes cellulaires permet non seulement d’étudier la distribution des formes selon les types de noyaux, mais surtout de conditionner l’évaluation des performances des modèles à la fois à la géométrie et à la nature biologique des cellules.
+
+[350] (Normal (Web)): Afin de faciliter l’analyse comparative et l’interprétation des résultats, les descripteurs morphologiques continus sont utilisés pour définir des catégories morphologiques discrètes. Ces catégories sont construites de manière opérationnelle à partir de seuils fixes appliqués à plusieurs indicateurs complémentaires, notamment la circularité, l’excentricité, la solidité et, dans certains cas, l’aire.
+
+[351] (Normal (Web)): Trois grandes catégories morphologiques sont distinguées. La première regroupe les noyaux de forme globalement arrondie, caractérisés par une circularité élevée, une faible excentricité et une forte solidité. Ces noyaux présentent des contours réguliers et une géométrie compacte, généralement considérée comme favorable à la segmentation automatique.
+
+[352] (Normal (Web)): La deuxième catégorie correspond aux noyaux allongés, identifiés principalement par une excentricité élevée tout en conservant une solidité relativement importante. Ces formes sont fréquentes dans certains types cellulaires, notamment stromaux, et constituent un cas d’étude pertinent pour analyser les limites des modèles dont les hypothèses inductives privilégient des formes isotropes.
+
+[353] (Normal (Web)): La troisième catégorie regroupe les noyaux irréguliers ou complexes. Elle inclut les instances présentant une circularité faible, une solidité réduite ou une aire exceptionnellement élevée par rapport à la distribution globale. Ce dernier critère, basé sur un quantile élevé de l’aire, permet d’identifier des structures atypiques susceptibles de correspondre à des agrégats, des noyaux fusionnés ou des annotations ambiguës.
+
+[354] (Normal (Web)): Il est important de souligner que ces catégories morphologiques ne prétendent pas constituer une typologie biologique formelle. Elles sont définies dans un objectif strictement méthodologique, afin de fournir un cadre analytique cohérent et reproductible pour l’étude des biais des modèles de segmentation.
+
+[355] (Normal (Web)): En complément de la catégorisation morphologique, une stratification des instances selon leur taille est réalisée. Les noyaux sont répartis en classes de taille (petits, moyens, grands) définies à partir de quantiles globaux de l’aire calculés sur l’ensemble du jeu de données. Cette approche permet de comparer les performances des modèles sur des groupes d’instances de taille comparable, indépendamment de leur forme ou de leur classe cellulaire.
+
+[356] (Normal (Web)): La prise en compte explicite de la taille est particulièrement importante dans le contexte de la segmentation cellulaire, car les petits noyaux sont fréquemment sous-segmentés ou ignorés, tandis que les noyaux de grande taille peuvent être sujets à des erreurs de sur-segmentation ou de fusion.
+
+[357] (Normal (Web)): L’ensemble des informations issues de cette phase de pré-processing est regroupé dans une table structurée associant, pour chaque instance de la vérité terrain, sa classe cellulaire, ses descripteurs morphologiques, sa catégorie morphologique et sa classe de taille. Cette table constitue un élément central de la méthodologie expérimentale adoptée dans ce travail.
+
+[358] (Normal (Web)): Elle permet de dépasser une évaluation purement globale des performances des modèles et d’analyser finement leurs comportements selon des critères géométriques explicites. Les erreurs de segmentation observées peuvent ainsi être reliées directement aux propriétés morphologiques des noyaux concernés, mettant en évidence des biais inductifs propres à chaque architecture étudiée.
+
+[361] (Caption): Figure : Distributions des aires par classe morphologique
+
+[364] (Title): Méthodologie
+
+[365] (Title): Choix des algorithmes et modèles
+
+[366] (Normal): La segmentation cellulaire en imagerie histologique constitue un problème fondamental mais intrinsèquement ambigu. Les cellules observées présentent une grande variabilité de tailles, de formes et de textures, souvent accentuée par la diversité des tissus, des protocoles de coloration et des conditions d’acquisition. À cela s’ajoutent des situations fréquentes de contact étroit, de chevauchement partiel ou de frontières peu contrastées, rendant la séparation précise des cellules difficile même pour un expert humain. Dans ce contexte, la segmentation ne peut être considérée comme une tâche purement objective, mais plutôt comme une interprétation structurée d’un signal visuel complexe.
+
+[367] (Normal): L’objectif de ce travail n’est donc pas d’identifier un modèle universellement optimal, mais d’analyser comment différentes formulations algorithmiques du problème de segmentation influencent les résultats obtenus. Chaque approche d’apprentissage profond encode implicitement un ensemble d’hypothèses inductives sur la nature des objets à segmenter, leur géométrie, leur séparabilité et leur organisation spatiale. Ces hypothèses conditionnent non seulement les performances globales, mais aussi les types d’erreurs produites, et donc les biais observés dans des contextes morphologiques spécifiques.
+
+[368] (Normal): Dans cette optique, trois familles de modèles largement utilisées dans la littérature ont été retenues : U-Net, StarDist et Cellpose. Ces modèles ne diffèrent pas uniquement par leur architecture réseau, mais surtout par la manière dont ils formulent le problème de segmentation cellulaire, depuis la prédiction brute du réseau jusqu’à la reconstruction finale des instances.
+
+[369] (Normal): Le modèle U-Net représente la formulation la plus directe et historiquement la plus répandue de la segmentation en imagerie biomédicale. Dans cette approche, le réseau est entraîné à prédire, pour chaque pixel de l’image, une probabilité d’appartenance à une classe donnée, typiquement cellule ou fond dans le cas d’une segmentation binaire. Le cœur du problème est donc formulé comme une tâche de classification dense à l’échelle du pixel.
+
+[370] (Normal): Cette formulation présente plusieurs avantages pratiques. Elle est conceptuellement simple, flexible, et facilement extensible à des tâches multi-classes. Elle permet également d’exploiter des architectures convolutionnelles profondes bien maîtrisées, avec des fonctions de perte standard et une optimisation stable. En revanche, U-Net ne produit pas directement une segmentation d’instances. La séparation des cellules individuelles repose sur des étapes de post-traitement déterministes, telles que le seuillage, la transformée de distance, la détection de maxima locaux et l’algorithme de watershed.
+
+[371] (Normal): Cette dissociation entre prédiction sémantique et extraction d’instances introduit un biais structurel important : le modèle apprend à répondre à la question « où se trouvent les pixels appartenant à une cellule ? », mais pas explicitement « combien de cellules distinctes sont présentes ni où se situent leurs frontières individuelles ». Les performances finales dépendent donc fortement de la qualité du post-traitement et de sa capacité à gérer des situations complexes comme les cellules en contact ou de densité élevée.
+
+[372] (Normal): StarDist adopte une formulation radicalement différente du problème. Plutôt que de prédire une carte de classes, le réseau apprend à décrire explicitement la géométrie de chaque cellule à partir de son centre. Chaque pixel est associé à un ensemble de distances radiales correspondant aux rayons d’un polygone étoilé, permettant de reconstruire directement la forme de l’instance.
+
+[373] (Normal): Cette approche intègre la notion d’instance au cœur même de la prédiction du réseau, réduisant ainsi la dépendance à des heuristiques de post-traitement complexes. Elle est particulièrement bien adaptée aux noyaux de forme compacte et relativement convexes, fréquemment rencontrés dans certaines modalités d’imagerie nucléaire. En contraignant implicitement la forme des objets à une représentation étoilée, StarDist impose une hypothèse géométrique forte, qui agit à la fois comme une régularisation bénéfique et comme une source potentielle de biais.
+
+[374] (Normal): Ainsi, si cette formulation permet une séparation efficace des cellules proches et une reconstruction précise des contours pour des formes compatibles avec l’hypothèse étoilée, elle peut rencontrer des limitations face à des noyaux très allongés, fortement concaves ou présentant des morphologies atypiques. Le modèle répond alors à la question « quelle est la forme de chaque cellule ? », au prix d’une expressivité géométrique partiellement contrainte.
+
+[375] (Normal): Cellpose propose une troisième manière de formuler la segmentation cellulaire, fondée sur l’apprentissage de champs de vecteurs continus. Dans cette approche, chaque pixel prédit un vecteur indiquant la direction dans laquelle il doit se déplacer pour rejoindre le centre de sa cellule. Les instances émergent ensuite par l’intégration de ces flux, qui regroupe dynamiquement les pixels convergeant vers un même bassin d’attraction.
+
+[376] (Normal): Cette formulation est particulièrement intéressante dans des contextes de forte densité cellulaire ou de morphologies hétérogènes. Contrairement à StarDist, Cellpose n’impose pas de modèle géométrique explicite sur la forme des cellules, et contrairement à U-Net, il encode directement une information de regroupement spatial au niveau pixel. Le modèle apprend ainsi à répondre à la question « vers quel centre chaque pixel doit-il se diriger ? », ce qui permet une séparation naturelle des cellules adjacentes.
+
+[377] (Normal): Cependant, cette approche repose elle aussi sur des hypothèses implicites, notamment sur l’existence de centres bien définis et sur la cohérence des champs de vecteurs à l’intérieur de chaque cellule. Les erreurs de flux, le bruit ou des structures très irrégulières peuvent conduire à des bassins mal définis, entraînant des fusions ou des fragmentations d’instances.
+
+[380] (Caption): Figure : Chaînes de traitement conduisant à la segmentation d’instances selon U-Net, StarDist et Cellpose
+
+[382] (List Paragraph): Justification des choix
+
+[383] (Normal): Le choix de ces trois modèles est motivé par leur complémentarité méthodologique et par leur importance pratique dans le domaine de l’analyse d’images biologiques. U-Net constitue une référence historique en imagerie biomédicale et sert fréquemment de point de départ à de nombreuses variantes. Son inclusion permet d’étudier les biais introduits par une segmentation sémantique suivie d’un post-traitement, notamment en présence de noyaux adjacents ou de morphologies atypiques.
+
+[384] (Normal): StarDist a été spécifiquement conçu pour répondre à certaines limites observées dans les approches basées sur le watershed, en introduisant une modélisation explicite de la forme des noyaux. Son architecture repose sur l’hypothèse que les objets d’intérêt peuvent être décrits comme des formes étoilées, hypothèse généralement valide pour les noyaux cellulaires, mais susceptible d’introduire des biais pour des cellules très irrégulières ou fragmentées.
+
+[385] (Normal): Cellpose, quant à lui, occupe une place particulière. Il s’agit d’une architecture d’apprentissage profond pleinement implémentée, mais généralement utilisée sous la forme de modèles pré-entraînés, avec un comportement fortement influencé par les données hétérogènes ayant servi à son entraînement initial. Son inclusion dans ce travail est essentielle, car il s’agit probablement de l’outil le plus utilisé en pratique par les biologistes non spécialistes du deep learning. Cependant, son analyse se situe à un niveau différent : il est étudié comme référence méthodologique et comportementale, plutôt que comme modèle ré-entraîné dans un cadre strictement contrôlé.
+
+[386] (Normal): Ce positionnement permet d’analyser les biais de Cellpose tels qu’ils sont effectivement rencontrés en pratique, tout en maintenant un cadre expérimental homogène pour U-Net et StarDist, qui sont entraînés et évalués spécifiquement sur le jeu de données PanNuke.
+
+[387] (Caption): Tableau : Tableau comparatif des hypothèses inductives des trois modèles
+
+[388] (Heading 3): 3. Paramètres et configuration
+
+[389] (Normal (Web)): L’expérimentation repose sur le jeu de données PanNuke, pré-traité et sauvegardé sous forme de tableaux NumPy. Chaque échantillon est constitué d’une image RGB et d’un masque d’instances cellulaires, éventuellement accompagné d’un masque de types nucléaires. Les choix de paramètres et de configuration diffèrent ensuite selon la formulation du problème considérée. Dans ce travail, U-Net est utilisé dans une approche de segmentation sémantique binaire (cellule/fond), StarDist dans une approche de segmentation d’instances géométriques fondée sur des distances radiales, et Cellpose comme méthode de segmentation par champs de vecteurs, exploitée sous forme de modèle pré-entraîné, principalement réglée par ses paramètres d’inférence.
+
+[391] (Heading 4): 3.1 Données et conventions communes
+
+[392] (Normal (Web)): Les données sont organisées par partitions train, validation et test et chargées via une classe dédiée (PannukePreparedDataset). Les images sont stockées sous forme de tableaux (H,W,3) en précision flottante (float32) et converties en tenseurs PyTorch de forme (3,H,W). Les masques d’instances sont stockés en (H,W) avec la valeur 0 pour le fond et des identifiants strictement positifs pour les cellules, puis convertis en entiers (int64). Afin d’éviter des identifiants discontinus, les labels d’instances peuvent être remappés en valeurs contiguës {1..K}, ce qui garantit un comportement stable pour les méthodes dépendantes du nombre d’objets présents dans l’image.
+
+[393] (Normal (Web)): Un masque optionnel de types cellulaires peut également être chargé lorsqu’il est disponible. Il encode les classes nucléaires avec 0 pour le fond et 1..5 pour les différents types. Cette information est exploitée dans le cadre de StarDist via une tête de classification auxiliaire, mais n’est pas utilisée dans l’entraînement du modèle U-Net, pour lequel le masque est uniquement binarisé.
+
+[394] (Normal (Web)): La taille des images n’est pas modifiée au niveau du dataset : aucun redimensionnement ni extraction de patchs n’est effectué lors du chargement. Les éventuelles transformations spatiales (rotations, translations, déformations affines) sont appliquées exclusivement au niveau des augmentations de données. Les modèles apprennent ainsi directement sur la résolution d’origine des images.
+
+[396] (Heading 4): 3.2 U-Net : segmentation sémantique binaire
+
+[397] (Normal (Web)): Dans la formulation U-Net, le masque d’instances est converti en masque binaire par application de la condition mask > 0. La cible d’apprentissage devient ainsi un tenseur de forme (1,H,W) où la valeur 1 indique un pixel appartenant à une cellule et 0 le fond. Cette définition fixe clairement l’objectif : le réseau est entraîné pour détecter les régions cellulaires, sans distinction explicite entre instances individuelles.
+
+[398] (Normal (Web)): Les augmentations de données appliquées à l’entraînement combinent des transformations géométriques et photométriques. Les transformations spatiales incluent des flips horizontaux et verticaux, des rotations à 90 degrés ainsi qu’une transformation affine (mise à l’échelle, translation et rotation légère). Les images sont interpolées de manière bilinéaire, tandis que les masques utilisent une interpolation de type nearest-neighbor afin de préserver la nature discrète des labels. Les transformations photométriques comprennent un flou gaussien, des ajustements de luminosité et de contraste, ainsi que des modifications dans l’espace HSV. En validation et en test, aucune augmentation n’est appliquée ; l’entrée est simplement convertie en masque binaire.
+
+[399] (Normal (Web)): Le modèle U-Net reçoit une entrée à trois canaux et produit une sortie à un canal correspondant aux logits de probabilité de présence cellulaire. L’optimisation est réalisée à l’aide de l’optimiseur AdamW avec un taux d’apprentissage fixé à 1e-4 et une régularisation weight_decay=1e-4. La capacité du réseau est contrôlée par le paramètre base_ch=64. La fonction de perte utilisée est une combinaison de BCE et de Dice, adaptée au déséquilibre fond/cellule et à l’importance des contours dans la segmentation.
+
+[400] (Normal (Web)): L’entraînement est effectué via PyTorch Lightning sur un maximum de 50 époques, avec arrêt anticipé basé sur la perte de validation (val_loss, patience de 5 époques, min_delta=1e-4) et sauvegarde du meilleur modèle selon ce critère. Aucune procédure de séparation d’instances n’est intégrée dans la phase d’entraînement ; la sortie du réseau correspond donc à une segmentation sémantique.
+
+[401] (Normal (Web)): Pour permettre une comparaison avec les méthodes orientées instances, un post-traitement est appliqué lors de l’évaluation. À partir de la carte de probabilité produite par U-Net, un seuillage est effectué, suivi d’une suppression des petits objets. Une transformée de distance euclidienne est ensuite calculée, et des graines sont extraites par détection de maxima locaux (h-maxima). Ces graines servent de marqueurs pour un algorithme de watershed, permettant de produire un masque d’instances. Les paramètres de ce post-traitement (thr, min_size, h) influencent directement les performances au niveau des instances et doivent donc être explicitement pris en compte dans l’analyse des résultats.
+
+[403] (Heading 4): 3.3 StarDist : segmentation d’instances géométriques
+
+[404] (Normal (Web)): L’entraînement de StarDist repose sur des cibles géométriques pré-calculées. En plus du masque d’instances, chaque image est associée à une carte de distances radiales stockée sous la forme (R,H,W), où R correspond au nombre de rayons. Dans cette étude, le paramètre clé N_RAYS est fixé à 64. Ce choix correspond à la valeur recommandée par les auteurs de StarDist (Schmidt et al., 2018) et représente un compromis optimal entre précision de reconstruction des contours et coût computationnel. Un nombre de rayons inférieur (par exemple 32) réduirait la fidélité géométrique pour les formes complexes ou légèrement irrégulières, car l'espacement angulaire entre rayons (11,25° pour 32 rayons contre 5,625° pour 64) limiterait la capacité à capturer les variations fines des contours. À l'inverse, un nombre supérieur (96 ou 128 rayons) augmenterait significativement la dimensionnalité des cibles et le temps d'entraînement sans amélioration substantielle des performances pour des noyaux de taille typique dans PanNuke (aire médiane d'environ 200-400 pixels). Des expériences préliminaires ont confirmé que 64 rayons offrent une résolution angulaire suffisante pour reconstruire fidèlement la grande majorité des morphologies nucléaires présentes dans le jeu de données. Une vérification stricte est effectuée lors du chargement des données afin de garantir la cohérence entre le nombre de rayons attendu et les fichiers de cibles, évitant ainsi des erreurs d’apprentissage silencieuses.
+
+[405] (Normal (Web)): Les transformations d’entraînement appliquées à StarDist se limitent volontairement aux augmentations photométriques (flou, ajustements de luminosité et de contraste, variations HSV). Les transformations spatiales sont exclues afin de préserver la cohérence entre l’image et les distances radiales, qui devraient subir exactement les mêmes transformations géométriques. Ce choix réduit la diversité géométrique observée à l’entraînement mais garantit la validité des cibles géométriques.
+
+[406] (Normal (Web)): Les cibles supervisées sont fournies sous forme d’un dictionnaire comprenant une carte de foreground (1,H,W) issue de mask > 0, les distances radiales (R,H,W), et, lorsque disponible, une carte de classes nucléaires. Les distances sont tronquées à CLAMP_DIST=80 pixels afin de limiter l’influence des valeurs extrêmes et de stabiliser l’apprentissage. Les labels de classes sont contraints à l’intervalle [0..5], avec 0 correspondant au fond.
+
+[407] (Normal (Web)): Le modèle prédit trois sorties : des logits de probabilité de foreground, des distances radiales positives, et des logits de classification. La fonction de perte combine plusieurs termes : une BCE pondérée sur la carte de foreground, un terme de régression sur les distances, une entropie croisée pour la classification, et un terme de type Tversky afin de mieux gérer le déséquilibre et les contours. Les pondérations utilisées sont W_PROB=1.0, W_DIST=1.0, W_CE=0.3 et W_TVERSKY=0.3, avec alpha=0.3 et beta=0.7. Un facteur pos_weight=10.0 est appliqué à la BCE pour pénaliser davantage les faux négatifs.
+
+[408] (Normal (Web)): L’optimisation repose sur AdamW (lr=1e-4, weight_decay=1e-4). L’entraînement est réalisé en précision mixte (16-mixed) avec accumulation de gradients (accumulate_grad_batches=4), ce qui permet d’augmenter le batch effectif à partir d’un batch réel de taille 4. L’arrêt anticipé et la sauvegarde des checkpoints sont basés sur la perte de validation.
+
+[409] (Normal (Web)): La reconstruction des instances nécessite un décodage explicite. Les paramètres principaux sont un seuil de probabilité (PROB_THR=0.35), une suppression non maximale avec NMS_IOU_THR=0.3, un filtrage des petites régions (MIN_AREA=10), une limitation du nombre de candidats (MAX_CANDIDATES=500) et un seuil de vote (VOTE_THR=0.5). Les candidats sont sélectionnés à partir de maxima locaux avec une empreinte fixée (LOCAL_MAX_FOOTPRINT=11). Un mécanisme d’ajustement automatique du seuil est utilisé pour améliorer la stabilité en début d’entraînement. Un callback de diagnostic effectue en outre plusieurs ablations de décodage afin d’identifier l’origine des erreurs éventuelles (tête de probabilité, distances, ou procédure de décodage).
+
+[411] (Heading 4): 3.4 Cellpose : modèle pré-entraîné et réglages d’inférence
+
+[412] (Normal (Web)): Cellpose est utilisé comme méthode de segmentation par champs de vecteurs sous forme de modèle pré-entraîné, sans phase de fine-tuning sur PanNuke. L’implémentation repose sur l’API v4+ (CellposeModel), instanciée une seule fois puis réutilisée afin de limiter le coût computationnel. L’inférence est réalisée via la fonction eval, qui retourne directement un masque d’instances, ainsi que des sorties intermédiaires (champs de vecteurs et styles) non exploitées dans cette étude.
+
+[413] (Normal (Web)): Les images sont manipulées dans le reste du pipeline sous forme de tenseurs flottants dans l’intervalle [0,1]. Avant l’inférence Cellpose, elles sont systématiquement converties en format uint8 selon la transformation img_uint8 = clip(img,0,1) × 255. Cette normalisation fixe influence la sensibilité de Cellpose aux variations de contraste et de coloration et constitue donc un paramètre implicite du pipeline.
+
+[414] (Normal (Web)): L’appel d’inférence utilise les paramètres par défaut de l’API : do_3D=False pour des données 2D et diameter=None, correspondant à une utilisation sans réglage explicite de l’échelle des objets. Aucun seuil spécifique (flow_threshold, cellprob_threshold) ni configuration de canaux n’est imposé. Cette configuration place Cellpose dans un régime de généralisation out-of-the-box, où ses performances reflètent principalement l’adéquation entre ses données de pré-entraînement et le domaine PanNuke.
+
+[416] (Heading 4): 3.5 Cohérence inter-modèles et implications pour l’évaluation
+
+[417] (Normal (Web)): La configuration expérimentale met en évidence que les trois méthodes ne sont pas comparées dans un régime strictement équivalent. U-Net est entraîné pour une tâche sémantique binaire et nécessite un post-traitement pour produire des instances. StarDist est entraîné directement pour une segmentation d’instances avec supervision géométrique et dépend d’un décodage explicite. Cellpose est utilisé sans adaptation au dataset. Les comparaisons doivent donc distinguer la formulation du problème (sémantique, géométrique ou vectorielle) de la capacité d’adaptation au domaine (entraînement spécifique ou généralisation). Toute conclusion sur les performances relatives des méthodes doit être interprétée à la lumière de ces différences de configuration.
+
+[418] (Normal (Web)): Du point de vue des ressources computationnelles, les temps d'entraînement observés sur la configuration matérielle décrite précédemment sont les suivants. L'entraînement de U-Net sur l'ensemble d'entraînement PanNuke (2 620 images) converge en 16 époques grâce à l'arrêt anticipé, pour une durée totale d'environ 1 heure 26 minutes. StarDist, avec sa supervision multi-têtes (probabilité, distances radiales, classification) et l'accumulation de gradients, nécessite un temps d'entraînement légèrement supérieur, de l'ordre de 1 heure 41 minutes pour atteindre la convergence en 20 époques. Cellpose, utilisé en mode pré-entraîné sans fine-tuning, ne requiert aucun temps d'entraînement sur PanNuke. Ces durées, enregistrées via Weights & Biases, démontrent que les deux architectures entraînées
+
+[421] (Caption): Figure : Suivi des expériences d'entraînement via Weights & Biases, montrant les configurations et temps d'exécution pour StarDist et U-Net.
+
+[435] (Heading 1): Chapitre III: Implémentation
+
+[436] (Heading 2): I. Résultats
+
+[437] (Heading 3): 1. Analyse exploratoire des données
+
+[438] (Normal (Web)): Avant toute phase d’entraînement ou d’évaluation des modèles, une analyse exploratoire approfondie du jeu de données PanNuke a été réalisée. Cette étape est essentielle, car les hypothèses implicites des modèles de segmentation sont fortement dépendantes de la structure des données auxquelles ils sont confrontés.
+
+[439] (Normal (Web)): Les images de PanNuke sont des images histopathologiques en couleur présentant une grande variabilité visuelle. On observe des différences notables en termes de coloration, de contraste et de texture entre les images, qui reflètent à la fois la diversité des tissus biologiques et les conditions d’acquisition. Certaines images présentent des noyaux cellulaires bien isolés, de forme relativement régulière, tandis que d’autres montrent des amas cellulaires denses dans lesquels les frontières entre noyaux sont peu visibles.
+
+[442] (Caption): Figure : Exemples représentatifs d’images PanNuke illustrant différentes densités cellulaires et morphologies (cellules isolées, amas denses, formes irrégulières).
+
+[444] (Normal (Web)): Cette diversité morphologique constitue un défi majeur pour la segmentation, en particulier pour la séparation d’instances adjacentes. Elle justifie l’intérêt de comparer des approches fondées sur des hypothèses différentes, allant de la simple classification pixel-wise à des représentations géométriques ou vectorielles plus explicites.
+
+[445] (Normal (Web)): L’analyse des masques d’instances révèle également une forte variabilité du nombre de cellules par image. Certaines images contiennent un nombre relativement faible d’instances, tandis que d’autres en comptent plusieurs centaines. Cette hétérogénéité induit un déséquilibre important entre le fond et les pixels appartenant aux cellules, ce qui a des implications directes sur le choix des fonctions de perte et sur la stabilité de l’apprentissage.
+
+[449] (Normal (Web)): Lorsque les masques de types cellulaires sont disponibles, une analyse supplémentaire met en évidence un déséquilibre marqué entre classes. Certaines catégories de noyaux sont largement surreprésentées, tandis que d’autres apparaissent de manière marginale. Cette observation est particulièrement importante pour les approches intégrant une tête de classification, comme StarDist, car elle peut introduire un biais dans l’apprentissage et l’interprétation des résultats.
+
+[451] (Heading 3): 2. Résultats des modèles
+
+[452] (Normal): Cette section présente les résultats expérimentaux obtenus avec les trois approches de segmentation cellulaire évaluées dans cette étude : U-Net avec post-traitement par watershed, StarDist entraîné sur PanNuke, et Cellpose utilisé comme modèle pré-entraîné. L’analyse ne se limite pas à des métriques globales, mais vise à caractériser finement les performances selon des facteurs structurels des noyaux, en particulier leur morphologie et leur taille, afin d’identifier des biais propres à chaque formulation du problème.
+
+[453] (Normal): Les métriques principales utilisées sont le recall instance à seuil IoU ≥ 0.5 et l’IoU_max moyen, qui mesure la qualité du meilleur appariement entre une instance prédite et une instance de référence.
+
+[455] (List Paragraph): Performances globales et premières observations
+
+[457] (Caption): Figure : Métriques globales de segmentation d'instances sur l'ensemble de validation PanNuke (F1 instance, Aggregated Jaccard Index, Panoptic Quality)
+
+[458] (Normal): Cellpose obtient les meilleures performances sur l'ensemble des métriques, avec un F1 instance de 0.68, un AJI de 0.51 et une Panoptic Quality de 0.54. StarDist se positionne en deuxième position pour le F1 instance (0.63), tandis que U-Net présente des performances légèrement inférieures (F1 = 0.58).
+
+[459] (Normal): Bien que Cellpose se distingue sur les métriques globales, les écarts entre modèles restent modérés (F1 variant de 0.58 à 0.68). Une lecture superficielle pourrait suggérer une quasi-équivalence entre les approches, ou laisser penser que les différences observées relèvent principalement de fluctuations marginales liées à l'optimisation ou au choix des hyperparamètres.
+
+[460] (Normal): Cependant, une analyse plus attentive révèle rapidement que ces scores globaux masquent des comportements profondément hétérogènes. Les modèles ne commettent pas les mêmes types d’erreurs, ni sur les mêmes images, ni sur les mêmes catégories d’instances. Autrement dit, des performances moyennes comparables peuvent résulter de stratégies de segmentation très différentes, chacune présentant des forces et des faiblesses spécifiques selon le contexte morphologique et spatial des cellules.
+
+[461] (Normal): Dès cette première étape, il apparaît que les erreurs de segmentation ne sont pas réparties de manière uniforme sur l’ensemble du jeu de données. Certaines images concentrent une proportion disproportionnée des faux négatifs, des fusions d’instances ou des erreurs sévères d’IoU, tandis que d’autres sont segmentées de manière quasi parfaite par l’ensemble des modèles. Cette hétérogénéité suggère que la difficulté du problème dépend fortement du contenu de l’image, et non uniquement des capacités intrinsèques du modèle.
+
+[462] (Normal): Les images les plus problématiques correspondent majoritairement à des scènes présentant une forte densité cellulaire, avec de nombreux noyaux en contact étroit, voire partiellement superposés. Dans ces situations, les frontières inter-cellulaires sont souvent peu contrastées, et les hypothèses inductives des modèles sont mises à rude épreuve. De manière similaire, les noyaux présentant des morphologies atypiques, très allongées, irrégulières ou fragmentées, génèrent une augmentation notable des erreurs, en particulier des faux négatifs et des segmentations incomplètes.
+
+[463] (Normal): Ces premières observations soulignent une limite fondamentale des métriques globales : elles agrègent des comportements locaux très différents et peuvent donner une impression trompeuse de robustesse ou de stabilité. Elles justifient la nécessité d’une analyse conditionnelle plus fine, tenant compte à la fois de la morphologie des instances, de leur taille et de leur contexte spatial. C’est précisément dans cette perspective que les analyses morphologiques et les regroupements par classes de taille introduits dans la méthodologie prennent tout leur sens, en permettant de relier explicitement les performances observées aux propriétés géométriques et structurelles des cellules segmentées.
+
+[465] (List Paragraph): Analyse des performances selon la morphologie des noyaux
+
+[466] (Normal): Afin d’analyser l’impact de la morphologie sur les performances, les noyaux ont été regroupés en classes morphologiques (round, elongated, irregular, other) à partir de descripteurs géométriques calculés sur les annotations ground truth.
+
+[467] (Normal): Les valeurs moyennes de recall par classe morphologique sont présentées dans la Figure 3.2, tandis que les valeurs correspondantes d’IoU_max moyen sont illustrées dans la Figure 3.3.
+
+[470] (Caption): Figure : Recall instance moyen (IoU ≥ 0.5) par classe morphologique (n ≥ 200 instances par classe)
+
+[474] (Caption): Figure : IoU_max moyen par classe morphologique (n ≥ 200 instances par classe)
+
+[475] (Normal): Les résultats montrent une tendance claire et cohérente entre les deux métriques. Les noyaux de type round obtiennent les meilleures performances pour l’ensemble des méthodes, avec un recall et un IoU_max significativement plus élevés que les autres catégories. Cette observation est cohérente avec la régularité géométrique de ces objets, dont les contours sont bien définis et relativement convexes.
+
+[476] (Normal): À l’inverse, les noyaux irregular constituent la catégorie la plus difficile. Une baisse marquée du recall est observée pour les trois modèles, accompagnée d’une diminution de l’IoU_max moyen. Ces noyaux présentent souvent des formes concaves, fragmentées ou fortement irrégulières, ce qui complique à la fois leur détection et leur séparation en instances distinctes.
+
+[477] (Normal): StarDist se distingue par des performances élevées sur les noyaux round, mais subit une dégradation importante sur les noyaux irregular et elongated. Ce comportement reflète un biais géométrique intrinsèque : la représentation des instances par des distances radiales suppose l’existence d’un centre bien défini et d’une forme globalement étoilée, hypothèse souvent violée pour ces morphologies complexes.
+
+[478] (Normal): U-Net, malgré son entraînement en segmentation sémantique, présente des performances plus homogènes entre les classes morphologiques. Le post-traitement par watershed permet une séparation partielle des instances, mais reste limité dans les régions fortement congestionnées. Néanmoins, la relative stabilité du recall suggère que la carte de probabilité produite par U-Net capture correctement la présence des noyaux, indépendamment de leur forme.
+
+[479] (Normal): Cellpose affiche un comportement intermédiaire. Ses performances sont correctes sur les noyaux réguliers, mais diminuent sur les formes irrégulières, indiquant que les champs de vecteurs prédits deviennent moins fiables lorsque les contours sont ambigus ou fortement concaves.
+
+[480] (Normal): Une analyse complémentaire a été réalisée en fonction des types cellulaires annotés dans PanNuke (néoplasique, conjonctif, inflammatoire, épithélial, nécrotique). La Figure X présente le recall et l'IoU moyen par type cellulaire pour les trois modèles.
+
+[483] (Caption): Figure : Recall instance (IoU ≥ 0.5) et IoU moyen par type cellulaire pour U-Net, StarDist et Cellpose
+
+[484] (Normal): Les résultats montrent que les noyaux inflammatoires obtiennent les meilleures performances en recall pour l'ensemble des modèles, ce qui s'explique par leur morphologie généralement compacte et régulière. À l'inverse, les noyaux nécrotiques (Dead) présentent les performances les plus faibles, avec un recall inférieur à 0.55 et un IoU moyen inférieur à 0.45 pour tous les modèles. Cette catégorie correspond à des cellules souvent fragmentées ou atypiques, confirmant la difficulté des trois approches face aux morphologies dégénérées. U-Net maintient un avantage en recall sur l'ensemble des types cellulaires, tandis que Cellpose présente des performances plus équilibrées en IoU.
+
+[486] (List Paragraph): Analyse différentielle des biais morphologiques
+
+[487] (Normal): Afin de mettre en évidence les biais relatifs entre méthodes, des comparaisons différentielles ont été réalisées en calculant les écarts de recall et d’IoU_max entre paires de modèles pour chaque classe morphologique.
+
+[488] (Normal): Les résultats sont présentés dans la Figure 3.4 pour le recall et dans la Figure 3.5 pour l’IoU_max.
+
+[491] (Caption): Figure : Différences de recall instance (Δ recall, IoU ≥ 0.5) par classe morphologique.
+
+[494] (Caption): Figure : Différences d’IoU_max moyen par classe morphologique
+
+[496] (Normal): Ces comparaisons montrent que StarDist surpasse U-Net sur les noyaux round et other, mais devient défavorisé sur les noyaux irregular et elongated. Cellpose présente des écarts plus modérés, sans dominer systématiquement une classe morphologique donnée.
+
+[497] (Normal): Ces résultats confirment que les gains observés pour certaines morphologies sont compensés par des pertes sur d’autres, révélant des biais structurels liés à la formulation même de chaque approche plutôt qu’à un simple problème d’optimisation.
+
+[500] (List Paragraph): Analyse des performances selon la taille des instances
+
+[501] (Normal): La taille des noyaux, mesurée par leur aire en pixels, constitue un autre facteur déterminant. Les performances ont été analysées à la fois par classes de taille discrètes (small, medium, large, définies par quantiles) et par une analyse continue en fonction de l’aire médiane des bins.
+
+[502] (Normal): Les résultats par classes de taille sont présentés dans la Figure 3.6, tandis que les courbes continues sont illustrées dans les Figures 3.7 et 3.8.
+
+[505] (Caption): Figure : Recall instance moyen par classe de taille (quantiles)
+
+[509] (Caption): Figure : IoU_max moyen en fonction de l’aire médiane des bins.
+
+[512] (Normal): Les petites instances présentent les performances les plus faibles pour l’ensemble des méthodes. Cette difficulté s’explique par la faible surface disponible pour atteindre un IoU élevé, la proximité fréquente entre noyaux, et la sensibilité accrue aux erreurs de localisation.
+
+[513] (Normal): Les performances augmentent progressivement pour atteindre un maximum sur les tailles intermédiaires, correspondant à un compromis favorable entre visibilité de l’objet et stabilité de la segmentation. Pour les très grandes instances, une dégradation progressive est observée, suggérant que ces noyaux correspondent souvent à des structures complexes ou à des annotations englobant plusieurs régions hétérogènes.
+
+[514] (Normal): StarDist montre une décroissance plus marquée sur les très grandes tailles, tandis que U-Net conserve une performance légèrement plus stable, bien que limitée par son post-traitement. Cellpose adopte un comportement intermédiaire, pénalisé sur les petites instances mais relativement stable sur les tailles moyennes.
+
+[516] (List Paragraph): Synthèse visuelle des biais liés à la taille
+
+[517] (Normal): La Figure 14 présente une comparaison des biais de recall entre les modèles U-Net, StarDist et Cellpose en fonction des classes morphologiques des noyaux. Bien que cette figure ne soit pas directement basée sur la taille, elle constitue un point d’entrée essentiel pour comprendre que les biais de performance ne sont pas uniformes et qu’ils dépendent déjà fortement des propriétés géométriques des instances. En particulier, les noyaux irréguliers et allongés concentrent des pertes de recall importantes, notamment pour U-Net et Cellpose, suggérant une interaction forte entre morphologie et capacité de détection.
+
+[519] (Caption): Figure 14: Comparaison des biais de recall par classe morphologique
+
+[520] (Normal): La Figure 15 complète cette analyse en s’intéressant à la même comparaison par classe morphologique, mais cette fois selon l’IoU maximal. Elle montre que les écarts observés en recall se traduisent également par des différences de qualité de segmentation. Cellpose présente une dégradation notable de l’IoU pour les morphologies irrégulières et allongées, tandis que StarDist conserve une meilleure stabilité sur les noyaux ronds. Ces résultats indiquent que les biais morphologiques ne se limitent pas à la détection des instances, mais affectent également leur reconstruction géométrique.
+
+[522] (Caption): Figure 15: Comparaison des biais d’IoU par classe morphologique
+
+[523] (Normal): La Figure 16 constitue le cœur de l’analyse des biais liés à la taille. Elle montre les écarts de recall entre modèles pour trois classes de taille définies par quantiles (petites, moyennes et grandes instances). Cette figure met en évidence un biais défavorable marqué pour les petites instances, commun aux trois méthodes, mais particulièrement prononcé pour Cellpose et StarDist lorsqu’ils sont comparés à U-Net. Les petites cellules sont plus fréquemment manquées ou partiellement détectées, ce qui se traduit par une chute significative du recall. À l’inverse, les instances de taille moyenne constituent le régime le plus favorable, avec des écarts faibles entre modèles. Les grandes instances montrent des différences plus subtiles, StarDist présentant un léger avantage en recall, probablement lié à sa modélisation explicite de la géométrie des objets.
+
+[525] (Caption): Figure 16: Comparaison des biais de recall par classe de taille
+
+[526] (Normal): La Figure 17 analyse ces mêmes classes de taille selon l’IoU maximal. Elle confirme que les petites instances ne souffrent pas uniquement d’un déficit de détection, mais également d’une qualité de segmentation dégradée. Cellpose est ici particulièrement pénalisé sur les petites cellules, avec une baisse marquée de l’IoU par rapport à U-Net et StarDist. Pour les instances moyennes, les différences restent limitées, tandis que pour les grandes instances, StarDist conserve un avantage modéré, traduisant une meilleure adéquation de son hypothèse géométrique pour des objets étendus.
+
+[528] (Caption): Figure 17: Comparaison des biais d’IoU par classe de taille
+
+[529] (Normal): Pris ensemble, les résultats présentés dans les Figures 10 à 13 montrent que la taille des noyaux est un facteur structurant des performances de segmentation, au même titre que la morphologie. Les biais observés ne sont ni aléatoires ni marginaux : ils reflètent directement les hypothèses inductives propres à chaque modèle. U-Net se distingue par une relative stabilité globale, StarDist par une meilleure prise en charge des grandes instances bien formées, et Cellpose par une sensibilité accrue aux petites structures. Cette synthèse visuelle confirme que les scores agrégés masquent des comportements différenciés et justifie pleinement une analyse conditionnelle fine pour interpréter les performances des modèles de segmentation cellulaire.
+
+[532] (List Paragraph): Analyse des performances selon la densité cellulaire
+
+[533] (Normal): La densité cellulaire, définie comme le nombre d'instances par image, constitue un facteur critique pour la segmentation. Les images ont été regroupées en quatre catégories de densité : faible (1-8 instances), moyenne (9-14), haute (15-22) et très haute (23+). La Figure 13 présente l'évolution des métriques en fonction de la densité.
+
+[535] (Caption): Figure : Évolution du recall, de la précision, du F1 instance et de la Panoptic Quality en fonction de la densité cellulaire. Les barres d'erreur représentent l'écart-type
+
+[536] (Normal): Plusieurs observations émergent de cette analyse. Premièrement, les performances en recall augmentent avec la densité pour U-Net et Cellpose, ce qui peut s'expliquer par une meilleure représentativité statistique des images denses dans le jeu d'entraînement. Deuxièmement, la précision de Cellpose se distingue nettement, atteignant environ 0.75-0.78 pour les densités moyennes à très hautes, contre 0.50-0.55 pour U-Net. StarDist présente une forte variabilité en faible densité (barres d'erreur importantes), suggérant une instabilité du décodage lorsque peu d'instances sont présentes. Enfin, la Panoptic Quality reste relativement stable pour Cellpose (0.55-0.58), tandis qu'elle plafonne autour de 0.48-0.50 pour U-Net et StarDist.
+
+[538] (List Paragraph): Impact du contact et du chevauchement entre cellules
+
+[539] (Normal): La capacité à séparer des cellules adjacentes ou partiellement chevauchantes est un enjeu majeur de la segmentation d'instances. Une analyse spécifique a été menée en distinguant les cellules isolées de celles en contact avec au moins un voisin.
+
+[542] (Caption): Figure : (Gauche) Recall pour les cellules isolées versus en contact. (Droite) Évolution du recall en fonction du nombre de voisins.
+
+[543] (Normal): Les cellules isolées sont systématiquement mieux détectées que les cellules en contact, avec un écart de recall d'environ 0.10 à 0.15 selon les modèles. U-Net présente la plus forte dégradation entre cellules isolées (recall ≈ 0.74) et cellules en contact (recall ≈ 0.60), confirmant les limitations du post-traitement watershed dans les zones de congestion. Cellpose maintient les meilleures performances dans les deux configurations. L'analyse en fonction du nombre de voisins révèle une dégradation progressive pour tous les modèles, particulièrement marquée pour StarDist dont le recall chute de 0.48 à 0.27 entre 1 et 2 voisins.
+
+[546] (Caption): Figure : Recall instance par image en fonction du ratio de contact (proxy de chevauchement). Chaque point représente une image.
+
+[547] (Normal): La Figure 20 confirme cette tendance à l'échelle de l'image. Le recall diminue globalement lorsque le ratio de contact augmente, avec une dispersion importante pour les faibles valeurs de contact. Les images présentant un ratio de contact supérieur à 0.01 montrent un recall généralement inférieur à 0.60, indépendamment du modèle utilisé.
+
+[549] (List Paragraph): Robustesse au bruit
+
+[550] (Normal): Afin d'évaluer la robustesse des modèles face aux perturbations, une expérience de dégradation contrôlée a été menée en ajoutant un bruit gaussien d'intensité croissante (σ = 0, 0.05, 0.10) aux images de test.
+
+[553] (Caption): Figure : Évolution de l'AJI, de la Panoptic Quality et du recall en fonction du niveau de bruit (σ). Un σ de 0.10 correspond à un bruit significatif
+
+[554] (Normal): Cellpose démontre la meilleure robustesse au bruit, avec une AJI et une PQ quasi stables entre σ = 0 et σ = 0.10. À l'inverse, U-Net présente la plus forte dégradation, avec une chute de l'AJI de 0.48 à 0.34 et du recall de 0.75 à 0.58 pour σ = 0.10. StarDist adopte un comportement intermédiaire, avec une dégradation modérée. Ces résultats suggèrent que les représentations apprises par Cellpose, basées sur des champs de vecteurs, sont plus résistantes aux perturbations locales que les cartes de probabilité produites par U-Net ou les distances radiales de StarDist.
+
+[556] (Heading 3): 3. Interprétation des résultats
+
+[557] (Normal): Les résultats présentés dans la section précédente mettent en évidence des différences systématiques entre les trois approches de segmentation évaluées. Ces différences ne peuvent pas être interprétées uniquement comme des variations de performance brute, mais doivent être comprises comme la conséquence directe des formulations du problème, des hypothèses inductives propres à chaque modèle, et de leur degré d’adaptation au domaine PanNuke. Cette section propose une lecture interprétative des résultats observés, en reliant les comportements empiriques aux principes méthodologiques sous-jacents.
+
+[559] (List Paragraph): Influence de la formulation du problème de segmentation
+
+[560] (Normal): Un premier enseignement majeur concerne l’impact de la formulation du problème de segmentation sur les performances observées. U-Net est entraîné dans un cadre de segmentation sémantique binaire, tandis que StarDist et Cellpose visent directement la segmentation d’instances. Cette différence structurelle induit des objectifs d’apprentissage fondamentalement distincts.
+
+[561] (Normal): Dans le cas de U-Net, le modèle apprend uniquement à distinguer les pixels appartenant à une cellule de ceux appartenant au fond. La séparation des instances est entièrement déléguée à un post-traitement basé sur la transformée de distance et le watershed. Par conséquent, les erreurs observées dans la segmentation d’instances résultent souvent non pas d’une mauvaise détection des régions nucléaires, mais d’une incapacité du post-traitement à séparer correctement des noyaux adjacents ou fortement imbriqués.
+
+[562] (Normal): À l’inverse, StarDist et Cellpose intègrent la notion d’instance directement dans leur formulation. StarDist encode chaque instance comme une étoile paramétrée par des distances radiales, tandis que Cellpose repose sur des champs de vecteurs orientés vers le centre de chaque objet. Ces formulations permettent une séparation plus explicite des instances, mais au prix d’hypothèses géométriques plus contraignantes.
+
+[563] (Normal): Les différences de performances observées entre les modèles doivent donc être interprétées non pas comme des succès ou échecs absolus, mais comme l’expression de compromis méthodologiques entre simplicité de la supervision, expressivité géométrique et robustesse aux cas atypiques.
+
+[565] (List Paragraph): Biais morphologiques et hypothèses géométriques
+
+[566] (Normal): L’analyse par classes morphologiques révèle que les noyaux de forme régulière (round) sont systématiquement mieux segmentés que les noyaux allongés ou irréguliers. Ce constat est particulièrement marqué pour StarDist, qui obtient ses meilleurs résultats sur cette catégorie.
+
+[567] (Normal): Cette observation est directement liée à l’hypothèse géométrique centrale de StarDist : chaque instance est supposée pouvoir être représentée par un centre unique à partir duquel des rayons atteignent le contour de l’objet. Cette représentation est bien adaptée aux noyaux convexes et relativement isotropes, mais devient instable lorsque les contours sont concaves, fragmentés ou fortement anisotropes.
+
+[568] (Normal): Les performances plus faibles observées sur les noyaux irregular et elongated suggèrent que, dans ces cas, la prédiction des distances radiales devient ambiguë, entraînant soit une fragmentation excessive des instances, soit une fusion incorrecte de plusieurs noyaux voisins. Le comportement observé dans les analyses de biais morphologiques confirme que ces limitations sont structurelles et ne peuvent être entièrement compensées par un ajustement des paramètres d’inférence.
+
+[569] (Normal): U-Net, bien qu’incapable de produire des instances de manière native, montre une sensibilité moindre aux variations de morphologie. Cette relative robustesse s’explique par le fait que le modèle n’impose aucune hypothèse explicite sur la forme des objets, se contentant de prédire des régions d’appartenance. En revanche, cette absence de contrainte géométrique se traduit par une difficulté accrue à séparer les noyaux adjacents.
+
+[570] (Normal): Cellpose adopte une position intermédiaire. Sa représentation par champs de vecteurs permet de capturer une grande variété de formes, mais reste sensible aux morphologies complexes lorsque les directions de flux deviennent incohérentes ou instables, en particulier pour des noyaux irréguliers ou partiellement annotés.
+
+[572] (List Paragraph): Effet de la taille des instances sur les performances
+
+[573] (Normal): L’analyse des performances en fonction de la taille des noyaux met en évidence un phénomène récurrent : les petites instances sont significativement plus difficiles à segmenter pour l’ensemble des méthodes. Cette difficulté est accentuée par la définition des métriques basées sur l’IoU, pour lesquelles une erreur de quelques pixels peut entraîner une chute importante du score pour des objets de petite taille.
+
+[574] (Normal): Pour les petites instances, les trois approches souffrent de limitations différentes. U-Net tend à produire des cartes de probabilité floues, rendant la séparation par watershed instable. StarDist est sensible aux erreurs de localisation du centre, qui ont un impact disproportionné sur la reconstruction géométrique. Cellpose, quant à lui, présente des difficultés à estimer des champs de vecteurs fiables lorsque l’objet contient peu de pixels.
+
+[575] (Normal): Les instances de taille intermédiaire correspondent à une zone de performance optimale pour l’ensemble des modèles. Dans cette plage, les objets sont suffisamment grands pour être correctement détectés et séparés, tout en conservant une structure relativement homogène. Cette observation suggère que les performances maximales rapportées dans de nombreux benchmarks reflètent principalement ce sous-ensemble favorable du dataset.
+
+[576] (Normal): Pour les très grandes instances, une dégradation progressive des performances est observée, notamment pour StarDist. Ces noyaux correspondent souvent à des structures complexes, à des amas mal séparés dans l’annotation ou à des cas biologiquement atypiques. Leur segmentation pose des difficultés spécifiques qui ne sont pas entièrement prises en charge par les modèles standards.
+
+[578] (List Paragraph): Influence de l’adaptation au domaine
+
+[579] (Normal): Un autre facteur clé dans l’interprétation des résultats est le degré d’adaptation des modèles au domaine PanNuke. U-Net et StarDist ont été entraînés directement sur les données PanNuke préparées, tandis que Cellpose est utilisé comme modèle pré-entraîné, sans phase de fine-tuning.
+
+[580] (Normal): Les performances intermédiaires de Cellpose doivent être interprétées à la lumière de ce choix. Bien que le modèle bénéficie d’une formulation avancée et d’un entraînement préalable sur des jeux de données variés, l’absence d’adaptation spécifique au domaine histopathologique de PanNuke limite sa capacité à capturer les variations de coloration, de densité et de morphologie propres à ce dataset.
+
+[581] (Normal): Ainsi, les différences observées entre Cellpose et les modèles entraînés ne reflètent pas uniquement des choix d’architecture, mais également un écart de spécialisation vis-à-vis des données. Cette distinction est essentielle pour éviter des conclusions hâtives sur la supériorité intrinsèque d’une approche.
+
+[583] (List Paragraph): Limites interprétatives et précautions
+
+[584] (Normal): Enfin, il convient de souligner que les résultats présentés doivent être interprétés avec prudence. Les métriques utilisées, bien que standard, ne capturent pas l’ensemble des aspects qualitatifs de la segmentation, notamment la cohérence biologique des instances ou l’impact des erreurs sur des analyses avales.
+
+[585] (Normal): De plus, certaines catégories morphologiques ou de taille sont moins représentées, malgré l’imposition de seuils minimaux (n ≥ 200), ce qui peut introduire une variance résiduelle dans les estimations. Les biais observés doivent donc être compris comme des tendances robustes plutôt que comme des valeurs absolues.
+
+[588] (Heading 3): 4. Comparaison avec la littérature
+
+[589] (Normal): La segmentation cellulaire par apprentissage profond fait l’objet d’une littérature abondante, en particulier autour des architectures de type U-Net et de leurs extensions, ainsi que des approches dédiées à la segmentation d’instances telles que StarDist et Cellpose. La comparaison des résultats obtenus dans cette étude avec les travaux existants permet de situer les performances observées, mais surtout de mettre en perspective les biais méthodologiques mis en évidence.
+
+[591] (Heading 4): 4.1 U-Net et segmentation sémantique des noyaux
+
+[592] (Normal): Depuis son introduction, U-Net s’est imposé comme une architecture de référence pour la segmentation biomédicale, notamment pour la segmentation de noyaux en histopathologie. De nombreuses études rapportent des performances élevées en termes de Dice ou de pixel accuracy lorsque l’objectif est la détection de régions nucléaires, indépendamment de la séparation en instances.
+
+[593] (Normal): Les résultats observés ici sont cohérents avec ces travaux. U-Net produit des cartes de probabilité de bonne qualité, permettant une détection fiable des zones nucléaires, y compris pour des morphologies complexes. En revanche, comme largement documenté dans la littérature, l’absence de mécanisme explicite de séparation d’instances limite son usage direct pour des tâches nécessitant un comptage précis ou une analyse morphologique au niveau de l’objet.
+
+[594] (Normal): Plusieurs études proposent d’enrichir U-Net par des cibles auxiliaires (cartes de distance, contours, érosion/dilatation) ou par des architectures multi-têtes afin d’améliorer la séparation des objets adjacents. Le choix, dans cette étude, de conserver une formulation sémantique simple permet de positionner U-Net comme une baseline robuste, mais met également en évidence ses limites structurelles lorsqu’il est comparé à des méthodes conçues nativement pour la segmentation d’instances.
+
+[596] (Heading 4): 4.2 StarDist et approches géométriques à base de rayons
+
+[597] (Normal): StarDist a été introduit comme une réponse directe aux limitations des approches sémantiques pour la segmentation d’instances, en proposant une représentation explicite des objets sous forme de distances radiales. Les travaux fondateurs rapportent des performances élevées sur des datasets comportant majoritairement des objets convexes et de forme relativement régulière.
+
+[598] (Normal): Les résultats obtenus dans cette étude confirment ces observations. StarDist atteint ses meilleures performances sur les noyaux de morphologie ronde et de taille intermédiaire, ce qui correspond précisément au régime pour lequel l’hypothèse de représentation étoilée est valide. Les performances élevées observées sur ces catégories sont donc en accord avec les benchmarks publiés.
+
+[599] (Normal): En revanche, les dégradations observées pour les noyaux irréguliers ou très allongés sont également rapportées, de manière plus ou moins explicite, dans la littérature. Plusieurs travaux soulignent que StarDist peut rencontrer des difficultés lorsque les objets présentent des concavités marquées ou des contours complexes, ou lorsque la notion de centre unique devient ambiguë. L’analyse fine menée ici, en isolant ces cas morphologiques, permet de quantifier précisément cet effet et de montrer qu’il constitue un biais structurel plutôt qu’un simple problème de réglage.
+
+[600] (Normal): Par ailleurs, la forte dépendance aux paramètres de décodage (seuil de probabilité, NMS, sélection de candidats) est cohérente avec les observations rapportées dans les études comparatives. Cela souligne l’importance de documenter ces paramètres lors de toute comparaison, afin d’éviter des conclusions biaisées.
+
+[602] (Heading 4): 4.3 Cellpose et modèles à champs de vecteurs
+
+[603] (Normal): Cellpose propose une formulation différente, basée sur la prédiction de champs de vecteurs guidant chaque pixel vers le centre de son instance. Les travaux initiaux mettent en avant la capacité de cette approche à généraliser à des morphologies variées et à des types cellulaires différents, en particulier lorsqu’un fine-tuning est effectué sur le domaine cible.
+
+[604] (Normal): Dans cette étude, Cellpose est utilisé sans adaptation spécifique au dataset PanNuke. Les performances obtenues sont globalement cohérentes avec celles rapportées pour une utilisation “out-of-the-box” dans la littérature. Le modèle se comporte correctement sur des noyaux de taille moyenne et de forme régulière, mais montre des limitations sur les petites instances et sur certaines morphologies complexes.
+
+[605] (Normal): Ces résultats confirment que, malgré sa robustesse apparente, Cellpose reste sensible au domaine d’application, en particulier aux variations de coloration et d’échelle. Plusieurs travaux récents soulignent d’ailleurs que le réglage du paramètre de diamètre ou le fine-tuning sur un sous-ensemble annoté peut améliorer significativement les performances. L’absence de ces étapes dans cette étude permet de positionner Cellpose comme une référence généraliste, mais non optimisée.
+
+[607] (Heading 4): 4.4 Limites des benchmarks globaux dans la littérature
+
+[608] (Normal): Un point central mis en évidence par cette étude concerne les limites des comparaisons basées uniquement sur des métriques globales. De nombreux benchmarks rapportent des scores moyens agrégés sur l’ensemble des instances, ce qui tend à masquer des disparités importantes liées à la morphologie ou à la taille des objets.
+
+[609] (Normal): Les résultats présentés ici montrent que deux modèles peuvent obtenir des scores globaux comparables tout en présentant des comportements très différents sur des sous-populations spécifiques du dataset. Cette observation rejoint des critiques récentes de la littérature, qui appellent à une évaluation plus fine et conditionnelle des modèles de segmentation.
+
+[610] (Normal): En ce sens, l’analyse par classes morphologiques et par quantiles de taille proposée dans ce travail s’inscrit dans une tendance émergente visant à mieux comprendre les biais des modèles, plutôt qu’à se limiter à un classement global.
+
+[612] (Heading 4): 4.5 Positionnement du travail par rapport à l’état de l’art
+
+[613] (Normal): Au regard de la littérature existante, ce travail ne cherche pas à proposer une nouvelle architecture de segmentation, mais à apporter une analyse comparative approfondie des biais induits par différentes formulations du problème sur un dataset de référence. L’originalité réside dans la mise en relation systématique des performances avec des caractéristiques morphologiques et géométriques des noyaux, ainsi que dans l’analyse explicite du rôle des choix méthodologiques (supervision, décodage, adaptation au domaine).
+
+[614] (Normal): Cette approche permet de compléter les benchmarks existants en fournissant des éléments d’interprétation essentiels pour le choix d’un modèle en fonction des objectifs biologiques et des contraintes du jeu de données.
+
+[616] (Heading 3): 5. Discussion
+
+[617] (Normal): Cette étude comparative met en évidence que les performances des modèles de segmentation cellulaire ne peuvent être interprétées indépendamment de la formulation du problème, des hypothèses géométriques sous-jacentes et du niveau d’adaptation au domaine. Les résultats obtenus soulignent que la notion de “meilleur modèle” est fortement conditionnée par les objectifs de l’analyse, la nature des données et les contraintes biologiques associées.
+
+[620] (Heading 4): 5.1 Influence de la formulation de la supervision
+
+[621] (Normal): L’un des enseignements centraux concerne l’impact direct de la supervision choisie sur les capacités du modèle. La segmentation sémantique binaire, telle qu’implémentée avec U-Net, permet une détection robuste des régions nucléaires, y compris dans des contextes de forte variabilité morphologique. Cependant, cette formulation ignore explicitement la notion d’instance, ce qui limite son applicabilité lorsque la séparation précise des noyaux est requise.
+
+[622] (Normal): À l’inverse, les formulations orientées instance, telles que StarDist et Cellpose, intègrent cette contrainte dès l’apprentissage ou l’inférence. Cette intégration améliore la capacité à distinguer des objets adjacents, mais impose des hypothèses supplémentaires sur la structure des objets. Les résultats suggèrent que ces hypothèses favorisent certaines morphologies au détriment d’autres, introduisant ainsi des biais systématiques.
+
+[623] (Normal): Ces observations confirment que le choix d’une formulation de supervision doit être guidé par la tâche biologique visée, et non uniquement par des performances agrégées sur un benchmark.
+
+[624] (Heading 4): 5.2 Robustesse morphologique et biais structurels
+
+[625] (Normal): L’analyse morphologique révèle que les biais observés sont en grande partie structurels. StarDist présente une forte dépendance à la convexité et à la régularité des noyaux, tandis que Cellpose, bien que plus flexible en apparence, reste sensible aux variations extrêmes de forme et de taille. Ces limitations ne sont pas uniquement imputables à des choix de paramètres, mais découlent des représentations internes des objets.
+
+[627] (Normal): U-Net, de son côté, apparaît relativement robuste aux variations morphologiques, précisément parce qu’il ne cherche pas à imposer une structure explicite aux instances. Toutefois, cette robustesse se fait au prix d’une ambiguïté accrue dans les zones de contact entre noyaux, ce qui limite son usage direct pour des analyses quantitatives fines.
+
+[628] (Normal): Ces résultats suggèrent qu’aucune approche ne fournit une solution universelle, et que les compromis entre robustesse morphologique et précision d’instance doivent être explicitement considérés.
+
+[630] (Heading 4): 5.3 Sensibilité à la taille des objets et implications pratiques
+
+[631] (Normal): La taille des noyaux constitue un facteur déterminant dans la performance des trois méthodes. Les petites instances sont systématiquement défavorisées, en particulier dans les métriques basées sur l’IoU, où les erreurs relatives sont amplifiées. Cette observation est cruciale dans des contextes biologiques où les petites cellules peuvent être d’un intérêt particulier, par exemple dans des tissus fortement prolifératifs ou inflammatoires.
+
+[632] (Normal): Les performances optimales observées pour des tailles intermédiaires suggèrent que les scores globaux rapportés dans de nombreux travaux reflètent principalement ce sous-ensemble favorable. Les très grandes instances, souvent associées à des annotations ambiguës ou à des structures complexes, restent un défi ouvert pour l’ensemble des approches évaluées.
+
+[633] (Normal): Ces constats soulignent la nécessité d’une évaluation conditionnelle, prenant en compte la distribution des tailles dans le dataset, afin d’éviter des interprétations biaisées des performances.
+
+[635] (Heading 4): 5.4 Rôle de l’adaptation au domaine
+
+[636] (Normal): L’utilisation de Cellpose sans fine-tuning met en lumière l’importance de l’adaptation au domaine. Bien que le modèle bénéficie d’un entraînement préalable sur des données variées, ses performances restent inférieures à celles des modèles entraînés spécifiquement sur PanNuke pour certaines catégories d’instances.
+
+[637] (Normal): Cette observation rejoint des travaux récents montrant que la généralisation inter-domaines des modèles de segmentation cellulaire reste limitée, en particulier en histopathologie où les variations de coloration, de résolution et de préparation des échantillons sont importantes. Le fine-tuning ou l’entraînement sur des données représentatives du domaine cible apparaît donc comme une étape clé pour des applications réelles.
+
+[639] (Heading 4): 5.5 Limites de l’étude
+
+[640] (Normal): Plusieurs limites doivent être prises en compte dans l’interprétation de cette étude. Tout d’abord, les modèles évalués ne sont pas tous exploités dans des conditions optimales comparables. U-Net est utilisé sans mécanisme de séparation d’instances intégré, et Cellpose sans adaptation spécifique au dataset. Ces choix méthodologiques sont délibérés afin de mettre en évidence les biais de formulation, mais ils restreignent la portée des comparaisons quantitatives.
+
+[641] (Normal): Ensuite, bien que l’analyse morphologique et par taille permette de mieux comprendre les comportements des modèles, elle repose sur des seuils et des catégories définies empiriquement. D’autres choix de descripteurs ou de regroupements pourraient conduire à des analyses complémentaires.
+
+[642] (Normal): Enfin, l’évaluation repose sur des métriques classiques qui ne capturent pas nécessairement la pertinence biologique des segmentations produites. Une analyse orientée application, par exemple l’impact sur des mesures avales, pourrait fournir un éclairage supplémentaire.
+
+[644] (Heading 4): 5.6 Perspectives
+
+[645] (Normal): Les résultats obtenus ouvrent plusieurs pistes de recherche. Une première perspective consiste à explorer des approches hybrides combinant segmentation sémantique et séparation d’instances, par exemple via des architectures multi-têtes ou des cibles auxiliaires. Une seconde piste concerne l’adaptation au domaine, notamment par fine-tuning ciblé ou apprentissage auto-supervisé sur des données non annotées.
+
+[646] (Normal): Enfin, l’intégration systématique d’analyses conditionnelles dans les benchmarks futurs apparaît comme une nécessité pour une évaluation plus juste et plus informative des modèles de segmentation cellulaire.
+
+[648] (List Paragraph): Outils de développement et déploiement
+
+[649] (Normal): Ce chapitre décrit l’environnement technique et l’architecture logicielle mis en place pour conduire les expérimentations de segmentation cellulaire présentées dans ce mémoire. L’objectif n’est pas seulement de documenter les outils utilisés, mais de montrer comment l’organisation du code, des données et des expériences participe directement à la rigueur méthodologique de l’étude. Le choix des technologies, la structuration du projet et les pratiques de développement adoptées ont été guidés par trois exigences principales : la reproductibilité scientifique, la lisibilité des expérimentations, et la capacité à analyser finement les comportements et biais des modèles étudiés.
+
+[650] (Normal): L’ensemble du travail a été réalisé dans un cadre de recherche appliquée à l’Institut Pasteur, avec un accent mis sur l’expérimentation contrôlée plutôt que sur l’optimisation industrielle ou le déploiement à grande échelle. Cette orientation se reflète dans l’architecture du projet, pensée comme un environnement d’expérimentation modulaire et extensible, où chaque composant (données, modèles, métriques, visualisations) peut être isolé, modifié et analysé indépendamment.
+
+[651] (List Paragraph): Environnement de développement
+
+[652] (Normal): Le développement et l’exécution des expériences ont été réalisés sous Windows, directement sur une machine locale disposant d’un GPU compatible CUDA. L’ensemble de l’environnement logiciel repose sur Python, avec une gestion explicite des dépendances via un environnement virtuel (venv) et un fichier requirements.txt. Ce choix garantit une isolation complète des bibliothèques utilisées pour le projet, évite les conflits de versions, et permet de reproduire l’environnement sur une autre machine en réinstallant simplement les dépendances listées.
+
+[653] (Normal): La configuration matérielle utilisée pour l'ensemble des expériences comprend un processeur AMD Ryzen 9 7845HX, 32 Go de mémoire vive DDR4, et une carte graphique NVIDIA GeForce RTX 4090 disposant de 16 Go de mémoire vidéo. Cette configuration permet l'entraînement de modèles de segmentation avec des batch sizes raisonnables (4 à 8 images par batch selon le modèle) tout en maintenant des temps d'entraînement acceptables. L'environnement CUDA 11.8 et cuDNN 8.6 ont été utilisés pour l'accélération GPU, en combinaison avec PyTorch 2.0. La précision mixte (mixed precision training, FP16) a été activée pour StarDist afin de réduire l'empreinte mémoire et accélérer les calculs, sans impact notable sur la qualité des prédictions.
+
+[654] (Normal): L’utilisation d’un environnement virtuel est particulièrement importante dans un contexte de recherche en apprentissage profond, où les versions de PyTorch, CUDA, cuDNN, NumPy ou SciPy peuvent avoir un impact direct sur la stabilité et les performances des entraînements. Le fichier requirements.txt du projet fige précisément les versions des bibliothèques clés, notamment torch, torchvision, pytorch-lightning, scikit-image, scipy, albumentations, stardist et cellpose, ainsi que les outils de visualisation et de suivi d’expériences tels que matplotlib et Weights & Biases. Cette explicitation des versions constitue un élément essentiel de reproductibilité et permet de situer les résultats obtenus dans un contexte logiciel clairement défini.
+
+[655] (Normal): Le développement s’appuie sur une double modalité : des scripts Python pour les phases critiques et reproductibles (préparation des données, entraînement, évaluation globale), et des notebooks Jupyter pour l’exploration, le diagnostic et la génération de figures. Les notebooks sont utilisés pour inspecter visuellement les données, vérifier la cohérence des masques, analyser les distributions morphologiques, tester des post-traitements, et produire les figures intégrées au mémoire. Les scripts, en revanche, encapsulent les expériences « figées », avec des paramètres explicites, des seeds contrôlées et des sorties sauvegardées systématiquement.
+
+[656] (Normal): Les entraînements sont lancés via des scripts dédiés (par exemple lit_unet_pannuke.py ou lit_stardist_pannuke.py), exécutés en ligne de commande et reposent sur PyTorch et PyTorch Lightning. PyTorch sert de socle bas niveau (modèles, tenseurs, backpropagation, dataloaders), tandis que PyTorch Lightning apporte une structure standardisée aux boucles d’entraînement, simplifie la gestion des checkpoints et de l’early stopping, et facilite la journalisation systématique des métriques et pertes à chaque époque.
+
+[659] (Caption): Figure : Complémentarité PyTorch et Lightning
+
+[660] (Normal): Cette approche évite les effets de bord liés à l’exécution interactive et facilite la répétition d’expériences dans des conditions identiques. Les seeds aléatoires sont fixées afin de réduire la variance inter-runs, tout en reconnaissant que le déterminisme strict n’est pas toujours garanti sur GPU. Les checkpoints des modèles sont sauvegardés automatiquement dans un répertoire dédié, permettant de restaurer le meilleur modèle selon une métrique de validation donnée ou de reprendre un entraînement interrompu.
+
+[661] (Normal): Une attention particulière est portée au déterminisme partiel et à la reproductibilité. Dans un contexte GPU, la reproductibilité stricte n’est pas toujours garantie (non-déterminisme de certaines opérations), mais plusieurs pratiques permettent de réduire la variance inter-runs : contrôle des seeds, journalisation des hyperparamètres, sauvegarde des versions de code, et conservation des checkpoints associés à chaque expérience. La journalisation des runs avec Weights & Biases (W&B) joue ici un rôle central : elle conserve l’historique des expériences, les courbes de loss, les métriques, les configurations et, le cas échéant, les artefacts comme les modèles sauvegardés.
+
+[662] (Normal): Au niveau des données, le jeu PanNuke a été préparé et stocké sous forme de tableaux NumPy, ce qui réduit le coût de lecture et simplifie les opérations de chargement. Les splits train/val/test sont strictement séparés, et les loaders encapsulent la conversion vers tenseurs PyTorch, la gestion des masques d’instances, et l’injection optionnelle de cibles supplémentaires (ex. distances radiales pour StarDist). L’ensemble de cette logique est regroupé dans une classe de dataset dédiée, afin de standardiser les conventions et éviter des divergences entre modèles.
+
+[663] (List Paragraph): Technologies de développement
+
+[664] (Normal): Les technologies utilisées peuvent être regroupées en quatre familles : (i) apprentissage profond et entraînement, (ii) augmentation et pré/post-traitement, (iii) évaluation et métriques, (iv) suivi et gestion d’expériences.
+
+[665] (Normal): Le cœur du pipeline repose sur PyTorch pour la définition des modèles et des fonctions de perte. Les modèles implémentés et utilisés se répartissent en trois formulations : une approche sémantique (U-Net) entraînée sur une cible binaire cellule/fond, une approche d’instances géométriques (StarDist) entraînée sur des cibles de distances radiales et une carte de probabilité, et une approche par champs de vecteurs (Cellpose) exploitée sous forme de modèle pré-entraîné.
+
+[666] (Normal): PyTorch Lightning structure l’entraînement via des LightningModules et DataModules. Cela permet de factoriser les étapes d’entraînement/validation/test, de rendre explicites les hyperparamètres, et de standardiser la récupération des métriques. Des callbacks (checkpointing, early stopping, progress bars) encadrent l’entraînement, et un callback de sanity check spécifique à StarDist a été conçu afin de diagnostiquer séparément les échecs de la tête de probabilité, de la tête de distances et du décodage (sélection de candidats, NMS, vote de raffinement). Ce point est important car, pour des modèles comme StarDist, une part substantielle de la performance finale dépend du décodage et de ses paramètres, et non uniquement de la phase d’apprentissage.
+
+[667] (Normal): Albumentations est utilisé pour les augmentations. Le pipeline d’augmentation n’est pas identique entre U-Net et StarDist, car les cibles ne sont pas de même nature. U-Net peut appliquer des transformations géométriques sur l’image et le masque binaire. StarDist, au contraire, requiert que les transformations spatiales appliquées à l’image soient exactement répercutées sur les cartes de distances (R,H,W). Pour éviter toute incohérence entre image et cibles, les augmentations StarDist ont été volontairement limitées à des transformations photométriques dans la configuration actuelle.
+
+[668] (Normal): Pour les opérations morphologiques, le post-traitement et la séparation d’instances, le pipeline combine SciPy (distance transform), scikit-image (watershed, remove_small_objects, maxima locaux), et des fonctions dédiées au décodage StarDist. Dans le cas de U-Net, un post-traitement watershed est appliqué sur la carte de probabilité afin de produire une segmentation d’instances exploitable pour des métriques orientées instance. Cette étape est nécessaire si l’on souhaite comparer U-Net à des méthodes intrinsèquement d’instances, mais elle doit être explicitée comme un module externe au modèle.
+
+[669] (Normal): Pour l’évaluation, des métriques d’appariement d’instances sont utilisées (IoU matching, TP/FP/FN, F1 instance-level, etc.), avec une logique de correspondance entre instances prédites et vérité terrain, typiquement basée sur un seuil d’IoU et un appariement greedy ou optimal. L’outillage d’évaluation ne se limite pas à un score global : il sert également à diagnostiquer des erreurs typiques, comme la fusion (plusieurs GT appariées à une instance prédite), la fragmentation (une GT divisée en plusieurs prédictions), et les faux positifs/faux négatifs.
+
+[670] (Normal): Weights & Biases (W&B) est utilisé comme outil de suivi d’expériences. Il centralise les logs, facilite la comparaison de runs (hyperparamètres vs résultats), et constitue une base pratique pour conserver des traces exploitables lors de la rédaction. Les figures générées en notebook (exemples, distributions, overlays) peuvent être exportées et intégrées au mémoire, tandis que les courbes d’entraînement et les métriques issues de W&B fournissent des supports d’analyse des dynamiques d’apprentissage.
+
+[671] (List Paragraph): Architecture de la solution
+
+[672] (Normal): L’architecture logicielle a été organisée pour séparer clairement (i) la gestion des données, (ii) les modèles et pertes, (iii) l’entraînement/expérimentation, (iv) l’inférence et l’évaluation, et (v) la génération de figures et d’analyses. Cette séparation est importante dans un mémoire de recherche, car elle garantit que les comparaisons entre modèles reposent sur des conventions communes (mêmes splits, mêmes masques, mêmes métriques), tout en autorisant des spécificités locales (cibles StarDist, décodage, post-traitement U-Net, paramètres Cellpose).
+
+[673] (Normal): Au niveau des données, un dataset unique (PannukePreparedDataset) encapsule la lecture des fichiers .npy, la conversion des images et masques vers tenseurs, le remappage des identifiants d’instances, et le chargement optionnel de masques de types. Pour StarDist, le dataset permet en plus de charger des cartes de distances pré-calculées (targets_stardist), ce qui assure que l’entraînement utilise des cibles stables et cohérentes. Les DataModules Lightning instancient ensuite les loaders de manière reproductible.
+
+[674] (Normal): Au niveau des modèles, chaque formulation est isolée dans un module dédié : U-Net (sortie 1 canal, supervision binaire), StarDist (sorties multiples : probabilité, distances, classification), et Cellpose (appel d’inférence via l’API). Les scripts d’entraînement s’appuient sur Lightning pour standardiser la boucle, tandis que les scripts/notebooks d’évaluation se concentrent sur la production de masques d’instances et sur le calcul de métriques et figures.
+
+[675] (Normal): Un point clé de l’architecture est le traitement explicite des étapes “hors modèle” qui impactent le résultat final. Dans U-Net, la conversion d’une probabilité en instances passe par un post-traitement (distance transform + seeds + watershed). Dans StarDist, la conversion des sorties en instances passe par une chaîne de décodage (seuils, sélection de candidats, NMS, raffinement). Dans Cellpose, l’inférence dépend de paramètres comme le diamètre, ainsi que du pré-traitement (conversion vers uint8) et du comportement par défaut du modèle pré-entraîné. Documenter ces étapes est essentiel, car elles constituent une partie de la méthode expérimentale au même titre que l’apprentissage.
+
+[677] (List Paragraph): Architecture et services du déploiement
+
+[679] (Normal): Cette section présente l’architecture technique mise en place pour le déploiement de la solution de segmentation cellulaire, depuis la gestion des données d’entrée jusqu’à la production et l’évaluation des résultats. L’architecture a été pensée de manière modulaire et reproductible, afin de permettre des comparaisons rigoureuses entre différentes approches de segmentation par apprentissage profond, tout en restant compatible avec les contraintes du calcul intensif en imagerie biomédicale.
+
+[682] (Caption): Figure : Architecture et service du déploiement
+
+[685] (Normal): L’architecture globale s’organise autour de trois blocs fonctionnels principaux. Le premier correspond à la préparation et à la gestion des données. Les images issues du jeu de données PanNuke sont intégrées dans un pipeline de prétraitement comprenant la normalisation des intensités, l’application d’augmentations de données et, lorsque nécessaire, la génération d’annotations intermédiaires. Ces annotations incluent notamment les masques d’instances et les représentations dérivées requises par certains modèles, comme les cartes de distances radiales utilisées par StarDist. Cette étape vise à garantir une cohérence entre les données d’entrée et les hypothèses de modélisation propres à chaque architecture.
+
+[686] (Normal): Le second bloc constitue le cœur du système et correspond à l’exécution des modèles de segmentation. Les architectures U-Net, StarDist et Cellpose sont utilisées comme trois pipelines distincts mais comparables. Chaque modèle est entraîné et évalué dans un environnement logiciel contrôlé, permettant de maîtriser les dépendances et les versions des bibliothèques utilisées. Les calculs sont réalisés sur des ressources matérielles accélérées par GPU, indispensables pour traiter efficacement des images de grande taille et des réseaux convolutionnels profonds. Les paramètres d’entraînement, tels que les fonctions de perte, les stratégies d’augmentation ou les hyperparamètres d’optimisation, sont systématiquement enregistrés afin d’assurer la traçabilité et la reproductibilité des expériences.
+
+[687] (Normal): Le troisième bloc est dédié au post-traitement et à l’évaluation des résultats. Les sorties brutes des réseaux de neurones sont transformées en segmentations d’instances exploitables à l’aide de méthodes adaptées à chaque modèle. Pour U-Net, cette étape repose sur des traitements déterministes classiques, incluant le seuillage, la transformée de distance et l’algorithme de watershed. Pour StarDist, le décodage des prédictions s’appuie sur la génération de polygones étoilés, suivie d’une suppression des non-maximums et, le cas échéant, d’un raffinement de la forme des instances. Cellpose intègre quant à lui un mécanisme de séparation des cellules basé sur des champs de flux. Ces étapes de post-traitement sont essentielles pour passer d’une prédiction dense à une segmentation d’instances cohérente.
+
+[688] (Normal): Enfin, un service d’évaluation permet de comparer systématiquement les segmentations produites aux annotations de référence. Les performances sont mesurées à l’aide de métriques standard en segmentation d’instances, telles que l’Intersection over Union, le F1-score et la Panoptic Quality, afin de fournir une analyse quantitative robuste et comparable entre les différentes approches. L’ensemble des résultats est stocké de manière structurée, facilitant leur analyse et leur intégration dans le cadre du mémoire.
+
+[691] (Heading 1): CONCLUSION GENERALE
+
+[692] (Normal): Ce mémoire s’inscrit dans un contexte scientifique et applicatif où la segmentation cellulaire constitue une brique méthodologique fondamentale pour l’analyse quantitative des images biomédicales. L’objectif principal n’était pas de proposer une nouvelle architecture de segmentation ni d’optimiser un score global sur un benchmark donné, mais de comprendre de manière approfondie le comportement de modèles de segmentation cellulaire largement utilisés, en particulier U-Net, StarDist et Cellpose, dans des conditions réalistes caractérisées par une forte hétérogénéité morphologique et contextuelle. À travers ce travail, la segmentation n’a pas été considérée comme une fin en soi, mais comme un intermédiaire critique conditionnant la validité de nombreuses analyses aval, qu’elles soient morphologiques, statistiques ou biologiques.
+
+[693] (Normal): Le premier apport de cette étude réside dans la mise en place d’un cadre expérimental rigoureux et reproductible, permettant de comparer des formulations de segmentation fondamentalement différentes dans un environnement contrôlé. Le choix du jeu de données PanNuke, avec sa diversité de tissus, de densités cellulaires et de morphologies nucléaires, a permis d’exposer les modèles à des situations proches de celles rencontrées en pathologie numérique réelle. La préparation des données, la standardisation des conventions (masques, identifiants d’instances, types cellulaires), ainsi que la séparation stricte des ensembles d’entraînement, de validation et de test ont constitué une base indispensable pour garantir la validité des analyses ultérieures. Sur le plan méthodologique, la distinction explicite entre segmentation sémantique et segmentation d’instances a permis d’éviter des comparaisons implicites trompeuses et de replacer chaque modèle dans son cadre conceptuel propre.
+
+[694] (Normal): Les résultats expérimentaux ont mis en évidence que les performances globales, exprimées par des métriques agrégées classiques, ne suffisent pas à caractériser de manière satisfaisante le comportement réel des modèles. U-Net, utilisé ici comme baseline sémantique enrichie par un post-traitement de séparation d’instances, montre une robustesse appréciable sur des structures de taille moyenne et des morphologies relativement régulières, mais révèle des limites nettes dans les régions denses et pour les formes irrégulières. StarDist, grâce à sa formulation géométrique et à son biais inductif en faveur des formes star-convexes, obtient de bonnes performances sur des noyaux compacts et bien séparés, mais tend à sous-segmenter ou à fusionner des instances dans des contextes de forte densité ou de morphologies complexes. Cellpose, utilisé en tant que modèle pré-entraîné généraliste, illustre quant à lui les avantages et les limites d’une approche orientée utilisabilité : une relative stabilité sur un large éventail de situations, mais une sensibilité marquée à l’échelle des objets, au contraste et aux configurations extrêmes, en particulier pour les petites cellules ou les amas très denses.
+
+[695] (Normal): Un résultat central de ce travail est la mise en évidence de biais structurels dépendants de propriétés morphologiques mesurables. En analysant les performances en fonction de la taille des instances, de leur classe morphologique (formes rondes, allongées, irrégulières) et de leur contexte local, il apparaît clairement que chaque modèle possède des régimes de réussite et d’échec spécifiques. Ces régimes ne sont pas aléatoires, mais directement liés aux hypothèses implicites de chaque méthode : représentation binaire et post-traitement pour U-Net, hypothèse star-convexe pour StarDist, et regroupement par champs de vecteurs appris sur des données hétérogènes pour Cellpose. Cette lecture conditionnelle des performances apporte une information qualitative que les scores moyens masquent presque systématiquement, et elle permet de mieux comprendre pourquoi des méthodes affichant des performances globales comparables peuvent produire des erreurs très différentes sur le plan biologique.
+
+[696] (Normal): Au-delà des chiffres, ce travail souligne l’importance de considérer la segmentation comme un processus composé de plusieurs étapes, dont chacune peut introduire des biais. L’apprentissage du modèle, le choix de la fonction de perte, la stratégie d’augmentation, mais aussi et surtout les étapes de post-traitement et de décodage jouent un rôle déterminant dans la qualité finale des instances produites. Dans le cas de StarDist, par exemple, les paramètres de décodage (seuils de probabilité, suppression des doublons, critères de raffinement) influencent fortement le compromis entre rappel et précision. Dans le cas de U-Net, le post-traitement watershed conditionne directement la capacité à séparer des cellules adjacentes. Ces éléments, souvent relégués au second plan dans la littérature, apparaissent ici comme des composantes méthodologiques à part entière, qui doivent être documentées et analysées avec le même soin que l’architecture du réseau.
+
+[697] (Normal): Sur le plan scientifique, ce mémoire contribue à une lecture plus nuancée de la notion de performance en segmentation cellulaire. Plutôt que de chercher un modèle universellement supérieur, les résultats suggèrent qu’il est plus pertinent de raisonner en termes d’adéquation entre une méthode, un type de données et un objectif d’analyse. Dans un contexte où l’on s’intéresse à des statistiques globales sur des populations cellulaires, certaines erreurs locales peuvent être tolérables. En revanche, pour des analyses fines de morphologie nucléaire, de densité locale ou d’interactions spatiales, des biais systématiques sur des sous-populations spécifiques peuvent invalider les conclusions biologiques. Cette distinction est particulièrement importante en pathologie numérique, où les régions les plus informatives sur le plan clinique sont souvent celles qui posent le plus de difficultés aux algorithmes.
+
+[698] (Normal): Les limites de ce travail doivent également être soulignées. D’une part, l’étude s’est concentrée sur un nombre restreint de modèles représentatifs, sans explorer l’ensemble des variantes récentes de chaque famille (extensions de U-Net avec attention, versions avancées de StarDist, ou modèles généralistes plus récents). D’autre part, Cellpose a été utilisé sans phase de fine-tuning spécifique au jeu PanNuke, ce qui reflète un usage réaliste mais ne permet pas de comparer pleinement son potentiel maximal à celui de modèles entraînés sur mesure. Enfin, bien que PanNuke offre une grande diversité, il reste un jeu de données annoté selon des conventions particulières, et certains biais observés pourraient être atténués ou amplifiés sur d’autres datasets ou d’autres modalités d’imagerie.
+
+[699] (Normal): Ces limites ouvrent naturellement plusieurs perspectives de recherche. Une première direction consiste à approfondir l’analyse des biais en intégrant davantage de facteurs contextuels, tels que la densité locale de cellules, la variabilité intra-image, ou la position des cellules par rapport à des structures tissulaires spécifiques. Une seconde perspective concerne l’intégration de stratégies d’apprentissage visant explicitement à réduire les biais observés, par exemple via des pertes conditionnelles à la morphologie, des schémas d’échantillonnage équilibrés, ou des mécanismes d’attention focalisés sur les régions difficiles. L’exploration de méthodes semi-supervisées ou auto-supervisées constitue également une piste prometteuse, notamment pour atténuer l’impact des annotations ambiguës et améliorer la robustesse aux variations de domaine.
+
+[700] (Normal): Sur le plan applicatif, les résultats de ce mémoire peuvent guider un usage plus raisonné des outils de segmentation en pratique. Plutôt que de considérer un modèle comme une boîte noire interchangeable, l’analyse proposée permet d’anticiper ses modes d’échec et de choisir la méthode la plus adaptée à une tâche donnée. Dans un contexte institutionnel comme celui de l’Institut Pasteur, où les images et les questions biologiques sont extrêmement variées, cette capacité de diagnostic et de sélection méthodologique est un atout majeur. À plus long terme, une intégration de ces analyses dans des pipelines interactifs, où l’utilisateur est informé des zones de faible confiance ou des configurations à risque, pourrait améliorer à la fois la fiabilité des résultats et l’acceptabilité des outils d’intelligence artificielle en pratique biomédicale.
+
+[701] (Normal): En conclusion, ce mémoire met en évidence que la segmentation cellulaire, malgré des progrès spectaculaires en termes de performances moyennes, demeure un problème complexe dont la compréhension fine est encore incomplète. En proposant une analyse détaillée des biais et des comportements des modèles en fonction de propriétés morphologiques et contextuelles, ce travail contribue à dépasser une vision purement compétitive des benchmarks pour aller vers une compréhension plus opérationnelle et plus scientifique des méthodes. Cette approche, centrée sur les régimes d’erreur et les hypothèses inductives, constitue une base solide pour des travaux futurs visant à développer des modèles plus robustes, plus interprétables et mieux alignés avec les besoins réels de la recherche biomédicale et de la pathologie numérique.
+
+[703] (Heading 1): BIBLIOGRAPHIE
+
+[704] (Normal): Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. In Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI). Springer.
+
+[705] (Normal): Weigert, M., Schmidt, U., Broaddus, C., & Myers, G. (2018). Cell Detection with Star-Convex Polygons. In Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI).
+
+[706] (Normal): Weigert, M., Schmidt, U., Haase, R., Sugawara, K., & Myers, G. (2020). Star-Convex Polyhedra for 3D Object Detection and Segmentation in Microscopy. In Proceedings of the IEEE Winter Conference on Applications of Computer Vision (WACV).
+
+[707] (Normal): Stringer, C., Wang, T., Michaelos, M., & Pachitariu, M. (2021). Cellpose: A Generalist Algorithm for Cellular Segmentation. Nature Methods, 18(1), 100–106.
+
+[708] (Normal): Graham, S., Jahanifar, M., Vu, Q. D., Hadjigeorghiou, G., Leech, T., Snead, D., et al. (2021). CoNIC: Colon Nuclei Identification and Counting Challenge 2022. arXiv preprint arXiv:2111.14485.
+
+[709] (Normal): Kirillov, A., He, K., Girshick, R., Rother, C., & Dollár, P. (2019). Panoptic Segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR).
+
+[710] (Normal): Abraham, N., & Khan, N. M. (2019). A Novel Focal Tversky Loss Function with Improved Attention U-Net for Lesion Segmentation. In Proceedings of the IEEE International Symposium on Biomedical Imaging (ISBI).
+
+[711] (Normal): Kingma, D. P., & Ba, J. (2015). Adam: A Method for Stochastic Optimization. In Proceedings of the International Conference on Learning Representations (ICLR).
+
+[715] (Heading 1): WEBOGRAPHIE
+
+[716] (Normal): Les ressources en ligne suivantes ont été consultées afin de compléter la compréhension théorique, d’accéder aux implémentations de référence et de contextualiser les méthodes étudiées dans ce mémoire. Elles constituent un appui technique et documentaire complémentaire aux articles scientifiques cités dans la bibliographie.
+
+[718] (Normal): Site officiel du modèle U-Net : https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net 
+Présentation de l’architecture U-Net, des articles fondateurs associés et des implémentations de référence.
+
+[720] (Normal): Dépôt GitHub officiel de StarDist : https://github.com/stardist/stardist 
+Code source, documentation et exemples d’utilisation du modèle StarDist pour la segmentation d’instances en imagerie biomédicale.
+
+[722] (Normal): Dépôt GitHub officiel de Cellpose : https://github.com/MouseLand/cellpose 
+Implémentation open source de Cellpose, incluant les scripts d’entraînement, d’inférence et de post-traitement.
+
+[724] (Normal): Site officiel du jeu de données PanNuke : https://warwick.ac.uk/fac/cross_fac/tia/data/pannuke 
+Description du jeu de données PanNuke, modalités d’annotation et protocoles d’évaluation associés.
+
+[726] (Normal): Site officiel du challenge CoNIC 2022 : https://conic-challenge.grand-challenge.org/ 
+Informations sur le benchmark CoNIC, les métriques utilisées et les résultats des différentes approches proposées.
+
+[728] (Normal): Documentation PyTorch : https://pytorch.org/docs/stable/index.html 
+Documentation officielle du framework PyTorch utilisé pour l’implémentation et l’entraînement des modèles.
+
+[730] (Normal): Documentation NumPy et SciPy : https://numpy.org/doc/  , https://docs.scipy.org/ 
+Références pour les bibliothèques scientifiques utilisées dans le prétraitement des données et certaines étapes de post-traitement.
+
+[745] (Heading 1): Annexes
+
+[753] (Normal): Annexe A : Détails du jeu de données
+
+[760] (Normal): Annexe B :  Paramètres d’entraînement et configurations expérimentales
+
+[768] (Heading 1): TABLE DES MATIÈRES
+

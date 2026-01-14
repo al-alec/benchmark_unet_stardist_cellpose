@@ -286,7 +286,7 @@ class StarDistLightning(pl.LightningModule):
 
         prob_logits, dist_pos, class_logits = self(imgs)
 
-        # si tu normalises les targets, normalise aussi la sortie
+        # si on normalises les targets, normalise aussi la sortie
         # if self.normalize_dist:
         #     dist_pos = dist_pos / float(self.normalize_div)
 
@@ -668,7 +668,7 @@ def main():
         iou_thr=SANITY_IOU_THR,
         sample_index=SANITY_IMAGE_INDEX,
         local_max_footprint=LOCAL_MAX_FOOTPRINT,
-        explode_factor=10.0,  # tu peux baisser à 5 si tu veux strict
+        explode_factor=10.0,  # baisser à 5 si on veux strict
         early_vote_thr=0.8,
         early_max_candidates=200,
     )
