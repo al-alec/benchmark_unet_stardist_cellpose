@@ -59,7 +59,7 @@ def _stardist_dists_per_pixel_numba(mask: np.ndarray, n_rays: int, max_dist: int
                 dx = cos_a[k]
                 last_inside = 0
 
-                # discrete steps of 1 pixel (fast). "Route-B style"
+                # discrete steps of 1 pixel (fast).
                 for step in range(1, max_dist + 1):
                     y = int(round(y0 + step * dy))
                     x = int(round(x0 + step * dx))
