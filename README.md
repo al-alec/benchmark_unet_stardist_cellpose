@@ -281,15 +281,8 @@ cell_segmentation/
 │   ├── prepare_pannuke.py         # Data preparation pipeline
 │   └── compute_morphology_pannuke.py  # Feature extraction
 │
-├── configs/                       # YAML configuration files
-│   ├── default.yaml
-│   ├── unet.yaml
-│   ├── stardist.yaml
-│   └── cellpose.yaml
 │
 ├── figures/                       # Generated visualizations
-├── docs/
-│   └── guide_biologiste.md        # User guide (French)
 │
 ├── app_demo.py                    # Gradio web interface
 ├── index.ipynb                    # Main analysis notebook
