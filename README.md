@@ -1,17 +1,13 @@
-# Cell Segmentation Toolkit
+# Morphological bias analysis of UNet, StarDist and Cellpose
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![Lightning](https://img.shields.io/badge/Lightning-2.0+-792ee5.svg)](https://lightning.ai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Comparative analysis of deep learning approaches for heterogeneous cell segmentation in histopathology images**
-
-*Master 2 Internship Project - Institut Pasteur, Paris*
-
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Results](#key-results)
@@ -411,22 +407,3 @@ If you use this work, please cite:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## Acknowledgments
-
-- **Institut Pasteur** - Biological Image Analysis Unit (BIA)
-- **Dakar Institute of Technology**
-- **Supervisors**: Éric Djiky, Tristan Manneville
-- **Unit Head**: Jean-Christophe Olivo-Marin
-
----
-
-## Contact
-
-- **Author**: Yehadji Abilé Alexis-Honoré
-- **Email**: alexis-honore.yehadji@pasteur.fr
-- **Institution**: Institut Pasteur, Paris
-
----
-
-*This project was developed as part of a Master 2 internship at Institut Pasteur (2024-2025).*
